@@ -12,6 +12,10 @@ angular.module('sharoodApp', [
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/home', {
+        templateUrl: 'views/home.html',
+        controller: 'Home'
+      })
       .otherwise({
         redirectTo: '/'
       });
