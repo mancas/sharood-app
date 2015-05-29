@@ -8,6 +8,8 @@ angular.module('sharoodApp')
     // Public API here
     return {
 
+      currentUser: null,
+
       login: function(email, password) {
         return new Promise(function(resolve, reject){
           var user = Built.App(apiKey).User();
