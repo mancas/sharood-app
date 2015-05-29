@@ -10,6 +10,16 @@ angular.module('sharoodApp')
 
       currentUser: null,
 
+      loadCurrentUser: function(){
+        return new Promise(function(resolve, reject){
+          var user = Built.App(apiKey).User;  
+          user.getCurrentUser()
+          .then(function(user){
+            resolve(user.toJSON());
+          });
+        });
+      },
+
       login: function(email, password) {
         return new Promise(function(resolve, reject){
           var user = Built.App(apiKey).User();
