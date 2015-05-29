@@ -16,6 +16,10 @@ angular.module('sharoodApp', [
         templateUrl: 'views/home.html',
         controller: 'Home'
       })
+      .when('/register', {
+        templateUrl: 'views/register.html',
+        controller: 'Register'
+      })
       .otherwise({
         redirectTo: '/'
       });
