@@ -20,6 +20,10 @@ angular.module('sharoodApp', [
         templateUrl: 'views/register.html',
         controller: 'Register'
       })
+      .when('/newChefMeal', {
+        templateUrl: 'views/newChefMeal.html',
+        controller: 'NewChefMeal'
+      })
       .otherwise({
         redirectTo: '/'
       });
