@@ -1,0 +1,3 @@
+define([
+    'services/sharoodDB'
+], function () {});

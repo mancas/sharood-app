@@ -1,33 +1,35 @@
 'use strict';
 
-angular.module('sharoodApp', [
-  'ngCookies',
-  'ngResource',
-  'ngSanitize',
-  'ngRoute'
-])
-  .config(function ($routeProvider, $compileProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/home', {
-        templateUrl: 'views/home.html',
-        controller: 'Home'
-      })
-      .when('/register', {
-        templateUrl: 'views/register.html',
-        controller: 'Register'
-      })
-      .when('/newChefMeal', {
-        templateUrl: 'views/newChefMeal.html',
-        controller: 'NewChefMeal'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
+/*define(['config'], function(config){
+    var app = angular.module('sharoodApp', [
+        'ngCookies',
+        'ngResource',
+        'ngSanitize',
+        'ngRoute'
+    ]);
 
-    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|app):/);
-    $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|app):/);
-  });
+    app.config(config);
+
+    return app;
+});*/
+
+define([
+    'angular',
+    'controllers/index',
+    'services/index',
+    'ngResource',
+    'ngCookies',
+    'ngSanitize',
+    'ngRoute'
+], function (ng) {
+    'use strict';
+
+    return ng.module('sharoodApp', [
+        'app.services',
+        'app.controllers',
+        'ngCookies',
+        'ngResource',
+        'ngSanitize',
+        'ngRoute'
+    ]);
+});
