@@ -12,6 +12,7 @@
     "angular-sanitize": "~1.2.0",
     "angular-route": "~1.2.0",
     "requirejs": "latest",
-    "requirejs-domready": "latest"
+    "requirejs-domready": "latest",
+    "bootstrap": "latest"
   }
 }
