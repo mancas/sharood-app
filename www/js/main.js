@@ -1,14 +1,14 @@
 require.config({
-    baseUrl: '/sharood/scripts/',
+    baseUrl: 'scripts/',
     paths: {
-        'angular': '/sharood/bower_components/angular/angular',
-        'domReady': '/sharood/bower_components/requirejs-domready/domReady',
-        'ngResource': '/sharood/bower_components/angular-resource/angular-resource',
-        'ngCookies': '/sharood/bower_components/angular-cookies/angular-cookies',
-        'ngSanitize': '/sharood/bower_components/angular-sanitize/angular-sanitize',
-        'ngRoute': '/sharood/bower_components/angular-route/angular-route',
-        'jquery': '/sharood/bower_components/jquery/dist/jquery',
-        'bootstrap': '/sharood/bower_components/bootstrap/dist/js/bootstrap',
+        'angular': '../bower_components/angular/angular',
+        'domReady': '../bower_components/requirejs-domready/domReady',
+        'ngResource': '../bower_components/angular-resource/angular-resource',
+        'ngCookies': '../bower_components/angular-cookies/angular-cookies',
+        'ngSanitize': '../bower_components/angular-sanitize/angular-sanitize',
+        'ngRoute': '../bower_components/angular-route/angular-route',
+        'jquery': '../bower_components/jquery/dist/jquery',
+        'bootstrap': '../bower_components/bootstrap/dist/js/bootstrap'
     },
 
     shim: {
