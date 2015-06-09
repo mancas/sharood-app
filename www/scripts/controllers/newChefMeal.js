@@ -1,6 +1,11 @@
-'use strict';
+define(['controllers/module'], function (controllers) {
 
-angular.module('sharoodApp')
-  .controller('NewChefMeal', function ($scope, sharoodDB) {
-  	console.info("NewChefMeal controller");
-  });
+	'use strict';
+
+	controllers.controller('NewChefMeal', function ($scope, sharoodDB) {
+
+		console.info("NewChefMeal controller");
+		
+	});
+
+});

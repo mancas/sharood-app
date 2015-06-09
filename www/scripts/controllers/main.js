@@ -1,5 +1,7 @@
 define(['controllers/module'], function (controllers) {
+
     'use strict';
+
     controllers.controller('MainCtrl', function ($scope, sharoodDB) {
 
         function tryAutoLogin(){
@@ -9,8 +11,9 @@ define(['controllers/module'], function (controllers) {
             });
         }
 
-        //tryAutoLogin();
-console.info(sharoodDB);
+        tryAutoLogin();
+        console.info(sharoodDB);
+
         $scope.login = function(){
             var email = document.getElementById("email").value;
             var password = document.getElementById("password").value;
@@ -21,4 +24,5 @@ console.info(sharoodDB);
             });
         }
     });
+
 });
