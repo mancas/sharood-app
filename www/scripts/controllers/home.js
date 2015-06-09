@@ -1,15 +1,19 @@
-'use strict';
+define(['controllers/module'], function (controllers) {
 
-angular.module('sharoodApp')
-  .controller('Home', function ($scope, sharoodDB) {
-  	console.info("Home controller");
+	'use strict';
 
-  	if(sharoodDB.currentUser === null){
-  		window.location.href = '#/';
-  		return;
-  	}
+	controllers.controller('Home', function ($scope, sharoodDB) {
+		
+		console.info("Home controller");
 
-  	$scope.username = sharoodDB.currentUser.username;
-  	$scope.cookies = sharoodDB.currentUser.cookies;
+		if(sharoodDB.currentUser === null){
+			window.location.href = '#/';
+			return;
+		}
 
-  });
+		$scope.username = sharoodDB.currentUser.username;
+		$scope.cookies = sharoodDB.currentUser.cookies;
+
+	});
+
+});
