@@ -7,14 +7,28 @@
 	<p>Description</p>
 	<p><textarea type="text" id="description" name="description"></textarea></p>
 	<p><button>Choose meal type</button><button>Cookies to spend</button></p>
-	<b><p>People to come</p></b>
+
 	<p>
-		<button>1</button>
-		<button>2</button>
-		<button>3</button>
-		<button>4</button>
-		<button>5</button>
+		<b><p>People to come</p></b>
+		<div class="btn-group" data-toggle="buttons">
+		  <label class="btn btn-primary active">
+		    <input type="radio" name="peopleToCome" id="peopleToCome1" autocomplete="off" checked> 1
+		  </label>
+		  <label class="btn btn-primary">
+		    <input type="radio" name="peopleToCome" id="peopleToCome2" autocomplete="off"> 2
+		  </label>
+		  <label class="btn btn-primary">
+		    <input type="radio" name="peopleToCome" id="peopleToCome3" autocomplete="off"> 3
+		  </label>
+		  <label class="btn btn-primary">
+		    <input type="radio" name="peopleToCome" id="peopleToCome4" autocomplete="off"> 4
+		  </label>
+		  <label class="btn btn-primary">
+		    <input type="radio" name="peopleToCome" id="peopleToCome5" autocomplete="off"> 5
+		  </label>
+		</div>
 	</p>
+
 	<b><p>Time to come</p></b>
 	<p><input type="text" value="11:11" id="timeHour" name="timeHour"></input><input type="text" value="AM" id="timeSchedule" name="timeSchedule"></input></p>
 	<p><button ng-click="register()">Post Meal</button></p>
