@@ -2,21 +2,74 @@
 
 	<a href="#/home">Back</a>
 
-	<p>Photo</p>
-	<b><p>Meal</p></b>
-	<p>Description</p>
-	<p><textarea type="text" id="description" name="description"></textarea></p>
-	<p><button>Choose meal type</button><button>Cookies to spend</button></p>
-	<b><p>People to come</p></b>
 	<p>
-		<button>1</button>
-		<button>2</button>
-		<button>3</button>
-		<button>4</button>
-		<button>5</button>
+		<div class="col-xs-12">
+			<img src="http://static.comicvine.com/uploads/original/11111/111116692/3213841-7948839370-yoda..jpg" width="140" class="img-circle"></img>
+		</div>
 	</p>
+
+	<b><p>Meal</p></b>
+
+	<p>Description</p>
+	<p>
+		<div class="col-xs-12">
+			<textarea type="text" id="description" name="description" class="form-control" placeholder="Description"></textarea>
+		</div>
+	</p>
+
+	<p>
+		<div class="col-xs-6">
+			<select class="form-control" id="mealType">
+			  <option value="" disabled selected>Choose meal type</option>
+			  <option value="everything">Everything</option>
+			  <option value="vegetarian">Vegetarian</option>
+			  <option value="vegan">Vegan</option>
+			  <option value="other">Other</option>
+			</select>
+		</div>
+		<div class="col-xs-6">
+			<input type="text" id="cookies" name="cookies" class="form-control" placeholder="Cookies to spend"></input>
+		</div>
+	</p>
+
+	<p>
+		<b><p>People to come</p></b>
+		<div class="col-xs-12">
+			<div class="btn-group" data-toggle="buttons" id="peopleToComeGroup">
+			  <label class="btn btn-primary active">
+			    <input type="radio" name="peopleToCome" id="peopleToCome1" autocomplete="off" value="1" checked> 1
+			  </label>
+			  <label class="btn btn-primary">
+			    <input type="radio" name="peopleToCome" id="peopleToCome2" autocomplete="off" value="2"> 2
+			  </label>
+			  <label class="btn btn-primary">
+			    <input type="radio" name="peopleToCome" id="peopleToCome3" autocomplete="off" value="3"> 3
+			  </label>
+			  <label class="btn btn-primary">
+			    <input type="radio" name="peopleToCome" id="peopleToCome4" autocomplete="off" value="4"> 4
+			  </label>
+			  <label class="btn btn-primary">
+			    <input type="radio" name="peopleToCome" id="peopleToCome5" autocomplete="off" value="5"> 5
+			  </label>
+			</div>
+		</div>
+	</p>
+
 	<b><p>Time to come</p></b>
-	<p><input type="text" value="11:11" id="timeHour" name="timeHour"></input><input type="text" value="AM" id="timeSchedule" name="timeSchedule"></input></p>
-	<p><button ng-click="register()">Post Meal</button></p>
+	<p>
+		<div class="col-xs-6">
+			<input type="text" id="timeHour" name="timeHour" class="form-control" placeholder="11:11"></input>
+		</div>
+		<div class="col-xs-6">
+		   	<select class="form-control" id="timeSchedule">
+			  <option value="am" selected>AM</option>
+			  <option value="pm">PM</option>
+			</select>
+		</div>
+	</p>
+
+	<p>
+		<button ng-click="sendMeal()" class="btn btn-default">Post Meal</button>
+	</p>
 
 </div>
