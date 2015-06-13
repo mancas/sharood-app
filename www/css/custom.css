@@ -1,6 +1,10 @@
 html, body {
     height: 100%;
-    background-color: #222222;
+    background-color: #FEFCF5;
+}
+
+* {
+    color: #693204;
 }
 
 .login {
@@ -10,27 +14,27 @@ html, body {
     text-align: center;
 }
 
-.login > div {
+.login div.row {
     display: table-cell;
     vertical-align: middle;
 }
 
 .login ::-webkit-input-placeholder { /* WebKit browsers */
-    color: #909;
+    color: #693204;
 }
 
 .login :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color: #909;
+    color: #693204;
     opacity: 1;
 }
 
 .login ::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color: #909;
+    color: #693204;
     opacity: 1;
 }
 
 .login :-ms-input-placeholder { /* Internet Explorer 10+ */
-    color: #909;
+    color: #693204;
 }
 
 .login .form-group:first-child {
@@ -41,8 +45,8 @@ html, body {
     border: none;
     box-shadow: none;
     border-radius: 0;
-    background-color: rgba(255, 255, 255, 0.6);
-    color: brown;
+    background-color: rgba(249, 231, 159, 0.6);
+    color: #693204;
 }
 
 .login .form-control:active, .login .form-control:focus {
@@ -55,11 +59,20 @@ html, body {
     min-width: 30rem;
     font-size: 2.2rem;
     font-weight: bold;
-    color: saddlebrown;
-    background-color: yellow;
+    color: #693204;
+    background-color: #F1C40F;
+}
+
+.login .brand {
+    display: table-cell;
+    vertical-align: top;
 }
 
 /** Boostrap **/
 .container {
     height: 100%;
+}
+
+.btn:focus, .btn:active {
+    outline: none !important;
 }
