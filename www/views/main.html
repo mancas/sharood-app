@@ -1,8 +1,15 @@
 <section class="login">
-    <div class="brand">
-        <p>haoalalala</p>
-    </div>
-    <div class="row">
+    <header class="brand">
+        <div class="media">
+            <div class="media-left media-middle">
+                <img class="media-object" src="img/icon.png" />
+            </div>
+            <div class="media-body media-middle">
+                <h1>Sharood</h1>
+            </div>
+        </div>
+    </header>
+    <div class="row login-form">
         <div class="col-md-12">
             <div class="form-group">
                 <input id="email" class="form-control" type="text" name="email" placeholder="Email" />
@@ -16,4 +23,12 @@
             </div>
         </div>
     </div>
+
+    <footer class="sign-up">
+        <p>
+            Don't have an account?
+        </p>
+
+        <a href="" ng-click="navigate('/register')" class="sign-up-btn">Sign up</a>
+    </footer>
 </section>

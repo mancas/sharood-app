@@ -7,41 +7,46 @@ html, body {
     color: #693204;
 }
 
-.login {
+.login, .register {
     display: table;
     height: 100%;
     width: 100%;
     text-align: center;
+    position: relative;
 }
 
-.login div.row {
+.login-form, .register-form {
     display: table-cell;
     vertical-align: middle;
 }
 
-.login ::-webkit-input-placeholder { /* WebKit browsers */
+::-webkit-input-placeholder { /* WebKit browsers */
     color: #693204;
 }
 
-.login :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color: #693204;
-    opacity: 1;
-}
-
-.login ::-moz-placeholder { /* Mozilla Firefox 19+ */
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
     color: #693204;
     opacity: 1;
 }
 
-.login :-ms-input-placeholder { /* Internet Explorer 10+ */
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #693204;
+    opacity: 1;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10+ */
     color: #693204;
 }
 
-.login .form-group:first-child {
+.form-group {
     margin-bottom: 0.7rem;
 }
 
-.login .form-control {
+.form-group:last-child {
+    margin-top: 1.5rem;
+}
+
+.form-control {
     border: none;
     box-shadow: none;
     border-radius: 0;
@@ -49,12 +54,12 @@ html, body {
     color: #693204;
 }
 
-.login .form-control:active, .login .form-control:focus {
+.form-control:active, .form-control:focus {
     border: none;
     box-shadow: none;
 }
 
-.login .btn-round {
+.btn-round {
     border-radius: 50rem;
     min-width: 30rem;
     font-size: 2.2rem;
@@ -63,9 +68,81 @@ html, body {
     background-color: #F1C40F;
 }
 
-.login .brand {
-    display: table-cell;
-    vertical-align: top;
+.login header.brand {
+    position: absolute;
+    top: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+}
+
+.login .brand img {
+    display: inline-block;
+    max-width: 6rem;
+}
+
+.login .brand h1 {
+    display: inline-block;
+    margin: 0;
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+.sign-up {
+    position: absolute;
+    left: 0;
+    bottom: 4rem;
+    width: 100%;
+}
+
+.sign-up > p {
+    font-size: 2.3rem;
+    margin-bottom: 4rem;
+}
+
+.sign-up .sign-up-btn {
+    font-size: 2.2rem;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+    color: rgba(249, 231, 159, 1);
+}
+
+.sign-up .sign-up-btn:hover, .sign-up .sign-up-btn:active, .sign-up .sign-up-btn:focus {
+    color: #693204;
+}
+
+/** HEADER **/
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 3rem;
+}
+
+header .media-body {
+    width: auto;
+}
+
+header .btn-circle {
+    width: 4rem;
+    height: 4rem;
+    display: inline-block;
+    line-height: calc(4rem - 0.4rem);
+    border: solid 0.2rem #693204;
+    border-radius: 50%;
+    box-sizing: border-box;
+    font-size: 2.6rem;
+    transition: all 0.3s ease 0s;
+}
+
+header .btn-circle:hover, header .btn-circle:active, header .btn-circle:focus {
+    color: #fff;
+    background-color: #693204;
+}
+
+header h1 {
+    display: inline;
 }
 
 /** Boostrap **/

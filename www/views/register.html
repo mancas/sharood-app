@@ -1,8 +1,26 @@
-<div role="main">
+<section class="register">
+    <header>
+        <i class="btn-circle pull-left" ng-click="navigate('/')">&times;</i>
+        <h1>Sign Up</h1>
+    </header>
+    <div class="row register-form">
+        <div class="col-md-12">
+            <div class="form-group">
+                <input id="name" class="form-control" type="text" name="name" placeholder="Name" />
+            </div>
+            <div class="form-group">
+                <input id="email" class="form-control" type="text" name="email" placeholder="Email" />
+            </div>
+            <div class="form-group">
+                <input id="password" class="form-control" type="password" name="password" placeholder="Password" />
+            </div>
+            <div class="form-group">
+                <input id="passwordConfirm" class="form-control" type="password" name="passwordConfirm" placeholder="Repeat password" />
+            </div>
 
-	<p>Email: <input type="text" value="" id="email" name="email"></input></p>
-	<p>Password: <input type="password" value="" id="password" name="password"></input></p>
-	<p>Password (confirmation): <input type="passwordConfirm" value="" id="passwordConfirm" name="passwordConfirm"></input></p>
-	<p><button ng-click="register()">Enviar</button></p>
-
-</div>
+            <div class="form-group">
+                <button type="button" ng-click="register()" class="btn btn-round">Sign In</button>
+            </div>
+        </div>
+    </div>
+</section>
