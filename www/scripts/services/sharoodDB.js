@@ -60,6 +60,24 @@ define(['services/module'], function (services) {
                 // refer to the 'error' object for more details
               });
         });
+      },
+
+      saveMeal: function(mealData) {
+          console.info('5');
+        return new Promise(function(resolve, reject){
+          var Meal = Built.App(apiKey).Class('meal').Object;
+          var meal = Meal();
+           
+          meal = meal.assign(mealData);
+           
+          meal
+          .save()
+          .then(function(result) {
+            resolve(result.toJSON());
+          }, function(err) {
+            resolve(err);
+          });
+        });
       }
     };
 
