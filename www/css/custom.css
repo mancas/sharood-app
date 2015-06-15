@@ -7,6 +7,21 @@ html, body {
     color: #693204;
 }
 
+/** GENERAL **/
+.title {
+    font-size: 2rem;
+    margin-bottom: 0;
+}
+
+textarea {
+    resize: none;
+}
+
+.mt20 {
+    margin-top: 2rem;
+}
+
+/** LOGIN AND REGISTER VIEWS **/
 .login, .register {
     display: table;
     height: 100%;
@@ -145,9 +160,113 @@ header h1 {
     display: inline;
 }
 
+header .media {
+    margin-top: 0;
+}
+
+/** MAIN view **/
+
+.main header {
+    background-color: #F1C40F;
+    max-height: 6rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-align: center;
+    padding: 1rem 2rem;
+}
+
+.main header a {
+    color: #693204;
+}
+
+.main .cookies img {
+    max-height: 4rem;
+    display: inline-block;
+}
+
+.main .cookies span {
+    font-size: 2.6rem;
+    line-height: 4rem;
+}
+
+.main {
+    height: 100%;
+    padding-top: 6rem;
+}
+
+.main .sa-block {
+    height: 50%;
+    margin: 0 -1.5rem;
+    display: table;
+    text-align: center;
+    background-color: red;
+}
+
+.main .sa-block .block-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+    width: 100%;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.main .sa-block .block-wrapper span {
+    color: #ffffff;
+}
+
+/** NEW MEAL VIEW **/
+.meal-img {
+    padding-top: 3rem;
+    text-align: center;
+}
+
+.meal-img .img-circle {
+    display: inline-block;
+}
+
+.meal-img .meal-img-help {
+    display: inline-block;
+    max-width: 16rem;
+    font-size: 2rem;
+}
+
+.meal-img .media {
+    display: inline-block;
+}
+
+.meal-img .media-body {
+    width: auto;
+}
+
+.btn-group {
+    margin: auto;
+    display: block;
+    width: auto;
+    text-align: center;
+}
+
+.btn-group .btn {
+    float: none;
+    display: inline-block;
+    border-radius: 0.5rem !important;
+    border: solid 0.1rem #F1C40F;
+    margin-right: 2rem;
+}
+
+.btn-group .btn:last-child {
+    margin-right: 0;
+}
+
+.btn-group .btn.active {
+    background: #F1C40F;
+    box-shadow: none;
+}
+
 /** Boostrap **/
 .container {
     height: 100%;
+    width: 100%;
 }
 
 .btn:focus, .btn:active {

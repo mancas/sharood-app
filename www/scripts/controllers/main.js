@@ -7,7 +7,7 @@ define(['controllers/module'], function (controllers) {
         function tryAutoLogin(){
             sharoodDB.loadCurrentUser().then(function(user){
                 sharoodDB.currentUser = user;
-                window.location.href = '#/home';
+                $location.path('#/home');
             });
         }
 
@@ -20,7 +20,7 @@ define(['controllers/module'], function (controllers) {
             sharoodDB.login(email, password).then(function(user){
                 console.info(user);
                 sharoodDB.currentUser = user;
-                window.location.href = '#/home';
+                $location.path('#/home');
             });
         };
 
