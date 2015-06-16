@@ -2,12 +2,12 @@ define(['controllers/module'], function (controllers) {
 
     'use strict';
 
-    controllers.controller('MainCtrl', function ($scope, $location, sharoodDB) {
+    controllers.controller('MainCtrl', function ($scope, navigation, sharoodDB) {
 
         function tryAutoLogin(){
             sharoodDB.loadCurrentUser().then(function(user){
                 sharoodDB.currentUser = user;
-                $location.path('#/home');
+                navigation.navigate('#/home');
             });
         }
 
@@ -20,13 +20,11 @@ define(['controllers/module'], function (controllers) {
             sharoodDB.login(email, password).then(function(user){
                 console.info(user);
                 sharoodDB.currentUser = user;
-                $location.path('#/home');
+                navigation.navigate('#/home');
             });
         };
 
-        $scope.navigate = function(path) {
-            $location.path(path);
-        };
+        $scope.navigate = navigation.navigate;
     });
 
 });

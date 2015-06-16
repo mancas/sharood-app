@@ -2,12 +2,12 @@ define(['controllers/module'], function (controllers) {
 
     'use strict';
 
-    controllers.controller('NewChefMeal', function ($scope, sharoodDB) {
+    controllers.controller('NewChefMeal', function ($scope, sharoodDB, navigation) {
 
         console.info("NewChefMeal controller");
 
         /*if(sharoodDB.currentUser === null){
-            window.location.href = '#/';
+            navigation.navigate('#/');
             return;
         }*/
 

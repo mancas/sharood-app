@@ -1,3 +1,4 @@
 define([
-    'services/sharoodDB'
+    'services/sharoodDB',
+    'services/navigation'
 ], function () {});
