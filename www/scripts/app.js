@@ -17,6 +17,7 @@ define([
     'angular',
     'controllers/index',
     'services/index',
+    'directives/index',
     'ngResource',
     'ngCookies',
     'ngSanitize',
@@ -27,6 +28,7 @@ define([
     return ng.module('sharoodApp', [
         'app.services',
         'app.controllers',
+        'app.directives',
         'ngCookies',
         'ngResource',
         'ngSanitize',

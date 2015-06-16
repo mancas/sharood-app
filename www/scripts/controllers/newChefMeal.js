@@ -34,7 +34,13 @@ define(['controllers/module'], function (controllers) {
             sharoodDB.saveMeal(mealData).then(function(result){
                 console.info(result);
             });
-        }
+        };
+
+        $scope.config = {
+            values: [1, 2, 3, 4, 5],
+            id: 'peopleToCome',
+            name: 'peopleToCome'
+        };
 
     });
 

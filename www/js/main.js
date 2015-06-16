@@ -12,6 +12,10 @@ require.config({
     },
 
     shim: {
+        'bootstrap': {
+            deps: ['jquery'],
+            exports: 'bootstrap'
+        },
         'angular': {
             deps: ['jquery', 'bootstrap'],
             exports: 'angular'
