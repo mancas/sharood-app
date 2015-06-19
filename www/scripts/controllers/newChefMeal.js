@@ -13,7 +13,7 @@ define(['controllers/module'], function (controllers) {
 
         $scope.sendMeal = function() {
             var description = document.querySelector("#description").value;
-            var peopleToCome = document.querySelector("#peopleToComeGroup .active input").value;
+            var peopleToCome = document.querySelector("#peopleToCome .active input").value;
             var mealType = document.querySelector("#mealType").value;
             var cookies = document.querySelector("#cookies").value;
             var timeHour = document.querySelector("#timeHour").value;
@@ -42,6 +42,7 @@ define(['controllers/module'], function (controllers) {
             name: 'peopleToCome'
         };
 
+        $scope.navigate = navigation.navigate;
     });
 
 });
