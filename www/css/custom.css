@@ -282,6 +282,14 @@ header .media {
     display: inline-block;
 }
 
+.y-block .form-control {
+    background-color: #FEFCF5;
+}
+
+.y-block button[type="submit"] {
+    width: 100%;
+}
+
 .profile-img {
     text-align: center;
 }
@@ -292,6 +300,12 @@ header .media {
 
 .profile-img b {
     font-size: 2.4rem;
+}
+
+.btn-extra-large {
+    width: 100%;
+    padding: 1.5rem 1rem;
+    font-size: 2rem;
 }
 
 /** MEALS VIEW **/
@@ -367,6 +381,32 @@ span.li-small {
     height: 2rem;
     border-radius: 10rem;
     margin-right: 1rem;
+}
+
+/** OVERLAY **/
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    z-index: 200;
+    background-color: red;
+    text-align: center;
+    transition: transform 0.3s ease 0s;
+}
+
+.overlay .loader {
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.overlay.closed {
+    transform: scale(0);
 }
 
 /** Boostrap **/

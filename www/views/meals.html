@@ -15,13 +15,13 @@
 
     <div class="row">
         <div class="col-md-12 col-sm-12">
-            <a href="/movidon/web/app_dev.php/bo/messages/thread/4" class="list-item">
+            <a ng-repeat="meal in meals track by $index" href="" class="list-item">
                 <img class="li-small pull-left" src="/movidon/web/bundles/backend/img/user-1.jpg">
                 <span class="list-content media-body">
-                    <b class="li-title">Pasta with cheese</b>
+                    <b class="li-title">{{meal.description}}</b>
                     <small class="li-description">
-                        <img class="li-xsmall" src="img/icon.png" /> 3
-                        <img class="li-xsmall ml10" src="img/icon.png" /> 30min
+                        <img class="li-xsmall" src="img/icon.png" /> {{meal.cookies_value}}
+                        <img class="li-xsmall ml10" src="img/icon.png" /> {{meal.time}}
                     </small>
                 </span>
 
@@ -29,8 +29,10 @@
                     <i class="fa fa-arrow-right">&gt;</i>
                 </div>
             </a>
-            <div id="mealsList">Loading...</div>
+            <div ng-if="meals.length == 0">Loading...</div>
         </div>
     </div>
+
+    <loader></loader>
 
 </section>

@@ -1,3 +1,5 @@
 define([
-    'directives/buttonGroup'
+    'directives/buttonGroup',
+    'directives/loader',
+    'directives/alert'
 ], function () {});

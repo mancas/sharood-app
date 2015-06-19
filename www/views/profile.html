@@ -30,10 +30,10 @@
             <section class="y-block">
                 <div class="y-block-header">
                     <h2 class="title">My account</h2>
-                    <a href="" ng-click="toggleEditMode()" class="pull-right">Edit</a>
+                    <a href="" ng-click="toggleEditMode()" class="pull-right account-edit-btn">Edit</a>
                 </div>
 
-                <div class="y-block-content">
+                <div class="y-block-content account-details">
                     <p>
                         Name: {{name}}
                     </p>
@@ -50,6 +50,24 @@
                         Password: ***********
                     </p>
                 </div>
+
+                <div class="y-block-content account-edition hidden">
+                    <form id="account-form" method="post">
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="name" ng-value="name" />
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="number" name="phone" ng-value="phone" />
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="email" name="name" ng-value="email" />
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-round">Save</button>
+                        </div>
+                    </form>
+                </div>
             </section>
         </div>
     </div>
@@ -63,10 +81,19 @@
 
                 <div class="y-block-content">
                     <p><a ng-click="logout();">Log out</a></p>
-                    <p>Delete Account</p>
                 </div>
             </section>
         </div>
     </div>
+
+    <div class="row mt20">
+        <div class="col-md-12">
+            <a ng-click="deleteAccount()" class="btn btn-danger btn-extra-large">
+                Delete account
+            </a>
+        </div>
+    </div>
+
+    <alert id="delete-account-alert"></alert>
 
 </section>
