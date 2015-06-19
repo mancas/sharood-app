@@ -13,6 +13,7 @@ define(['controllers/module'], function (controllers) {
 
         $scope.username = sharoodDB.currentUser.username;
         $scope.cookies = sharoodDB.currentUser.cookies;*/
+
         $scope.username = 'Axel';
         $scope.cookies = 31;
 
