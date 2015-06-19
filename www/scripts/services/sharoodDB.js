@@ -99,8 +99,23 @@ define(['services/module'], function (services) {
               // refer to the 'error' object for more details
           });
         });
-      }
+      },
 
+      uploadFile: function(fileData) {
+        console.info('7');
+        return new Promise(function(resolve, reject){
+          var upload = Built.App(apiKey).Upload();
+          upload = upload.setFile(fileData);
+
+          upload
+            .save()
+            .then(function(result) {
+              resolve(result);
+            }, function(error) {
+              // some error has occurred
+            });
+        });
+      }
 
     };
 

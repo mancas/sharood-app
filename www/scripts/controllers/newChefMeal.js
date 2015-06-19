@@ -2,7 +2,7 @@ define(['controllers/module'], function (controllers) {
 
     'use strict';
 
-    controllers.controller('NewChefMeal', function ($scope, sharoodDB, navigation) {
+    controllers.controller('NewChefMeal', function ($scope, sharoodDB, navigation, photoLoader) {
 
         console.info("NewChefMeal controller");
 
@@ -10,6 +10,10 @@ define(['controllers/module'], function (controllers) {
             navigation.navigate('#/');
             return;
         }*/
+
+        $scope.takePicture = function() {
+            photoLoader.takePhoto();
+        }
 
         $scope.sendMeal = function() {
             var description = document.querySelector("#description").value;
