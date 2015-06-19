@@ -13,7 +13,7 @@ define(['controllers/module'], function (controllers) {
             sharoodDB.register(email, password, passwordConfirm).then(function(user){
                   console.info(user);
                   alert('User registered. You need to activate it.');
-                  navigation.navigate('#/');
+                  navigation.navigate('/');
               });
         }
 

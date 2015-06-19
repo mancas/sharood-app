@@ -24,7 +24,8 @@ define(['controllers/module'], function (controllers) {
         $scope.logout = function(){
             sharoodDB.logout().then(function(){
                 sharoodDB.currentUser = null;
-                navigation.navigate('#/');
+                console.info('User loged out');
+                navigation.navigate('/');
             });
         }
 
