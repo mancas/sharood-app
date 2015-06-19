@@ -1,19 +1,72 @@
-<div role="main">
+<section class="main">
 
-	<p><a href="#/home">Back</a></p>
+    <header class="nav navbar-fixed-top">
+        <i class="btn-circle pull-left" ng-click="navigate('#/home')">&times;</i>
+        <h1>Profile</h1>
+    </header>
 
-	<p>{{cookies}} cookies</p>
+    <div class="row profile-img mt20">
+        <div class="col-md-12">
+            <div class="media">
+                <div class="media-left media-middle">
+                    <img src="http://static.comicvine.com/uploads/original/11111/111116692/3213841-7948839370-yoda..jpg" width="140" class="img-circle" />
+                </div>
+                <div class="media-body media-middle">
+                    <div class="media">
+                        <div class="media-left media-middle">
+                            <img class="media-object img-small" src="img/icon.png" />
+                        </div>
+                        <div class="media-body media-middle">
+                            <b>{{cookies}}</b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<p>My Account</p>
+    <div class="row mt20">
+        <div class="col-md-12">
+            <section class="y-block">
+                <div class="y-block-header">
+                    <h2 class="title">My account</h2>
+                    <a href="" ng-click="toggleEditMode()" class="pull-right">Edit</a>
+                </div>
 
-	<p>Name: {{name}}</p>
-	<p>Phone number: {{phone}}</p>
-	<p>Email: {{email}}</p>
-	<p>Password: ***********</p>
+                <div class="y-block-content">
+                    <p>
+                        Name: {{name}}
+                    </p>
 
-	<p>Acoount Actions</p>
+                    <p>
+                        Phone Number: {{phone}}
+                    </p>
 
-	<p><a ng-click="logout();">Log out</a></p>
-	<p>Delete Account</p>
+                    <p>
+                        Email: {{email}}
+                    </p>
 
-</div>
+                    <p>
+                        Password: ***********
+                    </p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="row mt20">
+        <div class="col-md-12">
+            <section class="y-block">
+                <div class="y-block-header">
+                    <h2 class="title">Account Actions</h2>
+                </div>
+
+                <div class="y-block-content">
+                    <p><a ng-click="logout();">Log out</a></p>
+                    <p>Delete Account</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+</section>

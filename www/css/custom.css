@@ -21,6 +21,14 @@ textarea {
     margin-top: 2rem;
 }
 
+.ml10 {
+    margin-left: 1rem;
+}
+
+.img-small {
+    max-width: 4rem;
+}
+
 /** LOGIN AND REGISTER VIEWS **/
 .login, .register {
     display: table;
@@ -263,6 +271,104 @@ header .media {
     box-shadow: none;
 }
 
+/** PROFILE VIEW **/
+.y-block {
+    background-color: #F9E79F;
+    padding: 1rem 2rem;
+}
+
+.y-block h2 {
+    margin: 0 0 1.5rem;
+    display: inline-block;
+}
+
+.profile-img {
+    text-align: center;
+}
+
+.profile-img .media {
+    display: inline-block;
+}
+
+.profile-img b {
+    font-size: 2.4rem;
+}
+
+/** MEALS VIEW **/
+.list-view {
+    position: relative;
+}
+
+.list-item {
+    text-decoration: none;
+    margin: 0 2rem;
+    padding: 1.5rem 0;
+    position: relative;
+    display: block;
+    transition: background-color 300ms ease 0s, opacity 300ms ease 0s;
+    border-bottom: solid 0.1rem #693204;
+}
+
+.list-item:hover {
+    text-decoration: none;
+}
+
+.list-item .arrow-right {
+    position: absolute;
+    right: -2.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+}
+
+.li-title {
+    font-weight: bold;
+    display: block;
+    font-size: 1.3rem;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 1.4rem;
+}
+
+.li-description {
+    font-size: 1.2rem;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    font-weight: bold;
+}
+
+.li-description img {
+    margin-right: 0.3rem;
+}
+
+.li-small {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 10rem;
+    margin-right: 1rem;
+}
+
+span.li-small {
+    text-align: center;
+    line-height: 3.4rem;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+.li-xsmall {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 10rem;
+    margin-right: 1rem;
+}
+
 /** Boostrap **/
 .container {
     height: 100%;
@@ -271,4 +377,8 @@ header .media {
 
 .btn:focus, .btn:active {
     outline: none !important;
+}
+
+.media-body {
+    width: auto;
 }

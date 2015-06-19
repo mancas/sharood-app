@@ -16,6 +16,11 @@ define(['controllers/module'], function (controllers) {
         $scope.phone = sharoodDB.currentUser.phone;
         $scope.email = sharoodDB.currentUser.email;*/
 
+        $scope.cookies = 21;
+        $scope.name = 'Axel';
+        $scope.phone = '638006787';
+        $scope.email = 'mancas.91@gmail.com';
+
         $scope.logout = function(){
             sharoodDB.logout().then(function(){
                 sharoodDB.currentUser = null;
