@@ -9,18 +9,22 @@ define(['services/module'], function (services) {
       currentUser: null,
 
       loadCurrentUser: function(){
-          console.info('1');
+        console.info('1');
         return new Promise(function(resolve, reject){
           var user = Built.App(apiKey).User;
           user.getCurrentUser()
               .then(function(user){
                 resolve(user.toJSON());
+              }, function(error) {
+                // some error has occurred
+                // refer to the 'error' object for more details
+                console.info(error);
               });
         });
       },
 
       login: function(email, password) {
-          console.info('2');
+        console.info('2');
         return new Promise(function(resolve, reject){
           var user = Built.App(apiKey).User();
           user.login(email, password)
@@ -35,7 +39,7 @@ define(['services/module'], function (services) {
       },
 
       register: function(email, password, passwordReply) {
-          console.info('3');
+        console.info('3');
         return new Promise(function(resolve, reject){
           var user = Built.App(apiKey).User();
           user.register(email, password, passwordReply)
@@ -49,7 +53,7 @@ define(['services/module'], function (services) {
       },
 
       logout: function() {
-          console.info('4');
+        console.info('4');
         return new Promise(function(resolve, reject){
           var user = Built.App(apiKey).User();
           user.logout()
@@ -63,7 +67,7 @@ define(['services/module'], function (services) {
       },
 
       saveMeal: function(mealData) {
-          console.info('5');
+        console.info('5');
         return new Promise(function(resolve, reject){
           var Meal = Built.App(apiKey).Class('meal').Object;
           var meal = Meal();
@@ -78,7 +82,26 @@ define(['services/module'], function (services) {
             resolve(err);
           });
         });
+      },
+
+
+      getAllMeals: function() {
+        console.info('6');
+        return new Promise(function(resolve, reject){
+          var query = Built.App(apiKey).Class('meal').Query();
+           
+          query
+          .exec()
+          .then(function(meals) {
+              resolve(meals);
+          }, function(error) {
+              // some error has occurred
+              // refer to the 'error' object for more details
+          });
+        });
       }
+
+
     };
 
   });

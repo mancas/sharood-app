@@ -29,6 +29,7 @@ define(['controllers/module'], function (controllers) {
             });
         }
 
+        $scope.navigate = navigation.navigate;
     });
 
 });
