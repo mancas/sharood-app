@@ -112,7 +112,7 @@ define(['services/module'], function (services) {
             .then(function(result) {
               resolve(result);
             }, function(error) {
-              // some error has occurred
+              resolve(error);
             });
         });
       }

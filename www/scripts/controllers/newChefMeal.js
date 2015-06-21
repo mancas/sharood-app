@@ -13,8 +13,17 @@ define(['controllers/module'], function (controllers) {
 
         $scope.takePicture = function() {
             console.info("Getting Picture");
-            cameraHelper.getPicture().then(function(img){
-                console.info(img);
+            cameraHelper.getPicture().then(function(imgURI){
+                document.getElementById('placePhoto').setAttribute('src', imgURI);
+                window.resolveLocalFileSystemURL(imgURI, function(fileEntry) {
+                    console.info(fileEntry);
+                    fileEntry.file(function(file){
+                        console.info(file);
+                        sharoodDB.uploadFile(file).then(function(result){
+                            console.info(result);
+                        });
+                    });
+                });
             });
         }
 
