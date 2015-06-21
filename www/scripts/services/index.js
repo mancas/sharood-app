@@ -1,5 +1,6 @@
 define([
     'services/sharoodDB',
     'services/navigation',
-    'services/cameraHelper'
+    'services/cameraHelper',
+    'services/photoLoader'
 ], function () {});
