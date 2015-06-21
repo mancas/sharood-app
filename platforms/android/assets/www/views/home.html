@@ -1,0 +1,27 @@
+<section class="main">
+    <header class="nav navbar-fixed-top">
+        <i class="btn-circle pull-left" ng-click="navigate('/')">&times;</i>
+        <h1><a href="#/profile">{{username}}</a></h1>
+        <div class="pull-right cookies media">
+            <div class="media-left media-middle">
+                <img class="media-object" src="img/icon.png" />
+            </div>
+            <div class="media-body media-middle">
+                <span>{{cookies}}</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="sa-block row">
+        <div class="block-wrapper" ng-click="navigate('/newChefMeal')">
+            <span>Post Meal</span>
+        </div>
+    </div>
+
+    <div class="sa-block row">
+        <div class="block-wrapper" ng-click="navigate('/meals')">
+            <span>Meal Offers</span>
+        </div>
+    </div>
+
+</section>

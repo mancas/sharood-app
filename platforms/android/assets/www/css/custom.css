@@ -1,0 +1,424 @@
+html, body {
+    height: 100%;
+    background-color: #FEFCF5;
+}
+
+* {
+    color: #693204;
+}
+
+/** GENERAL **/
+.title {
+    font-size: 2rem;
+    margin-bottom: 0;
+}
+
+textarea {
+    resize: none;
+}
+
+.mt20 {
+    margin-top: 2rem;
+}
+
+.ml10 {
+    margin-left: 1rem;
+}
+
+.img-small {
+    max-width: 4rem;
+}
+
+/** LOGIN AND REGISTER VIEWS **/
+.login, .register {
+    display: table;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.login-form, .register-form {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: #693204;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #693204;
+    opacity: 1;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #693204;
+    opacity: 1;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #693204;
+}
+
+.form-group {
+    margin-bottom: 0.7rem;
+}
+
+.form-group:last-child {
+    margin-top: 1.5rem;
+}
+
+.form-control {
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    background-color: rgba(249, 231, 159, 0.6);
+    color: #693204;
+}
+
+.form-control:active, .form-control:focus {
+    border: none;
+    box-shadow: none;
+}
+
+.btn-round {
+    border-radius: 50rem;
+    min-width: 30rem;
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #693204;
+    background-color: #F1C40F;
+}
+
+.login header.brand {
+    position: absolute;
+    top: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+}
+
+.login .brand img {
+    display: inline-block;
+    max-width: 6rem;
+}
+
+.login .brand h1 {
+    display: inline-block;
+    margin: 0;
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+.sign-up {
+    position: absolute;
+    left: 0;
+    bottom: 4rem;
+    width: 100%;
+}
+
+.sign-up > p {
+    font-size: 2.3rem;
+    margin-bottom: 4rem;
+}
+
+.sign-up .sign-up-btn {
+    font-size: 2.2rem;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+    color: rgba(249, 231, 159, 1);
+}
+
+.sign-up .sign-up-btn:hover, .sign-up .sign-up-btn:active, .sign-up .sign-up-btn:focus {
+    color: #693204;
+}
+
+/** HEADER **/
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 3rem;
+}
+
+header .media-body {
+    width: auto;
+}
+
+header .btn-circle {
+    width: 4rem;
+    height: 4rem;
+    display: inline-block;
+    line-height: calc(4rem - 0.4rem);
+    border: solid 0.2rem #693204;
+    border-radius: 50%;
+    box-sizing: border-box;
+    font-size: 2.6rem;
+    transition: all 0.3s ease 0s;
+}
+
+header .btn-circle:hover, header .btn-circle:active, header .btn-circle:focus {
+    color: #fff;
+    background-color: #693204;
+}
+
+header h1 {
+    display: inline;
+}
+
+header .media {
+    margin-top: 0;
+}
+
+/** MAIN view **/
+
+.main header {
+    background-color: #F1C40F;
+    max-height: 6rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-align: center;
+    padding: 1rem 2rem;
+}
+
+.main header a {
+    color: #693204;
+}
+
+.main .cookies img {
+    max-height: 4rem;
+    display: inline-block;
+}
+
+.main .cookies span {
+    font-size: 2.6rem;
+    line-height: 4rem;
+}
+
+.main {
+    height: 100%;
+    padding-top: 6rem;
+}
+
+.main .sa-block {
+    height: 50%;
+    margin: 0 -1.5rem;
+    display: table;
+    text-align: center;
+    background-color: red;
+}
+
+.main .sa-block .block-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+    width: 100%;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.main .sa-block .block-wrapper span {
+    color: #ffffff;
+}
+
+/** NEW MEAL VIEW **/
+.meal-img {
+    padding-top: 3rem;
+    text-align: center;
+}
+
+.meal-img .img-circle {
+    display: inline-block;
+}
+
+.meal-img .meal-img-help {
+    display: inline-block;
+    max-width: 16rem;
+    font-size: 2rem;
+}
+
+.meal-img .media {
+    display: inline-block;
+}
+
+.meal-img .media-body {
+    width: auto;
+}
+
+.btn-group {
+    margin: auto;
+    display: block;
+    width: auto;
+    text-align: center;
+}
+
+.btn-group .btn {
+    float: none;
+    display: inline-block;
+    border-radius: 0.5rem !important;
+    border: solid 0.1rem #F1C40F;
+    margin-right: 2rem;
+}
+
+.btn-group .btn:last-child {
+    margin-right: 0;
+}
+
+.btn-group .btn.active {
+    background: #F1C40F;
+    box-shadow: none;
+}
+
+/** PROFILE VIEW **/
+.y-block {
+    background-color: #F9E79F;
+    padding: 1rem 2rem;
+}
+
+.y-block h2 {
+    margin: 0 0 1.5rem;
+    display: inline-block;
+}
+
+.y-block .form-control {
+    background-color: #FEFCF5;
+}
+
+.y-block button[type="submit"] {
+    width: 100%;
+}
+
+.profile-img {
+    text-align: center;
+}
+
+.profile-img .media {
+    display: inline-block;
+}
+
+.profile-img b {
+    font-size: 2.4rem;
+}
+
+.btn-extra-large {
+    width: 100%;
+    padding: 1.5rem 1rem;
+    font-size: 2rem;
+}
+
+/** MEALS VIEW **/
+.list-view {
+    position: relative;
+}
+
+.list-item {
+    text-decoration: none;
+    margin: 0 2rem;
+    padding: 1.5rem 0;
+    position: relative;
+    display: block;
+    transition: background-color 300ms ease 0s, opacity 300ms ease 0s;
+    border-bottom: solid 0.1rem #693204;
+}
+
+.list-item:hover {
+    text-decoration: none;
+}
+
+.list-item .arrow-right {
+    position: absolute;
+    right: -2.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+}
+
+.li-title {
+    font-weight: bold;
+    display: block;
+    font-size: 1.3rem;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 1.4rem;
+}
+
+.li-description {
+    font-size: 1.2rem;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    font-weight: bold;
+}
+
+.li-description img {
+    margin-right: 0.3rem;
+}
+
+.li-small {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 10rem;
+    margin-right: 1rem;
+}
+
+span.li-small {
+    text-align: center;
+    line-height: 3.4rem;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+.li-xsmall {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 10rem;
+    margin-right: 1rem;
+}
+
+/** OVERLAY **/
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    z-index: 200;
+    background-color: red;
+    text-align: center;
+    transition: transform 0.3s ease 0s;
+}
+
+.overlay .loader {
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.overlay.closed {
+    transform: scale(0);
+}
+
+/** Boostrap **/
+.container {
+    height: 100%;
+    width: 100%;
+}
+
+.btn:focus, .btn:active {
+    outline: none !important;
+}
+
+.media-body {
+    width: auto;
+}

@@ -1,0 +1,38 @@
+<section class="main">
+
+    <header class="nav navbar-fixed-top">
+        <i class="btn-circle pull-left" ng-click="navigate('/home')">&times;</i>
+        <h1>Choose Chef</h1>
+        <div class="pull-right cookies media">
+            <div class="media-left media-middle">
+                <img class="media-object" src="img/icon.png" />
+            </div>
+            <div class="media-body media-middle">
+                <span>{{cookies}}</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <a ng-repeat="meal in meals track by $index" href="" class="list-item">
+                <img class="li-small pull-left" src="/movidon/web/bundles/backend/img/user-1.jpg">
+                <span class="list-content media-body">
+                    <b class="li-title">{{meal.description}}</b>
+                    <small class="li-description">
+                        <img class="li-xsmall" src="img/icon.png" /> {{meal.cookies_value}}
+                        <img class="li-xsmall ml10" src="img/icon.png" /> {{meal.time}}
+                    </small>
+                </span>
+
+                <div class="arrow-right">
+                    <i class="fa fa-arrow-right">&gt;</i>
+                </div>
+            </a>
+            <div ng-if="meals.length == 0">Loading...</div>
+        </div>
+    </div>
+
+    <loader></loader>
+
+</section>
