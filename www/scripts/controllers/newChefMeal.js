@@ -26,7 +26,7 @@ define(['controllers/module'], function (controllers) {
                             var imgBlob = new Blob([reader.result], {type: "image/jpeg"} );
                             fd.append('file', imgBlob);
                             console.info(imgBlob);
-                            sharoodDB.uploadFile(fd).then(function(result){
+                            sharoodDB.uploadFile(imgBlob).then(function(result){
                                 console.info(result);
                             });
 
