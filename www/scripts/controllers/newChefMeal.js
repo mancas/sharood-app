@@ -46,11 +46,13 @@ define(['controllers/module'], function (controllers) {
                 owner: sharoodDB.currentUser.uid
             }
 
-            sharoodDB.saveMeal(mealData).then(function(result){
-                console.info(result);
-                // If everything went well
-                cameraHelper.getBase64FromURI($scope.imageMealURI).then(function(data) {
-                    sharoodDB.uploadFile(data).then(function(result) {
+            cameraHelper.getBase64FromURI($scope.imageMealURI).then(function(data) {
+                sharoodDB.uploadFile(data).then(function(result) {
+                    console.info(result.toJSON());
+                    mealData.picture = result.toJSON().uid;
+                    console.info(mealData.picture);
+                    // If everything went well
+                    sharoodDB.saveMeal(mealData).then(function(result){
                         // Navigate to list?
                     }).catch($scope.onerror);
                 }).catch($scope.onerror);
