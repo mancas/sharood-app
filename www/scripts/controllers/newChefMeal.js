@@ -26,13 +26,13 @@ define(['controllers/module'], function (controllers) {
                             var imgBlob = new Blob([reader.result], {type: "image/jpeg"} );
                             fd.append('file', imgBlob);
                             console.info(imgBlob);
-                            sharoodDB.uploadFile(imgBlob).then(function(result){
+                            sharoodDB.uploadFile(reader.result).then(function(result){
                                 console.info(result);
                             });
 
                             console.info(fd);
                         };
-                        reader.readAsArrayBuffer(file);
+                        reader.readAsDataURL(file);
                     }, function onerror(e){console.error(e)});
                 }, function onerror(e){console.error(e)});
             });
