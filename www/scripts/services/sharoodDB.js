@@ -105,7 +105,6 @@ define(['services/module'], function (services) {
         console.info('7');
         return new Promise(function(resolve, reject){
           var upload = Built.App(apiKey).Upload();
-          console.info('upload--', fileData);
           upload = upload.setFile(fileData);
 
           upload

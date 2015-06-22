@@ -42,6 +42,28 @@ define(['services/module'], function (services) {
 
                   navigator.camera.getPicture(onSuccess, onError);
               });
+          },
+
+          getBase64FromURI: function(fileURI) {
+              return new Promise(function(resolve, reject) {
+                  function onerror(error) {
+                      reject(error);
+                  }
+
+                  window.resolveLocalFileSystemURL(fileURI, function(fileEntry) {
+                      fileEntry.file(function(file){
+                          var reader = new FileReader();
+                          reader.onloadend = function() {
+                              resolve({
+                                  base64: reader.result,
+                                  name: file.name,
+                                  contentType: 'image/jpeg'
+                              });
+                          };
+                          reader.readAsDataURL(file);
+                      }, onerror);
+                  }, onerror);
+              });
           }
       };
 

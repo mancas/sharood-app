@@ -11,34 +11,18 @@ define(['controllers/module'], function (controllers) {
             return;
         }*/
 
+        $scope.imageMealURI = null;
+
+        $scope.onerror = function(e) {
+            console.error(e);
+            // Show alert??
+        };
+
         $scope.takePicture = function() {
             console.info("Getting Picture");
             cameraHelper.getPicture().then(function(imgURI){
                 document.getElementById('placePhoto').setAttribute('src', imgURI);
-                window.resolveLocalFileSystemURL(imgURI, function(fileEntry) {
-                    console.info(fileEntry);
-                    fileEntry.file(function(file){
-                        console.info(file);
-                        var fd = new FormData();
-
-                        var reader = new FileReader();
-                        reader.onloadend = function(e) {
-                            var imgBlob = new Blob([reader.result], {type: "image/jpeg"} );
-                            fd.append('file', imgBlob);
-                            console.info(imgBlob);
-                            sharoodDB.uploadFile({
-                                base64: reader.result,
-                                name: 'test.jpeg',
-                                contentType: 'image/jpeg'
-                            }).then(function(result){
-                                console.info(result);
-                            });
-
-                            console.info(fd);
-                        };
-                        reader.readAsDataURL(file);
-                    }, function onerror(e){console.error(e)});
-                }, function onerror(e){console.error(e)});
+                $scope.imageMealURI = imgURI;
             });
         }
 
@@ -64,7 +48,13 @@ define(['controllers/module'], function (controllers) {
 
             sharoodDB.saveMeal(mealData).then(function(result){
                 console.info(result);
-            });
+                // If everything went well
+                cameraHelper.getBase64FromURI($scope.imageMealURI).then(function(data) {
+                    sharoodDB.uploadFile(data).then(function(result) {
+                        // Navigate to list?
+                    }).catch($scope.onerror);
+                }).catch($scope.onerror);
+            }).catch($scope.onerror);
         };
 
         $scope.config = {

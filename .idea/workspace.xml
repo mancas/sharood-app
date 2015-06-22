@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2632d0f0-c57d-4c3b-84f5-6812cf49af0a" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/scripts/services/cameraHelper.js" afterPath="$PROJECT_DIR$/www/scripts/services/cameraHelper.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/custom.css" afterPath="$PROJECT_DIR$/www/css/custom.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/views/newChefMeal.html" afterPath="$PROJECT_DIR$/www/views/newChefMeal.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/scripts/controllers/newChefMeal.js" afterPath="$PROJECT_DIR$/www/scripts/controllers/newChefMeal.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/scripts/services/sharoodDB.js" afterPath="$PROJECT_DIR$/www/scripts/services/sharoodDB.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="sharood-app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,11 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="custom.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="custom.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/css/custom.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="306" column="16" selection-start-line="306" selection-start-column="16" selection-end-line="306" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.37331837">
+              <caret line="233" column="23" selection-start-line="233" selection-start-column="23" selection-end-line="233" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -37,17 +43,37 @@
         <entry file="file://$PROJECT_DIR$/www/scripts/services/cameraHelper.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="58" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="58" />
+              <caret line="46" column="26" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="newChefMeal.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="newChefMeal.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/scripts/controllers/newChefMeal.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.58551943">
-              <caret line="31" column="57" selection-start-line="31" selection-start-column="57" selection-end-line="31" selection-end-column="57" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="24" column="45" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="newChefMeal.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/views/newChefMeal.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.6666665">
+              <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-21.333334">
+              <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -57,7 +83,7 @@
         <entry file="file://$PROJECT_DIR$/www/scripts/services/sharoodDB.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="105" column="51" selection-start-line="105" selection-start-column="45" selection-end-line="105" selection-end-column="51" />
+              <caret line="114" column="27" selection-start-line="114" selection-start-column="22" selection-end-line="114" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -98,7 +124,6 @@
         <option value="$PROJECT_DIR$/www/scripts/controllers/home.js" />
         <option value="$PROJECT_DIR$/www/scripts/controllers/main.js" />
         <option value="$PROJECT_DIR$/www/scripts/controllers/register.js" />
-        <option value="$PROJECT_DIR$/www/views/newChefMeal.html" />
         <option value="$PROJECT_DIR$/www/scripts/controllers/index.js" />
         <option value="$PROJECT_DIR$/www/scripts/routes.js" />
         <option value="$PROJECT_DIR$/www/views/home.html" />
@@ -106,19 +131,20 @@
         <option value="$PROJECT_DIR$/www/scripts/directives/loader.js" />
         <option value="$PROJECT_DIR$/www/views/meals.html" />
         <option value="$PROJECT_DIR$/www/scripts/controllers/meals.js" />
-        <option value="$PROJECT_DIR$/www/css/custom.css" />
         <option value="$PROJECT_DIR$/www/scripts/directives/index.js" />
-        <option value="$PROJECT_DIR$/www/index.html" />
         <option value="$PROJECT_DIR$/www/scripts/alert-helper.js" />
         <option value="$PROJECT_DIR$/www/views/templates/alert.html" />
         <option value="$PROJECT_DIR$/www/scripts/directives/alert.js" />
         <option value="$PROJECT_DIR$/www/views/profile.html" />
         <option value="$PROJECT_DIR$/www/scripts/controllers/profile.js" />
         <option value="$PROJECT_DIR$/www/css/alert.css" />
-        <option value="$PROJECT_DIR$/www/scripts/services/cameraHelper.js" />
         <option value="$PROJECT_DIR$/www/scripts/services/index.js" />
+        <option value="$PROJECT_DIR$/www/scripts/services/cameraHelper.js" />
         <option value="$PROJECT_DIR$/www/scripts/services/sharoodDB.js" />
         <option value="$PROJECT_DIR$/www/scripts/controllers/newChefMeal.js" />
+        <option value="$PROJECT_DIR$/www/index.html" />
+        <option value="$PROJECT_DIR$/www/views/newChefMeal.html" />
+        <option value="$PROJECT_DIR$/www/css/custom.css" />
       </list>
     </option>
   </component>
@@ -130,9 +156,9 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="24" />
+    <option name="y" value="-1084" />
     <option name="width" value="1920" />
-    <option name="height" value="1056" />
+    <option name="height" value="1084" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -157,7 +183,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -187,6 +212,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sharood-app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sharood-app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -255,6 +298,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -334,7 +378,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1920" height="1056" extended-state="6" />
+    <frame x="0" y="-1084" width="1920" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19583334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -549,13 +593,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/newChefMeal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2931596">
-          <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/scripts/controllers/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16848674">
@@ -602,13 +639,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.6666665">
           <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3403909">
-          <caret line="14" column="66" selection-start-line="14" selection-start-column="66" selection-end-line="14" selection-end-column="66" />
         </state>
       </provider>
     </entry>
@@ -707,10 +737,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/css/custom.css">
+    <entry file="file://$PROJECT_DIR$/www/scripts/services/sharoodDB.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="306" column="16" selection-start-line="306" selection-start-column="16" selection-end-line="306" selection-end-column="16" />
+          <caret line="114" column="27" selection-start-line="114" selection-start-column="22" selection-end-line="114" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.333334">
+          <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -718,23 +756,31 @@
     <entry file="file://$PROJECT_DIR$/www/scripts/services/cameraHelper.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="58" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/scripts/services/sharoodDB.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="105" column="51" selection-start-line="105" selection-start-column="45" selection-end-line="105" selection-end-column="51" />
+          <caret line="46" column="26" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/scripts/controllers/newChefMeal.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58551943">
-          <caret line="31" column="57" selection-start-line="31" selection-start-column="57" selection-end-line="31" selection-end-column="57" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="45" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/newChefMeal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.6666665">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37331837">
+          <caret line="233" column="23" selection-start-line="233" selection-start-column="23" selection-end-line="233" selection-end-column="23" />
           <folding />
         </state>
       </provider>

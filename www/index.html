@@ -17,7 +17,6 @@
 <body ng-csp>
     <!-- Add your site or application content here -->
     <div class="container" ng-view=""></div>
-    <script src="cordova.js"></script>
 
     <script src="scripts/vendors/built.min.js"></script>
 
@@ -31,7 +30,7 @@
     </script>
 
     <!-- build:js scripts/modules.js -->
-    <!--<script src="bower_components/requirejs/require.js" data-main="js/main.js"></script>-->
+    <script src="bower_components/requirejs/require.js" data-main="js/main.js"></script>
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
