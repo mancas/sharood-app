@@ -25,9 +25,12 @@ define(['controllers/module'], function (controllers) {
                         reader.onloadend = function(e) {
                             var imgBlob = new Blob([reader.result], {type: "image/jpeg"} );
                             fd.append('file', imgBlob);
+                            console.info(imgBlob);
                             sharoodDB.uploadFile(fd).then(function(result){
                                 console.info(result);
                             });
+
+                            console.info(fd);
                         };
                         reader.readAsArrayBuffer(file);
                     }, function onerror(e){console.error(e)});
