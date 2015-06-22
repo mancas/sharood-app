@@ -19,11 +19,19 @@ define(['controllers/module'], function (controllers) {
                     console.info(fileEntry);
                     fileEntry.file(function(file){
                         console.info(file);
-                        sharoodDB.uploadFile(file).then(function(result){
-                            console.info(result);
-                        });
-                    });
-                });
+                        var fd = new FormData();
+
+                        var reader = new FileReader();
+                        reader.onloadend = function(e) {
+                            var imgBlob = new Blob([reader.result], {type: "image/jpeg"} );
+                            fd.append('file', imgBlob);
+                            sharoodDB.uploadFile(fd).then(function(result){
+                                console.info(result);
+                            });
+                        };
+                        reader.readAsArrayBuffer(file);
+                    }, function onerror(e){console.error(e)});
+                }, function onerror(e){console.error(e)});
             });
         }
 
