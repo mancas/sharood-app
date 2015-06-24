@@ -11,7 +11,7 @@ define(['controllers/module'], function (controllers) {
             });
         }
 
-        tryAutoLogin();
+        //tryAutoLogin();
         console.info(sharoodDB);
 
         $scope.login = function(){

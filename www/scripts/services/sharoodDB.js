@@ -115,6 +115,21 @@ define(['services/module'], function (services) {
               resolve(error);
             });
         });
+      },
+
+      updateProfile: function() {
+        console.info('8');
+        var data = this.currentUser;
+
+        return new Promise(function(resolve, reject){
+          var user = Built.App(apiKey).User(data.uid);
+
+          user.updateUserProfile(data).then(function(user) {
+            resolve(user.toJSON())
+          }, function(error) {
+            resolve(error);
+          });
+        });
       }
 
     };

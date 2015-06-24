@@ -17,17 +17,17 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
         /*if(sharoodDB.currentUser === null){
             navigation.navigate('#/');
             return;
-        }
+        }*/
 
         $scope.cookies = sharoodDB.currentUser.cookies;
         $scope.name = sharoodDB.currentUser.first_name;
         $scope.phone = sharoodDB.currentUser.phone;
-        $scope.email = sharoodDB.currentUser.email;*/
+        $scope.email = sharoodDB.currentUser.email;
 
-        $scope.cookies = 21;
+        /*$scope.cookies = 21;
         $scope.name = 'Axel';
         $scope.phone = '638006787';
-        $scope.email = 'mancas.91@gmail.com';
+        $scope.email = 'mancas.91@gmail.com';*/
 
         $scope.logout = function(){
             sharoodDB.logout().then(function(){
@@ -53,6 +53,19 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
         $scope.deleteAccount = function() {
             AlertHelper.alert('#delete-account-alert');
         };
+
+        $scope.saveProfile = function() {
+            sharoodDB.currentUser.first_name = inputValue('first_name');
+            sharoodDB.currentUser.phone = inputValue('phone');
+            sharoodDB.currentUser.email = inputValue('email');
+            sharoodDB.updateProfile().then(function(result){
+                console.info(result);
+            });
+        };
+
+        function inputValue(name) {
+            return document.getElementsByName(name)[0].value;
+        }
 
         $scope.navigate = navigation.navigate;
     });
