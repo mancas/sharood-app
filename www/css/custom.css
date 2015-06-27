@@ -195,6 +195,12 @@ header .media {
     color: #693204;
 }
 
+.main header .cookies {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}
+
 .main .cookies img {
     max-height: 3rem;
     display: inline-block;
