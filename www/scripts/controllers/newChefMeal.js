@@ -21,7 +21,7 @@ define(['controllers/module'], function (controllers) {
         $scope.takePicture = function() {
             console.info("Getting Picture");
             cameraHelper.getPicture().then(function(imgURI){
-                document.getElementById('placePhoto').setAttribute('src', imgURI);
+                document.getElementById('placePhoto').style.backgroundImage = 'url(\'' + imgURI + '\')';
                 $scope.imageMealURI = imgURI;
             });
         }

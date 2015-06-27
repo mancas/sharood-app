@@ -147,16 +147,22 @@ header .media-body {
     width: auto;
 }
 
-header .btn-circle {
-    width: 4rem;
+header .btn {
+    position: absolute;
+    left: 1rem;
+    padding: 0;
+    min-width: 4rem;
     height: 4rem;
     display: inline-block;
     line-height: calc(4rem - 0.4rem);
+    box-sizing: border-box;
+    font-size: 2.3rem;
+    transition: all 0.3s ease 0s;
+}
+
+header .btn-circle {
     border: solid 0.2rem #693204;
     border-radius: 50%;
-    box-sizing: border-box;
-    font-size: 2.6rem;
-    transition: all 0.3s ease 0s;
 }
 
 header .btn-circle:hover, header .btn-circle:active, header .btn-circle:focus {
@@ -166,6 +172,8 @@ header .btn-circle:hover, header .btn-circle:active, header .btn-circle:focus {
 
 header h1 {
     display: inline;
+    font-size: 2.6rem;
+    line-height: 4rem;
 }
 
 header .media {
@@ -188,7 +196,7 @@ header .media {
 }
 
 .main .cookies img {
-    max-height: 4rem;
+    max-height: 3rem;
     display: inline-block;
 }
 
@@ -231,7 +239,10 @@ header .media {
 
 .meal-img .img-square {
     width: 14rem;
+    background-size: cover;
+    background-position: center center;
     position: relative;
+    border-radius: 50%;
 }
 
 .meal-img .img-square:before {
@@ -350,7 +361,7 @@ header .media {
     right: -2.5rem;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 3rem;
+    font-size: 2.4rem;
 }
 
 .li-title {

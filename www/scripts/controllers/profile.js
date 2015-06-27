@@ -68,6 +68,20 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
         }
 
         $scope.navigate = navigation.navigate;
+
+        $scope.alertConfig = {
+            icon: true,
+            title: 'Are you sure?',
+            subtitle: 'You will not be able to undo this operation!',
+            cancel: {
+                id: 'cancel-btn',
+                text: 'Cancel'
+            },
+            ok: {
+                id: 'delete-account-btn',
+                text: 'Yes, delete it'
+            }
+        };
     });
 
 });
