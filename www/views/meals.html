@@ -6,7 +6,7 @@
             Back
         </span>
         <h1>Choose Chef</h1>
-        <div class="pull-right cookies media">
+        <div class="cookies media">
             <div class="media-left media-middle">
                 <img class="media-object" src="img/icon.png" />
             </div>
@@ -16,6 +16,16 @@
         </div>
     </header>
 
+    <div class="row meals-options">
+        <div class="col-md-12 col-sm-12">
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default active">Meals</button>
+                <button type="button" class="btn btn-default">People</button>
+                <button type="button" class="btn btn-default">My meals</button>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-md-12 col-sm-12">
             <a ng-repeat="meal in meals track by $index" href="" class="list-item">
@@ -24,7 +34,8 @@
                     <b class="li-title">{{meal.description}}</b>
                     <small class="li-description">
                         <img class="li-xsmall" src="img/icon.png" /> {{meal.cookies_value}}
-                        <img class="li-xsmall ml10" src="img/icon.png" /> {{meal.time}}
+                        <!-- TODO: Change i to img -->
+                        <i class="fa fa-clock-o"></i> {{meal.time}}
                     </small>
                 </span>
 
@@ -32,7 +43,6 @@
                     <i class="fa fa-chevron-right"></i>
                 </div>
             </a>
-            <div ng-if="meals.length == 0">Loading...</div>
         </div>
     </div>
 
