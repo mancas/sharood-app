@@ -8,5 +8,5 @@
         {{config.subtitle}}
     </p>
     <button ng-if="config.cancel" id="{{config.cancel.id}}" ng-click="config.cancel.callback()" data-close="#{{config.id}}" class="btn btn-default">{{config.cancel.text}}</button>
-    <button ng-if="config.ok" id="{{config.ok.id}}" ng-click="config.ok.callback()" data-close="#{{config.id}}" class="btn btn-danger">{{config.ok.text}}</button>
+    <button ng-if="config.ok" id="{{config.ok.id}}" ng-click="config.ok.callback()" data-close="#{{config.id}}" class="btn {{config.ok.class}}">{{config.ok.text}}</button>
 </div>

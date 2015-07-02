@@ -48,6 +48,7 @@ define(['services/module'], function (services) {
               }, function(error) {
                 // some error has occurred
                 // refer to the 'error' object for more details
+                reject(error);
               });
         });
       },

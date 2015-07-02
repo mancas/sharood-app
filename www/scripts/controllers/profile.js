@@ -76,6 +76,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             ok: {
                 id: 'delete-btn-ok',
                 text: 'Yes, delete it',
+                class: 'btn-danger',
                 callback: function() {
                     console.info('Delete account');
                 }
@@ -99,6 +100,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             ok: {
                 id: 'logout-btn-ok',
                 text: 'Yes, logout',
+                class: 'btn-danger',
                 callback: function() {
                     sharoodDB.logout().then(function(){
                         sharoodDB.currentUser = null;
