@@ -19,15 +19,15 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             return;
         }*/
 
-        $scope.cookies = sharoodDB.currentUser.cookies;
+        /*$scope.cookies = sharoodDB.currentUser.cookies;
         $scope.name = sharoodDB.currentUser.first_name;
         $scope.phone = sharoodDB.currentUser.phone;
-        $scope.email = sharoodDB.currentUser.email;
+        $scope.email = sharoodDB.currentUser.email;*/
 
-        /*$scope.cookies = 21;
+        $scope.cookies = 21;
         $scope.name = 'Axel';
         $scope.phone = '638006787';
-        $scope.email = 'mancas.91@gmail.com';*/
+        $scope.email = 'mancas.91@gmail.com';
 
         $scope.logout = function(){
             sharoodDB.logout().then(function(){
@@ -75,11 +75,17 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             subtitle: 'You will not be able to undo this operation!',
             cancel: {
                 id: 'cancel-btn',
-                text: 'Cancel'
+                text: 'Cancel',
+                callback: function() {
+                    console.info('helo');
+                }
             },
             ok: {
                 id: 'delete-account-btn',
-                text: 'Yes, delete it'
+                text: 'Yes, delete it',
+                callback: function() {
+                    console.info('dedlete!');
+                }
             }
         };
     });
