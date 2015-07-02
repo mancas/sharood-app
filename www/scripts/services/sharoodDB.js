@@ -34,6 +34,7 @@ define(['services/module'], function (services) {
                 // some error has occurred
                 // refer to the 'error' object for more details
                 console.info(error);
+                reject(error);
               });
         });
       },

@@ -1,4 +1,4 @@
-define(['controllers/module'], function (controllers) {
+define(['controllers/module', 'alert-helper'], function (controllers, AlertHelper) {
 
     'use strict';
 
@@ -21,10 +21,25 @@ define(['controllers/module'], function (controllers) {
                 console.info(user);
                 sharoodDB.currentUser = user;
                 navigation.navigate('/home');
+            }).catch(function (error) {
+                AlertHelper.alert('#login-account-alert');
             });
         };
 
         $scope.navigate = navigation.navigate;
+
+        $scope.loginConfig = {
+            id: 'login-account-alert',
+            icon: false,
+            title: 'Bad credentials',
+            subtitle: 'The user or the password does\'t exists',
+            ok: {
+                id: 'btn-ok',
+                text: 'Ok',
+                class: 'btn-info',
+                callback: function() {}
+            }
+        };
     });
 
 });
