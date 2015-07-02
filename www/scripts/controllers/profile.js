@@ -29,14 +29,6 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
         $scope.phone = '638006787';
         $scope.email = 'mancas.91@gmail.com';
 
-        $scope.logout = function(){
-            sharoodDB.logout().then(function(){
-                sharoodDB.currentUser = null;
-                console.info('User loged out');
-                navigation.navigate('/');
-            });
-        };
-
         $scope.isEditModeEnable = false;
         $scope.toggleEditMode = function() {
             if ($scope.isEditModeEnable) {
@@ -48,10 +40,6 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             }
             $scope.elements.accountDetails.classList.toggle('hidden', $scope.isEditModeEnable);
             $scope.elements.accountEdition.classList.toggle('hidden', !$scope.isEditModeEnable);
-        };
-
-        $scope.deleteAccount = function() {
-            AlertHelper.alert('#delete-account-alert');
         };
 
         $scope.saveProfile = function() {
@@ -69,22 +57,52 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
         $scope.navigate = navigation.navigate;
 
-        $scope.alertConfig = {
+        $scope.deleteAccount = function() {
+            AlertHelper.alert('#delete-account-alert');
+        };
+
+        $scope.deleteAccountConfig = {
             icon: true,
             title: 'Are you sure?',
             subtitle: 'You will not be able to undo this operation!',
             cancel: {
-                id: 'cancel-btn',
+                id: 'delete-btn-cancel',
                 text: 'Cancel',
                 callback: function() {
-                    console.info('helo');
+                    console.info('Don\'t delete account');
                 }
             },
             ok: {
-                id: 'delete-account-btn',
+                id: 'delete-btn-ok',
                 text: 'Yes, delete it',
                 callback: function() {
-                    console.info('dedlete!');
+                    console.info('Delete account');
+                }
+            }
+        };
+
+        $scope.logout = function(){
+            AlertHelper.alert('#logout-alert');
+        };
+
+        $scope.logoutConfig = {
+            icon: true,
+            title: 'Are you sure?',
+            subtitle: 'You are going to close your session!',
+            cancel: {
+                id: 'logout-btn-cancel',
+                text: 'Cancel',
+                callback: function() { }
+            },
+            ok: {
+                id: 'logout-btn-ok',
+                text: 'Yes, logout',
+                callback: function() {
+                    sharoodDB.logout().then(function(){
+                        sharoodDB.currentUser = null;
+                        console.info('User loged out');
+                        navigation.navigate('/');
+                    });
                 }
             }
         };
