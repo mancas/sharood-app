@@ -62,6 +62,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
         };
 
         $scope.deleteAccountConfig = {
+            id: 'delete-account-alert',
             icon: true,
             title: 'Are you sure?',
             subtitle: 'You will not be able to undo this operation!',
@@ -86,6 +87,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
         };
 
         $scope.logoutConfig = {
+            id: 'logout-alert',
             icon: true,
             title: 'Are you sure?',
             subtitle: 'You are going to close your session!',
