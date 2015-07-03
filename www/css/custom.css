@@ -226,6 +226,17 @@ header .media {
     display: table;
     text-align: center;
     background-color: red;
+    width: calc(100% + 3rem);
+}
+
+.main .postMeal {
+    background-image: url('../img/postMeal.png');
+    background-size: cover;
+}
+
+.main .mealOffer {
+    background-image: url('../img/mealOffer.png');
+    background-size: cover;
 }
 
 .main .sa-block .block-wrapper {
