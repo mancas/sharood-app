@@ -241,6 +241,10 @@ header .media {
     color: #ffffff;
 }
 
+.main .fa-gear {
+    font-size: 3.8rem
+}
+
 /** NEW MEAL VIEW **/
 .meal-img {
     padding-top: 3rem;

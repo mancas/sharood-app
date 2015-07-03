@@ -18,13 +18,15 @@ define(['services/module'], function (services) {
       };
 
       //TODO save photos in a specific folder
-      var defaultOptions = {
-          quality: 75,
-          destinationType: Camera.DestinationType.FILE_URI,
-          sourceType: Camera.PictureSourceType.CAMERA,
-          encodingType: Camera.EncodingType.JPEG,
-          saveToPhotoAlbum: true
-      };
+      if(typeof(Camera) === Object){
+        var defaultOptions = {
+            quality: 75,
+            destinationType: Camera.DestinationType.FILE_URI,
+            sourceType: Camera.PictureSourceType.CAMERA,
+            encodingType: Camera.EncodingType.JPEG,
+            saveToPhotoAlbum: true
+        };
+      }
 
       var CameraHelper = {
           getPicture: function(options) {

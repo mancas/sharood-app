@@ -6,10 +6,10 @@ define(['controllers/module'], function (controllers) {
         
         console.info("Meals controller");
 
-        /*if(sharoodDB.currentUser === null){
+        if(sharoodDB.currentUser === null){
             navigation.navigate('#/');
             return;
-        }*/
+        }
 
         $scope.meals = [];
 
@@ -25,11 +25,13 @@ define(['controllers/module'], function (controllers) {
             overlay.classList.add('closed');
         });
 
-        /*
+        
         $scope.username = sharoodDB.currentUser.username;
-        $scope.cookies = sharoodDB.currentUser.cookies;*/
+        $scope.cookies = sharoodDB.currentUser.cookies;
+        /*
         $scope.username = 'Axel';
         $scope.cookies = 31;
+        */
 
         $scope.navigate = navigation.navigate;
 

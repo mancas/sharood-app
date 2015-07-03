@@ -11,7 +11,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             });
         }
 
-        //tryAutoLogin();
+        tryAutoLogin();
         console.info(sharoodDB);
 
         $scope.login = function(){

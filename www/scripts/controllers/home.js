@@ -6,16 +6,18 @@ define(['controllers/module'], function (controllers) {
         
         console.info("Home controller");
 
-        /*if(sharoodDB.currentUser === null){
+        if(sharoodDB.currentUser === null){
             navigation.navigate('#/');
             return;
         }
 
         $scope.username = sharoodDB.currentUser.username;
-        $scope.cookies = sharoodDB.currentUser.cookies;*/
+        $scope.cookies = sharoodDB.currentUser.cookies;
 
+        /*
         $scope.username = 'Axel';
         $scope.cookies = 31;
+        */
 
         $scope.navigate = navigation.navigate;
     });

@@ -6,6 +6,11 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
         console.info("Profile controller");
 
+        if(sharoodDB.currentUser === null){
+            navigation.navigate('#/');
+            return;
+        }
+
         $scope.elements = {
             accountDetails: document.querySelector('.account-details'),
             accountEdition: document.querySelector('.account-edition'),
@@ -13,11 +18,6 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             accountEditionForm: document.querySelector('form#account-form'),
             deleteAccountBtn: document.querySelector('.delete-account')
         };
-
-        /*if(sharoodDB.currentUser === null){
-            navigation.navigate('#/');
-            return;
-        }*/
 
         $scope.cookies = sharoodDB.currentUser.cookies;
         $scope.name = sharoodDB.currentUser.first_name;

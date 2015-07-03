@@ -6,10 +6,10 @@ define(['controllers/module'], function (controllers) {
 
         console.info("NewChefMeal controller");
 
-        /*if(sharoodDB.currentUser === null){
+        if(sharoodDB.currentUser === null){
             navigation.navigate('#/');
             return;
-        }*/
+        }
 
         $scope.imageMealURI = null;
 
