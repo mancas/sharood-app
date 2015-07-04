@@ -1,4 +1,4 @@
-define(['controllers/module'], function (controllers) {
+define(['controllers/module', 'alert-helper'], function (controllers, AlertHelper) {
 
     'use strict';
 
@@ -53,7 +53,7 @@ define(['controllers/module'], function (controllers) {
                     console.info(mealData.picture);
                     // If everything went well
                     sharoodDB.saveMeal(mealData).then(function(result){
-                        // Navigate to list?
+                        AlertHelper.alert('#meal-created-alert');
                     }).catch($scope.onerror);
                 }).catch($scope.onerror);
             }).catch($scope.onerror);
@@ -66,6 +66,21 @@ define(['controllers/module'], function (controllers) {
         };
 
         $scope.navigate = navigation.navigate;
+
+        $scope.mealConfig = {
+            id: 'meal-created-alert',
+            icon: false,
+            title: 'Meal created',
+            subtitle: 'Your meal have been updated to our data base.',
+            ok: {
+                id: 'btn-ok',
+                text: 'Ok',
+                class: 'btn-info',
+                callback: function() {
+                    navigation.navigate('/home');
+                }
+            }
+        };
     });
 
 });

@@ -32,7 +32,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             id: 'login-account-alert',
             icon: false,
             title: 'Bad credentials',
-            subtitle: 'The user or the password does\'t exists',
+            subtitle: 'The user or the password doesn\'t exists',
             ok: {
                 id: 'btn-ok',
                 text: 'Ok',

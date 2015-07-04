@@ -62,8 +62,7 @@ define(['services/module'], function (services) {
               .then(function() {
                 resolve();
               }, function(error) {
-                // some error has occurred
-                // refer to the 'error' object for more details
+                resolve(error);
               });
         });
       },

@@ -17,7 +17,6 @@ define([], function () {
                 console.error('Alert element does not exists');
                 return;
             }
-
             this.onClose = this._onClose.bind(this);
 
             this._attachCloseEvents();

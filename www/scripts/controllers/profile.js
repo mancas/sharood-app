@@ -102,7 +102,10 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 text: 'Yes, logout',
                 class: 'btn-danger',
                 callback: function() {
-                    sharoodDB.logout().then(function(){
+                    sharoodDB.logout().then(function(result){
+                        if(result){
+                            console.info(result);
+                        }
                         sharoodDB.currentUser = null;
                         console.info('User loged out');
                         navigation.navigate('/');
