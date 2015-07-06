@@ -6,7 +6,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
         console.info("Register controller");
 
-        const ALERT_TITLES = {
+        var ALERT_TITLES = {
             error: {
                 title: 'Opps!',
                 subtitle: 'Something went wrong. Please try to perform this action later',
@@ -39,7 +39,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
         function onSuccess() {
             if (!$scope.hasErrors) {
                 console.info('Account created');
-                alert('User registered. You need to activate it.');
+                //alert('User registered. You need to activate it.');
                 navigation.navigate('/');
             }
         }
