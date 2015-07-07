@@ -18,20 +18,22 @@ define(['services/module'], function (services) {
       };
 
       //TODO save photos in a specific folder
-      if(typeof(Camera) === Object){
-        var defaultOptions = {
-            quality: 75,
-            destinationType: Camera.DestinationType.FILE_URI,
-            sourceType: Camera.PictureSourceType.CAMERA,
-            encodingType: Camera.EncodingType.JPEG,
-            saveToPhotoAlbum: true
-        };
-      }
+      var defaultOptions = {
+          quality : 75,
+          destinationType : Camera.DestinationType.FILE_URI,
+          sourceType : Camera.PictureSourceType.CAMERA,
+          allowEdit : true,
+          encodingType: Camera.EncodingType.JPEG,
+          targetWidth: 100,
+          targetHeight: 100,
+          saveToPhotoAlbum: true
+      };
 
       var CameraHelper = {
           getPicture: function(options) {
               return new Promise(function(resolve, reject) {
                   options = options || defaultOptions;
+                  console.info(options);
 
                   var onSuccess = function(img) {
                       // TODO move image to its corresponding folder
