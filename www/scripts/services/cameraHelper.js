@@ -81,12 +81,12 @@ define(['services/module'], function (services) {
                   function resizeImgFromFile(file) {
                       var image = new Image();
                       image.onload = function(){
-                          var canvas = document.getElementById("myCanvas");
+                          var canvas = document.createElement('canvas');
                           if(image.height > MAX_HEIGHT) {
                               image.width *= MAX_HEIGHT / image.height;
                               image.height = MAX_HEIGHT;
                           }
-                          var ctx = canvas.getContext("2d");
+                          var ctx = canvas.getContext('2d');
                           ctx.clearRect(0, 0, canvas.width, canvas.height);
                           canvas.width = image.width;
                           canvas.height = image.height;
