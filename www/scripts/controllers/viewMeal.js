@@ -2,11 +2,12 @@ define(['controllers/module'], function (controllers) {
 
     'use strict';
 
-    controllers.controller('ViewMeal', function ($scope, $routeParams, sharoodDB, navigation) {
+    controllers.controller('ViewMeal', function ($scope, MealService, sharoodDB, navigation) {
         
         console.info("ViewMeal controller");
 
-        alert($routeParams.mealId);
+        $scope.meal = MealService.getCurrentMeal();
+        console.info($scope.meal);
 
     });
 

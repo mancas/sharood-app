@@ -29,7 +29,7 @@
     <div class="row">
         <div class="col-md-12 col-sm-12">
             <div ng-repeat="meal in meals track by $index" class="list-item">
-                <a href="" ng-click="navigate('/viewMeal/{{meal.uid}}')">
+                <a href="" ng-click="goToMeal($index)">
                     <img class="li-small pull-left" src="{{meal.picture.url}}">
                     <span class="list-content media-body">
                         <b class="li-title">{{meal.description}}</b>

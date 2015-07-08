@@ -2,7 +2,7 @@ define(['controllers/module'], function (controllers) {
 
     'use strict';
 
-    controllers.controller('Meals', function ($scope, sharoodDB, navigation, $compile) {
+    controllers.controller('Meals', function ($scope, sharoodDB, navigation, MealService) {
         
         console.info("Meals controller");
 
@@ -35,7 +35,11 @@ define(['controllers/module'], function (controllers) {
 
         $scope.navigate = navigation.navigate;
 
-        $scope.meals = [];
+        $scope.goToMeal = function(mealIndex){
+            MealService.setCurrentMeal($scope.meals[mealIndex]);
+            navigation.navigate('/viewMeal');
+        };
+
     });
 
 });
