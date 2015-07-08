@@ -2,7 +2,7 @@ define(['controllers/module'], function (controllers) {
 
     'use strict';
 
-    controllers.controller('Meals', function ($scope, sharoodDB, navigation) {
+    controllers.controller('Meals', function ($scope, sharoodDB, navigation, $compile) {
         
         console.info("Meals controller");
 
