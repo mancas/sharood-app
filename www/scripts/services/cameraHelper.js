@@ -29,6 +29,8 @@ define(['services/module'], function (services) {
           saveToPhotoAlbum: true
       };
 
+      var MAX_HEIGHT = 400;
+
       var CameraHelper = {
           getPicture: function(options) {
               return new Promise(function(resolve, reject) {
@@ -66,6 +68,42 @@ define(['services/module'], function (services) {
                           };
                           reader.readAsDataURL(file);
                       }, onerror);
+                  }, onerror);
+              });
+          },
+
+          resizeImage: function(fileURI) {
+              return new Promise(function(resolve, reject) {
+                  function onerror(error) {
+                      reject(error);
+                  }
+
+                  function resizeImgFromFile(file) {
+                      var image = new Image();
+                      image.onload = function(){
+                          var canvas = document.getElementById("myCanvas");
+                          if(image.height > MAX_HEIGHT) {
+                              image.width *= MAX_HEIGHT / image.height;
+                              image.height = MAX_HEIGHT;
+                          }
+                          var ctx = canvas.getContext("2d");
+                          ctx.clearRect(0, 0, canvas.width, canvas.height);
+                          canvas.width = image.width;
+                          canvas.height = image.height;
+                          ctx.drawImage(image, 0, 0, image.width, image.height);
+
+console.info(canvas.toDataURL('image/jpeg', 1.0));
+                          resolve({
+                              base64: canvas.toDataURL('image/jpeg', 1.0),
+                              name: file.name,
+                              contentType: 'image/jpeg'
+                          });
+                      };
+                      image.src = fileURI;
+                  }
+
+                  window.resolveLocalFileSystemURL(fileURI, function(fileEntry) {
+                      fileEntry.file(resizeImgFromFile, onerror);
                   }, onerror);
               });
           }

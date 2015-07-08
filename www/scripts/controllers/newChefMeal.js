@@ -24,7 +24,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 document.getElementById('placePhoto').style.backgroundImage = 'url(\'' + imgURI + '\')';
                 $scope.imageMealURI = imgURI;
             });
-        }
+        };
 
         $scope.sendMeal = function() {
             var description = document.querySelector("#description").value;
@@ -46,7 +46,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 owner: sharoodDB.currentUser.uid
             }
 
-            cameraHelper.getBase64FromURI($scope.imageMealURI).then(function(data) {
+            cameraHelper.resizeImage($scope.imageMealURI).then(function(data) {
                 sharoodDB.uploadFile(data).then(function(result) {
                     console.info(result.toJSON());
                     mealData.picture = result.toJSON().uid;
