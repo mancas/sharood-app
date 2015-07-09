@@ -75,7 +75,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             ok: {
                 id: 'btn-ok',
                 text: 'Ok',
-                class: 'btn-info',
+                cssClass: 'btn-info',
                 callback: function() {
                     navigation.navigate('/home');
                 }

@@ -70,7 +70,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             ok: {
                 id: 'btn-ok',
                 text: 'Let\'s go!',
-                class: 'btn-info',
+                cssClass: 'btn-info',
                 callback: onSuccess
             }
         };
