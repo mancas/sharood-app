@@ -1,6 +1,6 @@
 define(['services/module'], function (services) {
   'use strict';
-  services.factory('MealService', function ($rootScope, $location) {
+  services.factory('MealService', function () {
     
     var currentMeal = null;
 

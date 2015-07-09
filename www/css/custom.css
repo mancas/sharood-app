@@ -33,6 +33,25 @@ textarea {
     max-width: 4rem;
 }
 
+.img-square {
+    width: 14rem;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    border-radius: 50%;
+}
+
+.img-square:before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+}
+
+.img-square-sm {
+    width: 10rem;
+    margin: auto;
+}
+
 /** LOGIN AND REGISTER VIEWS **/
 .login, .register {
     display: table;
@@ -262,20 +281,6 @@ header .media {
     text-align: center;
 }
 
-.meal-img .img-square {
-    width: 14rem;
-    background-size: cover;
-    background-position: center center;
-    position: relative;
-    border-radius: 50%;
-}
-
-.meal-img .img-square:before {
-    content: '';
-    display: block;
-    padding-top: 100%;
-}
-
 .meal-img img {
     position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
@@ -485,6 +490,21 @@ span.li-small {
     color: #693204;
 }
 
+/** VIEW MEAL **/
+.meal-info span {
+    display: block;
+}
+
+.score .dl-horizontal dt {
+    max-width: 14rem;
+    float: left;
+    font-weight: normal;
+    font-size: 1.6rem;
+}
+
+.score .dl-horizontal dd {
+    margin-left: 15rem;
+}
 
 /** OVERLAY **/
 .overlay {
