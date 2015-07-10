@@ -1,6 +1,6 @@
 define(['services/module'], function (services) {
   'use strict';
-  services.factory('sharoodDB', function () {
+  services.factory('sharoodDB', function ($q) {
     var apiKey = 'blt14f0a2b98d6156f4';
 
     // Public API here
@@ -10,48 +10,52 @@ define(['services/module'], function (services) {
 
       loadCurrentUser: function(){
         console.info('1');
-        return new Promise(function(resolve, reject){
-          var user = Built.App(apiKey).User;
-          user.getCurrentUser()
-              .then(function(user){
-                resolve(user.toJSON());
-              }, function(error) {
-                // some error has occurred
-                // refer to the 'error' object for more details
-                console.info(error);
-              });
-        });
+        var deferred = $q.defer();
+        var user = Built.App(apiKey).User;
+        user.getCurrentUser()
+          .then(function(user){
+            deferred.resolve(user.toJSON());
+          }, function(error) {
+            // some error has occurred
+            // refer to the 'error' object for more details
+            console.info(error);
+            deferred.reject(error);
+          });
+
+        return deferred.promise;
       },
 
       login: function(email, password) {
         console.info('2');
-        return new Promise(function(resolve, reject){
-          var user = Built.App(apiKey).User();
-          user.login(email, password)
-              .then(function(user) {
-                resolve(user.toJSON());
-              }, function(error) {
-                // some error has occurred
-                // refer to the 'error' object for more details
-                console.info(error);
-                reject(error);
-              });
-        });
+        var deferred = $q.defer();
+        var user = Built.App(apiKey).User();
+        user.login(email, password)
+          .then(function(user) {
+            deferred.resolve(user.toJSON());
+          }, function(error) {
+            // some error has occurred
+            // refer to the 'error' object for more details
+            console.info(error);
+            deferred.reject(error);
+          });
+
+        return deferred.promise;
       },
 
       register: function(email, password, passwordReply) {
         console.info('3');
-        return new Promise(function(resolve, reject){
-          var user = Built.App(apiKey).User();
-          user.register(email, password, passwordReply)
-              .then(function(user) {
-                resolve(user.toJSON());
-              }, function(error) {
-                // some error has occurred
-                // refer to the 'error' object for more details
-                reject(error);
-              });
-        });
+        var deferred = $q.defer();
+        var user = Built.App(apiKey).User();
+        user.register(email, password, passwordReply)
+          .then(function(user) {
+            deferred.resolve(user.toJSON());
+          }, function(error) {
+            // some error has occurred
+            // refer to the 'error' object for more details
+            deferred.reject(error);
+          });
+
+        return deferred.promise;
       },
 
       logout: function() {
