@@ -13,7 +13,8 @@
     -webkit-transform: translate(-50%, -50%) scale(0);
     z-index: 1032;
     text-align: center;
-    transition: transform 300ms ease 0s; }
+    transition: transform 300ms ease 0s;
+    -webkit-transition: transform 300ms ease 0s;}
 .material-alert .material-alert-success,
 .material-alert .material-alert-warning,
 .material-alert .material-alert-error {
