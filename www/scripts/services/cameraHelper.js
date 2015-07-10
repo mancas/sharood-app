@@ -1,6 +1,6 @@
 define(['services/module'], function (services) {
   'use strict';
-  services.factory('cameraHelper', function () {
+  services.factory('cameraHelper', function ($q) {
       var contstants = {
           DATA_URL: 'DestinationType',
           FILE_URI: 'DestinationType',
@@ -33,79 +33,83 @@ define(['services/module'], function (services) {
 
       var CameraHelper = {
           getPicture: function(options) {
-              return new Promise(function(resolve, reject) {
-                  options = options || defaultOptions;
-                  console.info(options);
+              var deferred = $q.defer();
+              options = options || defaultOptions;
+              console.info(options);
 
-                  var onSuccess = function(img) {
-                      // TODO move image to its corresponding folder
-                      resolve(img);
-                  };
+              var onSuccess = function(img) {
+                  // TODO move image to its corresponding folder
+                  deferred.resolve(img);
+              };
 
-                  var onError = function(error) {
-                      reject(error);
-                  };
+              var onError = function(error) {
+                  deferred.reject(error);
+              };
 
-                  navigator.camera.getPicture(onSuccess, onError);
-              });
+              navigator.camera.getPicture(onSuccess, onError);
+
+              return deferred.promise;
           },
 
           getBase64FromURI: function(fileURI) {
-              return new Promise(function(resolve, reject) {
-                  function onerror(error) {
-                      reject(error);
-                  }
+              var deferred = $q.defer();
+              function onerror(error) {
+                  deferred.reject(error);
+              }
 
-                  window.resolveLocalFileSystemURL(fileURI, function(fileEntry) {
-                      fileEntry.file(function(file){
-                          var reader = new FileReader();
-                          reader.onloadend = function() {
-                              resolve({
-                                  base64: reader.result,
-                                  name: file.name,
-                                  contentType: 'image/jpeg'
-                              });
-                          };
-                          reader.readAsDataURL(file);
-                      }, onerror);
-                  }, onerror);
-              });
-          },
-
-          resizeImage: function(fileURI) {
-              return new Promise(function(resolve, reject) {
-                  function onerror(error) {
-                      reject(error);
-                  }
-
-                  function resizeImgFromFile(file) {
-                      var image = new Image();
-                      image.onload = function(){
-                          var canvas = document.createElement('canvas');
-                          if(image.height > MAX_HEIGHT) {
-                              image.width *= MAX_HEIGHT / image.height;
-                              image.height = MAX_HEIGHT;
-                          }
-                          var ctx = canvas.getContext('2d');
-                          ctx.clearRect(0, 0, canvas.width, canvas.height);
-                          canvas.width = image.width;
-                          canvas.height = image.height;
-                          ctx.drawImage(image, 0, 0, image.width, image.height);
-
-console.info(canvas.toDataURL('image/jpeg', 1.0));
-                          resolve({
-                              base64: canvas.toDataURL('image/jpeg', 1.0),
+              window.resolveLocalFileSystemURL(fileURI, function(fileEntry) {
+                  fileEntry.file(function(file){
+                      var reader = new FileReader();
+                      reader.onloadend = function() {
+                          deferred.resolve({
+                              base64: reader.result,
                               name: file.name,
                               contentType: 'image/jpeg'
                           });
                       };
-                      image.src = fileURI;
-                  }
-
-                  window.resolveLocalFileSystemURL(fileURI, function(fileEntry) {
-                      fileEntry.file(resizeImgFromFile, onerror);
+                      reader.readAsDataURL(file);
                   }, onerror);
-              });
+              }, onerror);
+
+              return deferred.promise;
+          },
+
+          resizeImage: function(fileURI) {
+              var deferred = $q.defer();
+
+              function onerror(error) {
+                  deferred.reject(error);
+              }
+
+              function resizeImgFromFile(file) {
+                  var image = new Image();
+                  image.onload = function(){
+                      var canvas = document.createElement('canvas');
+                      if(image.height > MAX_HEIGHT) {
+                          image.width *= MAX_HEIGHT / image.height;
+                          image.height = MAX_HEIGHT;
+                      }
+                      var ctx = canvas.getContext('2d');
+                      ctx.clearRect(0, 0, canvas.width, canvas.height);
+                      canvas.width = image.width;
+                      canvas.height = image.height;
+                      ctx.drawImage(image, 0, 0, image.width, image.height);
+
+console.info(canvas.toDataURL('image/jpeg', 1.0));
+                      deferred.resolve({
+                          base64: canvas.toDataURL('image/jpeg', 1.0),
+                          name: file.name,
+                          contentType: 'image/jpeg'
+                      });
+                  };
+                  image.src = fileURI;
+              }
+
+              window.resolveLocalFileSystemURL(fileURI, function(fileEntry) {
+                  fileEntry.file(resizeImgFromFile, onerror);
+              }, onerror);
+
+              return deferred.promise;
           }
       };
 

@@ -60,81 +60,84 @@ define(['services/module'], function (services) {
 
       logout: function() {
         console.info('4');
-        return new Promise(function(resolve, reject){
-          var user = Built.App(apiKey).User();
-          user.logout()
-              .then(function() {
-                resolve();
-              }, function(error) {
-                resolve(error);
-              });
-        });
+        var deferred = $q.defer();
+        var user = Built.App(apiKey).User();
+        user.logout()
+          .then(function() {
+            deferred.resolve();
+          }, function(error) {
+            deferred.resolve(error);
+          });
+
+        return deferred.promise;
       },
 
       saveMeal: function(mealData) {
         console.info('5');
-        return new Promise(function(resolve, reject){
-          var Meal = Built.App(apiKey).Class('meal').Object;
-          var meal = Meal();
-           
-          meal = meal.assign(mealData);
-           
-          meal
-          .save()
+        var deferred = $q.defer();
+        var Meal = Built.App(apiKey).Class('meal').Object;
+        var meal = Meal();
+
+        meal = meal.assign(mealData);
+
+        meal.save()
           .then(function(result) {
-            resolve(result.toJSON());
-          }, function(err) {
-            resolve(err);
+            deferred.resolve(result.toJSON());
+          }, function(error) {
+            deferred.resolve(error);
           });
-        });
+
+        return deferred.promise;
       },
 
 
       getAllMeals: function() {
         console.info('6');
-        return new Promise(function(resolve, reject){
-          var query = Built.App(apiKey).Class('meal').Query();
-           
-          query
-          .exec()
+        var deferred = $q.defer();
+        var query = Built.App(apiKey).Class('meal').Query();
+
+        query.exec()
           .then(function(meals) {
-              resolve(meals);
+            deferred.resolve(meals);
           }, function(error) {
-              // some error has occurred
-              // refer to the 'error' object for more details
+            // some error has occurred
+            // refer to the 'error' object for more details
+            deferred.reject(error);
           });
-        });
+
+        return deferred.promise;
       },
 
       uploadFile: function(fileData) {
         console.info('7');
-        return new Promise(function(resolve, reject){
-          var upload = Built.App(apiKey).Upload();
-          upload = upload.setFile(fileData);
+        var deferred = $q.defer();
+        var upload = Built.App(apiKey).Upload();
+        upload = upload.setFile(fileData);
 
-          upload
-            .save()
-            .then(function(result) {
-              resolve(result);
-            }, function(error) {
-              resolve(error);
-            });
-        });
+        upload.save()
+          .then(function(result) {
+            deferred.resolve(result);
+          }, function(error) {
+            deferred.resolve(error);
+          });
+
+        return deferred.promise;
       },
 
       updateProfile: function() {
         console.info('8');
         var data = this.currentUser;
 
-        return new Promise(function(resolve, reject){
-          var user = Built.App(apiKey).User(data.uid);
+        var deferred = $q.defer();
+        var user = Built.App(apiKey).User(data.uid);
 
-          user.updateUserProfile(data).then(function(user) {
-            resolve(user.toJSON())
-          }, function(error) {
-            resolve(error);
-          });
+        user.updateUserProfile(data).then(function(user) {
+          deferred.resolve(user.toJSON())
+        }, function(error) {
+          deferred.resolve(error);
         });
+
+        return deferred.promise;
       }
 
     };
