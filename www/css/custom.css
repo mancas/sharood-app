@@ -119,6 +119,7 @@ textarea {
     top: 4rem;
     left: 50%;
     transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
     width: auto;
 }
 
@@ -150,6 +151,7 @@ textarea {
     font-size: 2.2rem;
     text-decoration: none;
     transition: all 0.3s ease 0s;
+    -webkit-transition: all 0.3s ease 0s;
     color: rgba(249, 231, 159, 1);
 }
 
@@ -181,6 +183,7 @@ header .btn {
     box-sizing: border-box;
     font-size: 2.3rem;
     transition: all 0.3s ease 0s;
+    -webkit-transition: all 0.3s ease 0s;
 }
 
 header .btn-circle {
@@ -379,6 +382,7 @@ header .media {
     position: relative;
     display: block;
     transition: background-color 300ms ease 0s, opacity 300ms ease 0s;
+    -webkit-transition: background-color 300ms ease 0s, opacity 300ms ease 0s;
     border-bottom: solid 0.1rem #693204;
 }
 
@@ -396,6 +400,7 @@ header .media {
     right: -2.5rem;
     top: 50%;
     transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
     font-size: 2.4rem;
 }
 
@@ -518,6 +523,7 @@ span.li-small {
     background-color: #F1C40F;
     text-align: center;
     transition: transform 0.3s ease 0s;
+    -webkit-transition: transform 0.3s ease 0s;
 }
 
 .overlay .loader {
@@ -526,10 +532,12 @@ span.li-small {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
 }
 
 .overlay.closed {
     transform: scale(0);
+    -webkit-transform: scale(0);
 }
 
 .overlay i {
