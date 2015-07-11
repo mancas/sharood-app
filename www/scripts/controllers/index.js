@@ -5,5 +5,6 @@ define([
     'controllers/register',
     'controllers/profile',
     'controllers/meals',
-    'controllers/viewMeal'
+    'controllers/viewMeal',
+    'controllers/settings'
 ], function () {});
