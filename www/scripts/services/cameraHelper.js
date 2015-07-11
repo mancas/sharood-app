@@ -1,6 +1,6 @@
 define(['services/module'], function (services) {
   'use strict';
-  services.factory('cameraHelper', function ($q) {
+  services.factory('cameraHelper', function ($q, $window) {
       var contstants = {
           DATA_URL: 'DestinationType',
           FILE_URI: 'DestinationType',
@@ -57,7 +57,7 @@ define(['services/module'], function (services) {
                   deferred.reject(error);
               }
 
-              window.resolveLocalFileSystemURL(fileURI, function(fileEntry) {
+              $window.resolveLocalFileSystemURL(fileURI, function(fileEntry) {
                   fileEntry.file(function(file){
                       var reader = new FileReader();
                       reader.onloadend = function() {
@@ -105,7 +105,7 @@ console.info(canvas.toDataURL('image/jpeg', 1.0));
                   image.src = fileURI;
               }
 
-              window.resolveLocalFileSystemURL(fileURI, function(fileEntry) {
+              $window.resolveLocalFileSystemURL(fileURI, function(fileEntry) {
                   fileEntry.file(resizeImgFromFile, onerror);
               }, onerror);
 
