@@ -70,10 +70,6 @@ textarea {
     vertical-align: middle;
 }
 
-.login-form > div, .register-form > div {
-    margin: 0 1.5rem;
-}
-
 ::-webkit-input-placeholder { /* WebKit browsers */
     color: #693204;
 }
@@ -115,7 +111,7 @@ textarea {
 
 .btn-round {
     border-radius: 50rem;
-    min-width: 30rem;
+    min-width: 27rem;
     font-size: 2.2rem;
     font-weight: bold;
     color: #693204;
