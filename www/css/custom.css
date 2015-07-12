@@ -68,6 +68,7 @@ textarea {
 .login-form, .register-form {
     display: table-cell;
     vertical-align: middle;
+    padding: 0 1.5rem;
 }
 
 ::-webkit-input-placeholder { /* WebKit browsers */
