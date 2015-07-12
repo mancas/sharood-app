@@ -68,6 +68,9 @@ textarea {
 .login-form, .register-form {
     display: table-cell;
     vertical-align: middle;
+}
+
+.login-form > div, .register-form > div {
     margin: 0 1.5rem;
 }
 
