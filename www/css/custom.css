@@ -179,7 +179,7 @@ header .btn {
     min-width: 4rem;
     height: 4rem;
     display: inline-block;
-    line-height: calc(4rem - 0.4rem);
+    line-height: 3.6rem;
     box-sizing: border-box;
     font-size: 1.6rem;
     transition: all 0.3s ease 0s;
@@ -207,6 +207,14 @@ header .media {
 }
 
 /** MAIN view **/
+
+section {
+    padding: 0 1.5rem 2rem;
+}
+
+section.no-padding {
+    padding: 0;
+}
 
 .main header {
     background-color: #F1C40F;
@@ -558,6 +566,7 @@ span.li-small {
 .container {
     height: 100%;
     width: 100%;
+    padding: 0;
 }
 
 .btn:focus, .btn:active {
