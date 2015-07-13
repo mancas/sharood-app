@@ -12,6 +12,8 @@ define(['controllers/module'], function (controllers) {
         }
 
         $scope.meals = [];
+        $scope.AllMeals = [];
+        var chunk = 10;
 
         $scope.drawImages = function() {
             var queue = angular.copy($scope.meals);
@@ -50,14 +52,35 @@ define(['controllers/module'], function (controllers) {
         sharoodDB.getAllMeals().then(function(meals) {
             console.info(meals);
             meals.forEach(function(meal){
-                $scope.meals.push(meal.toJSON());
+                $scope.AllMeals.push(meal.toJSON());
             });
 
             // Update UX
             //$scope.$apply();
             var overlay = document.querySelector('.overlay');
             overlay.classList.add('closed');
+
+            var lastIndex = chunk;
+            if (lastIndex > $scope.AllMeals.length) {
+                lastIndex = $scope.AllMeals.length;
+            }
+
+            for (var i = 0; i < lastIndex; i++) {
+                $scope.meals.push($scope.AllMeals[i]);
+            }
         });
+
+        $scope.loadMoreMeals = function() {
+            var lastIndex = $scope.meals.length - 1;
+            var newIndex = lastIndex + chunk;
+            if (newIndex > $scope.AllMeals.length) {
+                newIndex = $scope.AllMeals.length;
+            }
+
+            for (var i = lastIndex; i < newIndex; i++) {
+                $scope.meals.push($scope.AllMeals[i]);
+            }
+        };
 
         
         $scope.username = sharoodDB.currentUser.username;
