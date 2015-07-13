@@ -28,9 +28,9 @@
 
     <div class="row">
         <div class="col-md-12 col-sm-12">
-            <div ng-repeat="meal in meals track by $index" class="list-item">
+            <div ng-repeat="meal in meals track by $index" data-index="{{$index}}" class="list-item animate-repeat" on-ng-repeat-finished="">
                 <a href="" ng-click="goToMeal($index)">
-                    <img class="li-small pull-left" src="{{meal.picture.url}}">
+                    <img class="li-small pull-left" src="defaultPath">
                     <span class="list-content media-body">
                         <b class="li-title">{{meal.description}}</b>
                         <small class="li-description">

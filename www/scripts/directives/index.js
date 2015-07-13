@@ -1,5 +1,6 @@
 define([
     'directives/buttonGroup',
     'directives/loader',
-    'directives/alert'
+    'directives/alert',
+    'directives/onNgRepeatFinished'
 ], function () {});

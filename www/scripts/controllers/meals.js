@@ -13,6 +13,40 @@ define(['controllers/module'], function (controllers) {
 
         $scope.meals = [];
 
+        $scope.drawImages = function() {
+            var queue = angular.copy($scope.meals);
+            var currentIndex = 0;
+
+            function processQueue() {
+                var currentElement = queue.shift();
+                if (!currentElement) {
+                    // Last element
+                    return;
+                }
+                var listItem = document.querySelector('[data-index="' + currentIndex + '"]');
+                var img = listItem.querySelector('img');
+
+                img.onload = function() {
+                    currentIndex++;
+                    processQueue();
+                };
+
+                img.onerror = function(e) {
+                    console.error('Error while loading image ' + currentIndex);
+                    currentIndex++;
+                    processQueue();
+                }
+
+                img.src = currentElement.picture.url;
+            }
+
+            processQueue();
+        };
+
+        $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
+            $scope.drawImages();
+        });
+
         sharoodDB.getAllMeals().then(function(meals) {
             console.info(meals);
             meals.forEach(function(meal){
@@ -20,7 +54,7 @@ define(['controllers/module'], function (controllers) {
             });
 
             // Update UX
-            $scope.$apply();
+            //$scope.$apply();
             var overlay = document.querySelector('.overlay');
             overlay.classList.add('closed');
         });
