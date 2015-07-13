@@ -108,6 +108,17 @@ define(['services/module'], function (services) {
         return deferred.promise;
       },
 
+      addOwnerToMeal: function (meal){
+        var deferred = $q.defer();
+
+        this.getUserById(meal.owner[0]).then(function(result){
+          meal.owner = result;
+          deferred.resolve(meal);
+        });
+
+        return deferred.promise;
+      },
+
       uploadFile: function(fileData) {
         console.info('7');
         var deferred = $q.defer();
@@ -132,13 +143,27 @@ define(['services/module'], function (services) {
         var user = Built.App(apiKey).User(data.uid);
 
         user.updateUserProfile(data).then(function(user) {
-          deferred.resolve(user.toJSON())
+          deferred.resolve(user.toJSON());
         }, function(error) {
           deferred.resolve(error);
         });
 
         return deferred.promise;
-      }
+      },
+
+      getUserById: function(userId) {
+        console.info('9');
+        var deferred = $q.defer();
+        var user = Built.App(apiKey).Class('built_io_application_user').Object(userId);
+        user.fetch()
+          .then(function(user) {
+            deferred.resolve(user.toJSON());
+          }, function(error) {
+            deferred.resolve(error);
+          });
+
+        return deferred.promise;
+      }      
 
     };
 

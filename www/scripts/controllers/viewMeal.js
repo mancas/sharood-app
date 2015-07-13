@@ -6,7 +6,10 @@ define(['controllers/module'], function (controllers) {
         
         console.info("ViewMeal controller");
 
-        $scope.meal = MealService.getCurrentMeal();
+        var mealInfo = MealService.getCurrentMeal();
+
+		$scope.meal = mealInfo;  
+
         console.info($scope.meal);
 
     });

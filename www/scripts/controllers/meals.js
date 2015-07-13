@@ -52,7 +52,10 @@ define(['controllers/module'], function (controllers) {
         sharoodDB.getAllMeals().then(function(meals) {
             console.info(meals);
             meals.forEach(function(meal){
-                $scope.AllMeals.push(meal.toJSON());
+                sharoodDB.addOwnerToMeal(meal.toJSON()).then(function(mealWithOwner){
+                    console.info(mealWithOwner);
+                    $scope.AllMeals.push(mealWithOwner);
+                });
             });
 
             // Update UX
