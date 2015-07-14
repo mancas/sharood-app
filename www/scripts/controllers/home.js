@@ -19,6 +19,13 @@ define(['controllers/module'], function (controllers) {
         $scope.cookies = 31;
         */
 
+        var d = new Date();
+        d.setHours(11);
+        d.setMinutes(12);  
+        d.setSeconds(0); 
+        d.setDate(d.getDate() + 1);
+        alert(d.toString());
+
         $scope.navigate = navigation.navigate;
     });
 

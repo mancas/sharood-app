@@ -12,6 +12,8 @@ define(['controllers/module'], function (controllers) {
 
         console.info($scope.meal);
 
+        $scope.navigate = navigation.navigate;
+
     });
 
 });

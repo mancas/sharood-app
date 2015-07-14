@@ -49,7 +49,7 @@ define(['controllers/module'], function (controllers) {
             $scope.drawImages();
         });
 
-        sharoodDB.getAllMeals().then(function(meals) {
+        sharoodDB.getAllMeals(0, 2).then(function(meals) {
             console.info(meals);
             var promises = meals.map(function(meal){
                 return sharoodDB.addOwnerToMeal(meal.toJSON());

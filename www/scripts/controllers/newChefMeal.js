@@ -26,6 +26,28 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             });
         };
 
+        function formatDate(timeHour, timeSchedule, day){
+            var date = new Date();
+            
+            timeHour = timeHour.split(':');
+            var hours = parseInt(timeHour[0]);
+            var minutes = parseInt(timeHour[1]);
+
+            if (timeSchedule == "pm") {
+                hours += 12;
+            }
+
+            date.setHours(hours);
+            date.setMinutes(minutes);  
+            date.setSeconds(0); 
+            if (day == "tomorrow") {
+                date.setDate(date.getDate() + 1);
+            }
+
+            return date;
+
+        }
+
         $scope.sendMeal = function() {
             var description = document.querySelector("#description").value;
             var peopleToCome = document.querySelector("#peopleToCome .active input").value;
@@ -33,8 +55,11 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             var cookies = document.querySelector("#cookies").value;
             var timeHour = document.querySelector("#timeHour").value;
             var timeSchedule = document.querySelector("#timeSchedule").value;
+            var day = document.querySelector("#day").value;
 
             console.info(description, peopleToCome, mealType, cookies, timeHour, timeSchedule);
+
+            var date = formatDate(timeHour, timeSchedule, day);
 
             var mealData = {
                 picture: null,
@@ -42,7 +67,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 type: mealType,
                 cookies_value: cookies,
                 people: peopleToCome,
-                time: timeHour + " " + timeSchedule,
+                time: date,
                 owner: sharoodDB.currentUser.uid
             }
 

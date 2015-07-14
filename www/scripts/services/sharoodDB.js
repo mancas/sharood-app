@@ -91,10 +91,19 @@ define(['services/module'], function (services) {
       },
 
 
-      getAllMeals: function() {
+      getAllMeals: function(start, finish) {
         console.info('6');
         var deferred = $q.defer();
         var query = Built.App(apiKey).Class('meal').Query();
+
+        if(typeof start !== 'undefined' && typeof finish !== 'undefined'){
+          var first = start;
+          var range = finish + 1 - start;
+          if (first != 0) {
+            query = query.skip(first);
+          }
+          query = query.limit(range);
+        }
 
         query.exec()
           .then(function(meals) {

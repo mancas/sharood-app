@@ -509,6 +509,21 @@ span.li-small {
 }
 
 /** VIEW MEAL **/
+.viewMeal-img{
+    height: 150px;
+    width: 100%;
+    background: black;
+}
+
+.viewMeal-img img {
+    display: block;
+    max-width: 100%;
+    max-height: 150px;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+}
+
 .meal-info span {
     display: block;
 }
