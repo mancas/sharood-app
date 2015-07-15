@@ -5,12 +5,14 @@ define(['directives/module'], function (directives) {
         return {
             restrict: 'A',
             link: function(scope, element, attrs) {
-                var onScrollHandler, scrollDistance;
+                var onScrollHandler, scrollDistance, listItemHeight;
                 $window = angular.element($window);
                 // By default scrollDistance is 2
                 scrollDistance = 2;
+                listItemHeight = 70;
                 if (attrs.scrollDistance != null) {
                     scope.$watch(attrs.scrollDistance, function(value) {
+                        console.info(value);
                         return scrollDistance = parseInt(value, 10);
                     });
                 }
@@ -20,13 +22,15 @@ define(['directives/module'], function (directives) {
                     windowBottom = $window.height() + $window.scrollTop();
                     elementBottom = element.offset().top + element.height();
                     remaining = elementBottom - windowBottom;
-                    shouldScroll = remaining <= ($window.height() * scrollDistance);
+                    shouldScroll = remaining <= (listItemHeight * scrollDistance);
 
-                    if (shouldScroll && attrs.infiniteScrollCallback !== null) {
+                    if (shouldScroll && attrs.ngInfiniteScrollCallback !== null) {
                         if ($rootScope.$$phase) {
-                            return scope.$eval(attrs.infiniteScrollCallback);
+                            console.info('here');
+                            return scope.$eval(attrs.ngInfiniteScrollCallback);
                         } else {
-                            return scope.$apply(attrs.infiniteScrollCallback);
+                            console.info('apply', attrs);
+                            return scope.$apply(attrs.ngInfiniteScrollCallback);
                         }
                     }
                 };

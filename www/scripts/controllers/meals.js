@@ -49,8 +49,7 @@ define(['controllers/module'], function (controllers) {
             $scope.drawImages();
         });
 
-        sharoodDB.getAllMeals(0, 2).then(function(meals) {
-            console.info(meals);
+        sharoodDB.getAllMeals().then(function(meals) {
             var promises = meals.map(function(meal){
                 return sharoodDB.addOwnerToMeal(meal.toJSON());
             });
@@ -68,12 +67,18 @@ define(['controllers/module'], function (controllers) {
                 }
 
                 for (var i = 0; i < lastIndex; i++) {
+                    console.info($scope.AllMeals[i]);
                     $scope.meals.push($scope.AllMeals[i]);
                 }
             });
         });
 
         $scope.loadMoreMeals = function() {
+            console.info('load!');
+            if (!$scope.meals.length) {
+                return;
+            }
+
             var lastIndex = $scope.meals.length - 1;
             var newIndex = lastIndex + chunk;
             if (newIndex > $scope.AllMeals.length) {
@@ -81,8 +86,11 @@ define(['controllers/module'], function (controllers) {
             }
 
             for (var i = lastIndex; i < newIndex; i++) {
+                console.info($scope.AllMeals[i]);
                 $scope.meals.push($scope.AllMeals[i]);
             }
+
+            console.info($scope.meals);
         };
 
         
