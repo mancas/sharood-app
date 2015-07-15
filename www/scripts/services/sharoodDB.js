@@ -105,7 +105,13 @@ define(['services/module'], function (services) {
           query = query.limit(range);
         }
 
-        query.exec()
+        query.include(['owner',
+                       'assistants.assistant1',
+                       'assistants.assistant2',
+                       'assistants.assistant3',
+                       'assistants.assistant4',
+                       'assistants.assistant5'])
+          .exec()
           .then(function(meals) {
             deferred.resolve(meals);
           }, function(error) {
@@ -169,6 +175,61 @@ define(['services/module'], function (services) {
             deferred.resolve(user.toJSON());
           }, function(error) {
             deferred.resolve(error);
+          });
+
+        return deferred.promise;
+      },
+
+      getAllMealsByOwner: function(owner) {
+        console.info('10');
+        var deferred = $q.defer();
+        var query = Built.App(apiKey).Class('meal').Query();
+
+        query.include(['owner',
+                       'assistants.assistant1',
+                       'assistants.assistant2',
+                       'assistants.assistant3',
+                       'assistants.assistant4',
+                       'assistants.assistant5'])
+          .where('owner', owner).exec()
+          .then(function(meals) {
+            deferred.resolve(meals);
+          }, function(error) {
+            // some error has occurred
+            // refer to the 'error' object for more details
+            deferred.reject(error);
+          });
+
+        return deferred.promise;
+      },
+
+      getAllMealsByAssistant: function(assistant) {
+        console.info('11');
+        var deferred = $q.defer();
+
+        var query = Built.App(apiKey).Class('meal').Query();
+
+        var q1 = query.where('assistants.assistant1', assistant);
+        var q2 = query.where('assistants.assistant2', assistant);
+        var q3 = query.where('assistants.assistant3', assistant);
+        var q4 = query.where('assistants.assistant4', assistant);
+        var q5 = query.where('assistants.assistant5', assistant);
+
+        query = query.or([q1, q2, q3, q4, q5]);
+
+        query.include(['owner',
+                       'assistants.assistant1',
+                       'assistants.assistant2',
+                       'assistants.assistant3',
+                       'assistants.assistant4',
+                       'assistants.assistant5'])
+          .exec()
+          .then(function(meals) {
+            deferred.resolve(meals);
+          }, function(error) {
+            // some error has occurred
+            // refer to the 'error' object for more details
+            deferred.reject(error);
           });
 
         return deferred.promise;

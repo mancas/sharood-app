@@ -49,28 +49,32 @@ define(['controllers/module'], function (controllers) {
             $scope.drawImages();
         });
 
+        sharoodDB.getAllMealsByOwner(sharoodDB.currentUser.uid).then(function(meals) {
+            console.info(meals);
+        });
+
+        sharoodDB.getAllMealsByAssistant(sharoodDB.currentUser.uid).then(function(meals) {
+            console.info(meals);
+        });
+
         sharoodDB.getAllMeals().then(function(meals) {
-            var promises = meals.map(function(meal){
-                return sharoodDB.addOwnerToMeal(meal.toJSON());
+            console.info(meals);
+            meals.forEach(function(meal){
+                $scope.AllMeals.push(meal.toJSON());
             });
 
-            $q.all(promises).then(function(data) {
-                console.info(data);
-                $scope.AllMeals = data;
+            var overlay = document.querySelector('.overlay');
+            overlay.classList.add('closed');
 
-                var overlay = document.querySelector('.overlay');
-                overlay.classList.add('closed');
+            var lastIndex = chunk;
+            if (lastIndex > $scope.AllMeals.length) {
+                lastIndex = $scope.AllMeals.length;
+            }
 
-                var lastIndex = chunk;
-                if (lastIndex > $scope.AllMeals.length) {
-                    lastIndex = $scope.AllMeals.length;
-                }
-
-                for (var i = 0; i < lastIndex; i++) {
-                    console.info($scope.AllMeals[i]);
-                    $scope.meals.push($scope.AllMeals[i]);
-                }
-            });
+            for (var i = 0; i < lastIndex; i++) {
+                console.info($scope.AllMeals[i]);
+                $scope.meals.push($scope.AllMeals[i]);
+            }
         });
 
         $scope.loadMoreMeals = function() {
