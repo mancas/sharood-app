@@ -3,5 +3,6 @@ define([
     'directives/loader',
     'directives/alert',
     'directives/onNgRepeatFinished',
-    'directives/ngInfiniteScroll'
+    'directives/ngInfiniteScroll',
+    'directives/stars'
 ], function () {});

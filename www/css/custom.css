@@ -539,6 +539,32 @@ span.li-small {
     margin-left: 15rem;
 }
 
+.stars {
+    margin: auto;
+    display: block;
+    width: auto;
+    text-align: center;
+}
+
+.stars .btn {
+    float: none;
+    display: inline-block;
+    position: relative;
+    height: 22px;
+
+    background-image: url('../img/star-off.svg');
+}
+
+.stars .btn:last-child {
+    margin-right: 0;
+}
+
+.stars .btn.active {
+    box-shadow: none;
+
+    background-image: url('../img/star-on.svg');
+}
+
 /** SETTINGS **/
 .settings a {
     text-decoration: none;
