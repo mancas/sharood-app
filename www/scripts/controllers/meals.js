@@ -11,12 +11,45 @@ define(['controllers/module'], function (controllers) {
             return;
         }
 
-        $scope.meals = [];
+        $scope.mealsToRender = [];
         $scope.AllMeals = [];
+        $scope.ToAttendMeals = [];
+        $scope.MyMeals = [];
+        $scope.currentMeals = [];
         var chunk = 10;
+        var toggleMeals = {
+            meals: {
+                elements: 'AllMeals',
+                load: true,
+                method: 'getAllMeals'
+            },
+            toAttend: {
+                elements: 'ToAttendMeals',
+                load: false,
+                method: 'getAllMealsByAssistant'
+            },
+            myMeals: {
+                elements: 'MyMeals',
+                load: false,
+                method: 'getAllMealsByOwner'
+            }
+        };
+
+        $scope.loadFirstElements = function() {
+            var lastIndex = chunk;
+            // Clean array
+            $scope.mealsToRender = [];
+            if (lastIndex > $scope.currentMeals.length) {
+                lastIndex = $scope.currentMeals.length;
+            }
+
+            for (var i = 0; i < lastIndex; i++) {
+                $scope.mealsToRender.push($scope.currentMeals[i]);
+            }
+        }
 
         $scope.drawImages = function() {
-            var queue = angular.copy($scope.meals);
+            var queue = angular.copy($scope.mealsToRender);
             var currentIndex = 0;
 
             function processQueue() {
@@ -61,40 +94,36 @@ define(['controllers/module'], function (controllers) {
             console.info(meals);
             meals.forEach(function(meal){
                 $scope.AllMeals.push(meal.toJSON());
+                $scope.currentMeals.push(meal.toJSON());
             });
 
             var overlay = document.querySelector('.overlay');
             overlay.classList.add('closed');
 
-            var lastIndex = chunk;
-            if (lastIndex > $scope.AllMeals.length) {
-                lastIndex = $scope.AllMeals.length;
-            }
-
-            for (var i = 0; i < lastIndex; i++) {
-                console.info($scope.AllMeals[i]);
-                $scope.meals.push($scope.AllMeals[i]);
-            }
+            $scope.loadFirstElements();
         });
 
         $scope.loadMoreMeals = function() {
             console.info('load!');
-            if (!$scope.meals.length) {
+            if (!$scope.mealsToRender.length) {
                 return;
             }
 
-            var lastIndex = $scope.meals.length - 1;
+            var lastIndex = $scope.mealsToRender.length - 1;
             var newIndex = lastIndex + chunk;
-            if (newIndex > $scope.AllMeals.length) {
-                newIndex = $scope.AllMeals.length;
+
+            if (lastIndex === $scope.currentMeals.length) {
+                return;
+            } else if (newIndex > $scope.currentMeals.length) {
+                newIndex = $scope.currentMeals.length;
             }
 
             for (var i = lastIndex; i < newIndex; i++) {
-                console.info($scope.AllMeals[i]);
-                $scope.meals.push($scope.AllMeals[i]);
+                console.info($scope.currentMeals[i]);
+                $scope.mealsToRender.push($scope.currentMeals[i]);
             }
 
-            console.info($scope.meals);
+            console.info($scope.mealsToRender);
         };
 
         
@@ -108,9 +137,49 @@ define(['controllers/module'], function (controllers) {
         $scope.navigate = navigation.navigate;
 
         $scope.goToMeal = function(mealIndex){
-            MealService.setCurrentMeal($scope.meals[mealIndex]);
+            MealService.setCurrentMeal($scope.mealsToRender[mealIndex]);
             navigation.navigate('/viewMeal');
         };
+
+        $scope.toggleCurrentMeals = function(listId) {
+            if (toggleMeals[listId]) {
+                var mealsOptions = toggleMeals[listId];
+                if (mealsOptions.load) {
+                    $scope.currentMeals = $scope[mealsOptions.elements];
+                    $scope.loadFirstElements();
+                    return;
+                }
+
+                // Load when needed
+                sharoodDB[mealsOptions.method](sharoodDB.currentUser.uid).then(function(meals) {
+                    console.info('new meals loaded', meals);
+                    mealsOptions.load = true;
+                    $scope.currentMeals = $scope[mealsOptions.elements] = [];
+                    meals.forEach(function(meal){
+                        $scope.AllMeals.push(meal.toJSON());
+                        $scope.currentMeals.push(meal.toJSON());
+                        $scope[mealsOptions.elements].push(meal.toJSON());
+                    });
+                    $scope.loadFirstElements();
+                });
+            }
+        }
+
+        $scope.$on('$viewContentLoaded', function() {
+            var btns = document.querySelectorAll('.toggle-meals button');
+            Array.prototype.forEach.call(btns, function(btn) {
+                btn.addEventListener('click', function fn(evt) {
+                    evt.preventDefault();
+                    var currentActive = document.querySelector('.toggle-meals button.active');
+                    currentActive.classList.remove('active');
+                    btn.classList.add('active');
+
+                    var list = btn.dataset.list;
+                    console.info(list);
+                    $scope.toggleCurrentMeals(list);
+                });
+            });
+        });
 
     });
 

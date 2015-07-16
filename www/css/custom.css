@@ -465,18 +465,18 @@ span.li-small {
     margin-right: 1rem;
 }
 
-.meals-options {
+.toggle-meals {
     padding: 2rem 0;
 }
 
-.meals-options .btn-group {
+.toggle-meals .btn-group {
     margin: auto;
     display: block;
     width: auto;
     text-align: center;
 }
 
-.meals-options .btn-group .btn {
+.toggle-meals .btn-group .btn {
     float: left;
     display: block;
     border-radius: 0 !important;
@@ -487,7 +487,7 @@ span.li-small {
     color: #F9E79F;
 }
 
-.meals-options .btn-group .btn:after {
+.toggle-meals .btn-group .btn:after {
     content: "";
     display: block;
     width: 0.1rem;
@@ -498,11 +498,11 @@ span.li-small {
     background-color: #F9E79F;
 }
 
-.meals-options .btn-group .btn:last-of-type:after {
+.toggle-meals .btn-group .btn:last-of-type:after {
     display: none;
 }
 
-.meals-options .btn-group .btn.active {
+.toggle-meals .btn-group .btn.active {
     background: #F9E79F;
     box-shadow: none;
     color: #693204;

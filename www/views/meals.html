@@ -16,19 +16,19 @@
         </div>
     </header>
 
-    <div class="row meals-options">
+    <div class="row toggle-meals">
         <div class="col-md-12 col-sm-12">
             <div class="btn-group" role="group">
-                <button type="button" class="btn btn-default active">Meals</button>
-                <button type="button" class="btn btn-default">People</button>
-                <button type="button" class="btn btn-default">My meals</button>
+                <button data-list="meals" type="button" class="btn btn-default active">Meals</button>
+                <button data-list="toAttend" type="button" class="btn btn-default">People</button>
+                <button data-list="myMeals" type="button" class="btn btn-default">My meals</button>
             </div>
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-12 col-sm-12" ng-infinite-scroll="" ng-infinite-scroll-callback="loadMoreMeals()">
-            <div ng-repeat="meal in meals track by $index" data-index="{{$index}}" class="list-item animate-repeat">
+            <div ng-repeat="meal in mealsToRender track by $index" data-index="{{$index}}" class="list-item animate-repeat">
                 <a href="" ng-click="goToMeal($index)">
                     <img class="li-small pull-left" src="{{meal.picture.url}}" />
                     <span class="list-content media-body">
