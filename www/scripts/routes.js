@@ -35,6 +35,12 @@ define(['app'], function (app) {
                     templateUrl: 'views/settings.html',
                     controller: 'Settings'
                 })
+                .when('/myMealInfo', {
+                    templateUrl: 'views/myMealInfo.html'
+                })
+                .when('/selectedMealInfo', {
+                    templateUrl: 'views/selectedMealInfo.html'
+                })
                 .otherwise({
                     redirectTo: '/'
                 });

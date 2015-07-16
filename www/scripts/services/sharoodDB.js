@@ -123,6 +123,23 @@ define(['services/module'], function (services) {
         return deferred.promise;
       },
 
+      getmealById: function (mealId){
+        var deferred = $q.defer();
+
+        var query = Built.App(apiKey).Class('meal').Object(mealId);
+ 
+        query
+        .fetch()
+        .then(function(project) {
+            deferred.resolve(project.toJSON());
+        }, function(error) {
+            // some error has occurred
+            // refer to the 'error' object for more details
+        });
+
+        return deferred.promise;
+      },
+
       addOwnerToMeal: function (meal){
         var deferred = $q.defer();
 
