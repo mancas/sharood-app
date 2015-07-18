@@ -111,6 +111,7 @@ define(['services/module'], function (services) {
                        'assistants.assistant3',
                        'assistants.assistant4',
                        'assistants.assistant5'])
+          .ascending('time')
           .exec()
           .then(function(meals) {
             deferred.resolve(meals);

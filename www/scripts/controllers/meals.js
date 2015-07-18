@@ -7,7 +7,7 @@ define(['controllers/module'], function (controllers) {
         console.info("Meals controller");
 
         if(sharoodDB.currentUser === null){
-            navigation.navigate('#/');
+            navigation.navigate('/');
             return;
         }
 
@@ -90,17 +90,25 @@ define(['controllers/module'], function (controllers) {
             console.info(meals);
         });
 
-        sharoodDB.getAllMeals().then(function(meals) {
+        sharoodDB.getAllMealsByAssistant(sharoodDB.currentUser.uid).then(function(meals) {
             console.info(meals);
-            meals.forEach(function(meal){
-                $scope.AllMeals.push(meal.toJSON());
-                $scope.currentMeals.push(meal.toJSON());
-            });
+            if(meals.length == 0){
+                sharoodDB.getAllMeals().then(function(meals) {
+                    console.info(meals);
+                    meals.forEach(function(meal){
+                        $scope.AllMeals.push(meal.toJSON());
+                        $scope.currentMeals.push(meal.toJSON());
+                    });
 
-            var overlay = document.querySelector('.overlay');
-            overlay.classList.add('closed');
+                    var overlay = document.querySelector('.overlay');
+                    overlay.classList.add('closed');
 
-            $scope.loadFirstElements();
+                    $scope.loadFirstElements();
+                });
+            } else {
+                MealService.setCurrentMeal(meals[0].toJSON());
+                navigation.navigate('/selectedMealInfo');
+            }
         });
 
         $scope.loadMoreMeals = function() {
