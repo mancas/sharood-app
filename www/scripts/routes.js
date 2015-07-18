@@ -36,7 +36,8 @@ define(['app'], function (app) {
                     controller: 'Settings'
                 })
                 .when('/myMealInfo', {
-                    templateUrl: 'views/myMealInfo.html'
+                    templateUrl: 'views/myMealInfo.html',
+                    controller: 'MyMealInfo'
                 })
                 .when('/selectedMealInfo', {
                     templateUrl: 'views/selectedMealInfo.html',

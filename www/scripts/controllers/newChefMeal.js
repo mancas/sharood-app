@@ -2,7 +2,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
     'use strict';
 
-    controllers.controller('NewChefMeal', function ($scope, sharoodDB, navigation, cameraHelper) {
+    controllers.controller('NewChefMeal', function ($scope, sharoodDB, navigation, MealService, cameraHelper) {
 
         console.info("NewChefMeal controller");
 
@@ -10,6 +10,17 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             navigation.navigate('/');
             return;
         }
+
+        sharoodDB.getAllMealsByOwner(sharoodDB.currentUser.uid).then(function(meals) {
+            console.info(meals);
+            if(meals.length == 0){
+                var overlay = document.querySelector('.overlay');
+                overlay.classList.add('closed');
+            } else {
+                MealService.setCurrentMeal(meals[0].toJSON());
+                navigation.navigate('/myMealInfo');
+            }
+        });
 
         $scope.imageMealURI = null;
 

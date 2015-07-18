@@ -1,11 +1,37 @@
 <section class="main">
 
-<p>Congrats! Tour meal has been posted!</p>
+    <header class="nav navbar-fixed-top">
+        <span class="btn" ng-click="navigate('/home')">
+            <i class="fa fa-chevron-left"></i>
+            Back
+        </span>
+        <h1>Meal info</h1>
+    </header>
 
-<p>Grourments list</p>
+	<div class="row toggle-meals">
 
-<p>Finish eating?</p>
+		<div class="col-md-12 col-sm-12">
 
-<p>Rate Gourmets</p>
+			<p>Congrats! Tour meal has been posted!</p>
+
+			<p>Grourments list</p>
+
+				<ul>
+
+					<li>{{meal.assistants.assistant1[0].email}}</li>
+					<li>{{meal.assistants.assistant2[0].email}}</li>
+					<li>{{meal.assistants.assistant3[0].email}}</li>
+					<li>{{meal.assistants.assistant4[0].email}}</li>
+					<li>{{meal.assistants.assistant5[0].email}}</li>
+
+				</ul>
+
+			<p>Finish eating?</p>
+
+			<p><a href='' ng-click='alert("Rate Gourmets")'>Rate Gourmets</a></p>
+
+		</div>
+
+	</div>
 
 </section>

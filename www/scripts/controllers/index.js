@@ -7,5 +7,6 @@ define([
     'controllers/meals',
     'controllers/viewMeal',
     'controllers/settings',
-    'controllers/selectedMealInfo'
+    'controllers/selectedMealInfo',
+    'controllers/myMealInfo'
 ], function () {});
