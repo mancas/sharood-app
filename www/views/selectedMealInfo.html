@@ -1,15 +1,31 @@
 <section class="main">
 
-<p>Congrats! Now you can go to Axel's situation. Meal time:</p>
+    <header class="nav navbar-fixed-top">
+        <span class="btn" ng-click="navigate('/home')">
+            <i class="fa fa-chevron-left"></i>
+            Back
+        </span>
+        <h1>Saved seat</h1>
+    </header>
 
-<p>See Axel's Meal</p>
+	<div class="row toggle-meals">
 
-<p>Ask for directions</p>
+		<div class="col-md-12 col-sm-12">
 
-<p>Are you back from the meal?</p>
+			<p>Congrats! Now you can go to {{meal.owner.username}}'s situation. Meal time: {{meal.time}}</p>
 
-<p>Rate Chef and choose another meal!</p>
+			<p><a href='' ng-click='navigate("/viewMeal")'>See {{meal.owner.username}}'s Meal</a></p>
 
-<p>Cancel meal</p>
+			<p><a href='' ng-click='alert("Send an email")'>Ask for directions</a></p>
+
+			<p>Are you back from the meal?</p>
+
+			<p><a href='' ng-click='alert("Rate Chef")'>Rate Chef and choose another meal!</a></p>
+
+			<p><a href='' ng-click='alert("Cancel meal")'>Cancel meal</a></p>
+
+		</div>
+
+	</div>
 
 </section>

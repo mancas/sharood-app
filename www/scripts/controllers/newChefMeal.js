@@ -7,7 +7,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
         console.info("NewChefMeal controller");
 
         if(sharoodDB.currentUser === null){
-            navigation.navigate('#/');
+            navigation.navigate('/');
             return;
         }
 
