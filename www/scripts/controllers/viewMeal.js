@@ -15,19 +15,25 @@ define(['controllers/module'], function (controllers) {
         $scope.foodConfig = {
             values: [1, 2, 3, 4, 5],
             id: 'foodStars',
-            name: 'foodStars'
+            name: 'foodStars',
+            number: 3,
+            editable: false
         };
 
         $scope.friendlinessConfig = {
             values: [1, 2, 3, 4, 5],
             id: 'friendlinessStars',
-            name: 'friendlinessStars'
+            name: 'friendlinessStars',
+            number: 3,
+            editable: false
         };
 
         $scope.funConfig = {
             values: [1, 2, 3, 4, 5],
             id: 'funStars',
-            name: 'funStars'
+            name: 'funStars',
+            number: 3,
+            editable: false
         };
 
         function addPerson(meal){
