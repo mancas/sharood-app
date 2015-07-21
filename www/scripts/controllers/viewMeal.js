@@ -37,7 +37,7 @@ define(['controllers/module'], function (controllers) {
         };
 
         function addPerson(meal){
-            if(!meal.assistants){
+            if(typeof meal.assistants == 'undefined'){
                 meal.assistants = { assistant1: sharoodDB.currentUser.uid }
                 return meal;
             } else {

@@ -227,6 +227,11 @@ define(['services/module'], function (services) {
 
         var query = Built.App(apiKey).Class('meal').Query();
 
+        console.info(query);
+        console.info(this.currentUser);
+
+        query = query.notContainedIn('votedby', this.currentUser.uid);
+
         var q1 = query.where('assistants.assistant1', assistant);
         var q2 = query.where('assistants.assistant2', assistant);
         var q3 = query.where('assistants.assistant3', assistant);
@@ -251,7 +256,35 @@ define(['services/module'], function (services) {
           });
 
         return deferred.promise;
-      }      
+      },
+
+      addVotesToUser: function(userId, friendliness, foodLevel, fun) {
+        console.info('12');
+        var deferred = $q.defer();
+        console.info(userId, friendliness, foodLevel, fun);
+        var User = Built.App(apiKey).Class('built_io_application_user').Object;
+        var user = User(userId);
+
+        user = user.increment('friendliness_chef_rating', friendliness);
+        user = user.increment('friendliness_chef_rating_nofvotes', 1);
+
+        if(foodLevel !== null || fun !== null){
+          user = user.increment('food_level_rating', foodLevel);
+          user = user.increment('food_level_rating_nofvotes', 1);
+
+          user = user.increment('fun_rating_rating', fun);
+          user = user.increment('fun_rating_nofvotes', 1);
+        }
+
+        user.fetch()
+          .then(function(user) {
+            deferred.resolve(user.toJSON());
+          }, function(error) {
+            deferred.resolve(error);
+          });
+
+        return deferred.promise;
+      },      
 
     };
 
