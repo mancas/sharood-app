@@ -6,13 +6,13 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
         function tryAutoLogin(){
             sharoodDB.loadCurrentUser().then(function(user){
+                console.info(user);
                 sharoodDB.currentUser = user;
                 navigation.navigate('/home');
             });
         }
 
         tryAutoLogin();
-        console.info(sharoodDB);
 
         $scope.login = function(){
             var email = document.getElementById("email").value;

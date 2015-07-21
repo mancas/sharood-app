@@ -46,6 +46,18 @@ define(['services/module'], function (services) {
         console.info('3');
         var deferred = $q.defer();
         var user = Built.App(apiKey).User();
+
+        user = user.assign({
+            cookies: 10,
+            food_level_rating: 0,
+            food_level_rating_nofvotes: 0,
+            friendliness_chef_rating: 0,
+            friendliness_chef_rating_nofvotes: 0,
+            fun_rating: 0,
+            fun_rating_nofvotes: 0
+
+        });
+
         user.register(email, password, passwordReply)
           .then(function(user) {
             deferred.resolve(user.toJSON());
@@ -104,6 +116,8 @@ define(['services/module'], function (services) {
           }
           query = query.limit(range);
         }
+
+        query = query.greaterThanOrEqualTo('time', new Date()); //Only meals with a time bigger than now.
 
         query.include(['owner',
                        'assistants.assistant1',
@@ -272,11 +286,11 @@ define(['services/module'], function (services) {
           user = user.increment('food_level_rating', foodLevel);
           user = user.increment('food_level_rating_nofvotes', 1);
 
-          user = user.increment('fun_rating_rating', fun);
+          user = user.increment('fun_rating', fun);
           user = user.increment('fun_rating_nofvotes', 1);
         }
 
-        user.fetch()
+        user.save()
           .then(function(user) {
             deferred.resolve(user.toJSON());
           }, function(error) {

@@ -16,7 +16,7 @@ define(['controllers/module'], function (controllers) {
             values: [1, 2, 3, 4, 5],
             id: 'foodStars',
             name: 'foodStars',
-            number: 3,
+            number: Math.round(mealInfo.owner[0].food_level_rating / mealInfo.owner[0].food_level_rating_nofvotes),
             editable: false
         };
 
@@ -24,7 +24,7 @@ define(['controllers/module'], function (controllers) {
             values: [1, 2, 3, 4, 5],
             id: 'friendlinessStars',
             name: 'friendlinessStars',
-            number: 3,
+            number: Math.round(mealInfo.owner[0].friendliness_chef_rating / mealInfo.owner[0].friendliness_chef_rating_nofvotes),
             editable: false
         };
 
@@ -32,7 +32,7 @@ define(['controllers/module'], function (controllers) {
             values: [1, 2, 3, 4, 5],
             id: 'funStars',
             name: 'funStars',
-            number: 3,
+            number: Math.round(mealInfo.owner[0].fun_rating / mealInfo.owner[0].fun_rating_nofvotes),
             editable: false
         };
 
