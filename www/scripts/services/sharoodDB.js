@@ -42,7 +42,7 @@ define(['services/module'], function (services) {
         return deferred.promise;
       },
 
-      register: function(email, password, passwordReply) {
+      register: function(email, password, passwordReply, university) {
         console.info('3');
         var deferred = $q.defer();
         var user = Built.App(apiKey).User();
@@ -54,8 +54,8 @@ define(['services/module'], function (services) {
             friendliness_chef_rating: 0,
             friendliness_chef_rating_nofvotes: 0,
             fun_rating: 0,
-            fun_rating_nofvotes: 0
-
+            fun_rating_nofvotes: 0,
+            university: university
         });
 
         user.register(email, password, passwordReply)
@@ -298,7 +298,26 @@ define(['services/module'], function (services) {
           });
 
         return deferred.promise;
-      },      
+      },    
+
+      getAllPlaces: function() {
+        console.info('12');
+        var deferred = $q.defer();
+        var query = Built.App(apiKey).Class('university').Query();
+
+        query = query.ascending('name');
+
+        query.exec()
+          .then(function(places) {
+            deferred.resolve(places);
+          }, function(error) {
+            // some error has occurred
+            // refer to the 'error' object for more details
+            deferred.reject(error);
+          });
+
+        return deferred.promise;
+      }
 
     };
 

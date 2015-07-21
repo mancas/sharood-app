@@ -25,7 +25,8 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             var email = document.getElementById("email").value;
             var password = document.getElementById("password").value;
             var passwordConfirm = document.getElementById("passwordConfirm").value;
-            sharoodDB.register(email, password, passwordConfirm).then(function(user) {
+            var university = document.getElementById("selectPlace").value;
+            sharoodDB.register(email, password, passwordConfirm, university).then(function(user) {
                 $scope.hasErrors = false;
                 updateAlertTitles();
                 AlertHelper.alert('#register-account-alert');
@@ -74,6 +75,19 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 callback: onSuccess
             }
         };
+
+        sharoodDB.getAllPlaces().then(function(result){
+            result.forEach(function(element){
+                var university = element.toJSON().name;
+                var universityUid = element.toJSON().uid;
+
+                var x = document.getElementById("selectPlace");
+                var option = document.createElement("option");
+                option.text = university;
+                option.value = universityUid;
+                x.add(option);
+            });
+        });
 
     });
 
