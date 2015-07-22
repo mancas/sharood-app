@@ -51,7 +51,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 sharoodDB.uploadFile(data).then(function(result) {
                     console.info(result.toJSON());
                     sharoodDB.currentUser.picture = result.toJSON().uid;
-                    console.info(mealData.picture);
+                    console.info(sharoodDB.currentUser.picture);
                     // If everything went well
                     sharoodDB.updateProfile().then(function(result){
                         console.info(result);
