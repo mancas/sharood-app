@@ -1,6 +1,11 @@
 define(['services/module'], function (services) {
   'use strict';
   services.factory('cameraHelper', function ($q, $window) {
+
+      if(typeof Camera == 'undefined'){
+        return;
+      }
+
       var contstants = {
           DATA_URL: 'DestinationType',
           FILE_URI: 'DestinationType',

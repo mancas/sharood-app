@@ -2,7 +2,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
     'use strict';
 
-    controllers.controller('Profile', function ($scope, sharoodDB, navigation) {
+    controllers.controller('Profile', function ($scope, sharoodDB, navigation, cameraHelper) {
 
         console.info("Profile controller");
 
@@ -46,9 +46,18 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             sharoodDB.currentUser.first_name = inputValue('first_name');
             sharoodDB.currentUser.phone = inputValue('phone');
             sharoodDB.currentUser.email = inputValue('email');
-            sharoodDB.updateProfile().then(function(result){
-                console.info(result);
-            });
+
+            cameraHelper.resizeImage($scope.imageMealURI).then(function(data) {
+                sharoodDB.uploadFile(data).then(function(result) {
+                    console.info(result.toJSON());
+                    sharoodDB.currentUser.picture = result.toJSON().uid;
+                    console.info(mealData.picture);
+                    // If everything went well
+                    sharoodDB.updateProfile().then(function(result){
+                        console.info(result);
+                    });
+                }).catch($scope.onerror);
+            }).catch($scope.onerror);
         };
 
         function inputValue(name) {
@@ -113,6 +122,14 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 }
             }
         };
+
+        $scope.changePhoto = function(){
+            console.info("Getting Picture");
+            cameraHelper.getPicture().then(function(imgURI){
+                document.getElementById('profilePhoto').style.backgroundImage = 'url(\'' + imgURI + '\')';
+                $scope.imageMealURI = imgURI;
+            });
+        }
     });
 
 });
