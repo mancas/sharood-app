@@ -56,6 +56,10 @@ textarea {
     margin: auto;
 }
 
+.hidden {
+    display: none;
+}
+
 /** LOGIN AND REGISTER VIEWS **/
 .login, .register {
     display: table;

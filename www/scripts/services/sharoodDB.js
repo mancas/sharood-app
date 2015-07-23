@@ -220,6 +220,8 @@ define(['services/module'], function (services) {
         var deferred = $q.defer();
         var query = Built.App(apiKey).Class('meal').Query();
 
+        query = query.notContainedIn('votedby', this.currentUser.uid);
+
         query.include(['owner',
                        'assistants.assistant1',
                        'assistants.assistant2',
@@ -285,7 +287,7 @@ define(['services/module'], function (services) {
         user = user.increment('friendliness_chef_rating', friendliness);
         user = user.increment('friendliness_chef_rating_nofvotes', 1);
 
-        if(foodLevel !== null || fun !== null){
+        if(typeof foodLevel !== 'undefined' || typeof fun !== 'undefined'){
           user = user.increment('food_level_rating', foodLevel);
           user = user.increment('food_level_rating_nofvotes', 1);
 
@@ -304,7 +306,7 @@ define(['services/module'], function (services) {
       },    
 
       getAllPlaces: function() {
-        console.info('12');
+        console.info('13');
         var deferred = $q.defer();
         var query = Built.App(apiKey).Class('university').Query();
 

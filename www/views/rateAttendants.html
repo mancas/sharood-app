@@ -12,7 +12,44 @@
 
 		<div class="col-md-12 col-sm-12">
 
+            <p>Your feedback will serve the community to know how good the Gourment is!</p>
 
+            <div ng-class="{hidden: attendantEmpty(1)}">
+
+                <p>Friendliness {{meal.assistants.assistant1[0].first_name}}</p>
+                <p><stars config="attendant1Config"></stars></p>
+
+            </div>
+
+            <div ng-class="{hidden: attendantEmpty(2)}">
+
+                <p>Friendliness {{meal.assistants.assistant2[0].first_name}}</p>
+                <p><stars config="attendant2Config"></stars></p>
+
+            </div>
+
+            <div ng-class="{hidden: attendantEmpty(3)}">
+
+                <p>Friendliness {{meal.assistants.assistant3[0].first_name}}</p>
+                <p><stars config="attendant3Config"></stars></p>
+
+            </div>
+
+            <div ng-class="{hidden: attendantEmpty(4)}">
+
+                <p>Friendliness {{meal.assistants.assistant4[0].first_name}}</p>
+                <p><stars config="attendant4Config"></stars></p>
+
+            </div>
+
+            <div ng-class="{hidden: attendantEmpty(5)}">
+
+                <p>Friendliness {{meal.assistants.assistant1[5].first_name}}</p>
+                <p><stars config="attendant5Config"></stars></p>
+
+            </div>
+
+            <button ng-click="sendResults()">Done!</button>
 
 		</div>
 
