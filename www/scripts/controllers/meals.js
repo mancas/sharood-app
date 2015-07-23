@@ -82,6 +82,7 @@ define(['controllers/module'], function (controllers) {
             $scope.drawImages();
         });
 
+        /*
         sharoodDB.getAllMealsByOwner(sharoodDB.currentUser.uid).then(function(meals) {
             console.info(meals);
         });
@@ -89,6 +90,7 @@ define(['controllers/module'], function (controllers) {
         sharoodDB.getAllMealsByAssistant(sharoodDB.currentUser.uid).then(function(meals) {
             console.info(meals);
         });
+        */
 
         sharoodDB.getAllMealsByAssistant(sharoodDB.currentUser.uid).then(function(meals) {
             console.info(meals);
@@ -96,6 +98,7 @@ define(['controllers/module'], function (controllers) {
                 sharoodDB.getAllMeals().then(function(meals) {
                     console.info(meals);
                     meals.forEach(function(meal){
+                        console.info(meal.toJSON());
                         $scope.AllMeals.push(meal.toJSON());
                         $scope.currentMeals.push(meal.toJSON());
                     });

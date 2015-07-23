@@ -182,18 +182,21 @@ define(['services/module'], function (services) {
         return deferred.promise;
       },
 
-      updateProfile: function() {
+      updateProfile: function(data) {
         console.info('8');
-        var data = this.currentUser;
 
         var deferred = $q.defer();
-        var user = Built.App(apiKey).User(data.uid);
+        var User = Built.App(apiKey).Class('built_io_application_user').Object;
+        var user = User(this.currentUser.uid);
 
-        user.updateUserProfile(data).then(function(user) {
-          deferred.resolve(user.toJSON());
-        }, function(error) {
-          deferred.resolve(error);
-        });
+        user = user.assign(data);
+
+        user.save()
+          .then(function(user) {
+            deferred.resolve(user.toJSON());
+          }, function(error) {
+            deferred.resolve(error);
+          });
 
         return deferred.promise;
       },

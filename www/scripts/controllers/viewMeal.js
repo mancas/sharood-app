@@ -41,8 +41,11 @@ define(['controllers/module'], function (controllers) {
                 meal.assistants = { assistant1: sharoodDB.currentUser.uid }
                 return meal;
             } else {
-                for(var i = 1; i <= 5; i++){
+                for(var i = 1; i <= meal.people; i++){
                     console.info('assistant' + i);
+                    if(typeof meal.assistants[("assistant" + i)] == 'undefined'){
+                        meal.assistants[("assistant" + i)] = [];
+                    }
                     if(!meal.assistants['assistant' + i][0]){
                         meal.assistants['assistant' + i][0] = sharoodDB.currentUser.uid;
                         return meal;
@@ -64,6 +67,19 @@ define(['controllers/module'], function (controllers) {
                     alert('Asistentes completos');
                 }
             });
+        }
+
+        $scope.getSeats = function(){
+            var number = 0;
+
+            for(var i = 1; i <= $scope.meal.people; i++){
+                if(typeof $scope.meal.assistants[("assistant" + i)] !== 'undefined' && 
+                   $scope.meal.assistants['assistant' + i].length !== 0){
+                    number++;
+                }
+            }
+
+            return $scope.meal.people - number;
         }
 
         $scope.navigate = navigation.navigate;

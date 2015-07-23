@@ -22,7 +22,7 @@
         <div class="col-md-4 col-sm-4 col-xs-4 text-center">
             <img class="img-small" src="img/icon.png" />
 
-            <span>{{meal.people}}</span>
+            <span>{{getSeats()}}</span>
         </div>
 
         <div class="col-md-4 col-sm-4 col-xs-4 text-center">
@@ -40,7 +40,7 @@
 
     <div class="row mb20">
         <div class="col-md-12 text-center">
-            <div id="placePhoto" class="img-square img-square-sm" style="background-image: url('http://cdn.c.photoshelter.com/img-get/I0000L8FCYXwGx5E/s/850/850/IMG-6678-North-Lake-Road-Vertical-Fall-Color.jpg')"></div>
+            <div id="placePhoto" class="img-square img-square-sm" style="background-image: url('{{meal.owner[0].picture.url}}')"></div>
         </div>
     </div>
 

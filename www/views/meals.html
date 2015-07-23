@@ -30,7 +30,7 @@
         <div class="col-md-12 col-sm-12" ng-infinite-scroll="" ng-infinite-scroll-callback="loadMoreMeals()">
             <div ng-repeat="meal in mealsToRender track by $index" data-index="{{$index}}" class="list-item animate-repeat">
                 <a href="" ng-click="goToMeal($index)">
-                    <img class="li-small pull-left" src="{{meal.picture.url}}" />
+                    <img class="li-small pull-left" src="{{meal.owner[0].picture.url}}" style="backgournd: #F1C40F;" />
                     <span class="list-content media-body">
                         <b class="li-title">{{meal.description}}</b>
                         <small class="li-description">

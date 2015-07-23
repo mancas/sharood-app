@@ -23,6 +23,9 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
         $scope.name = sharoodDB.currentUser.first_name;
         $scope.phone = sharoodDB.currentUser.phone;
         $scope.email = sharoodDB.currentUser.email;
+        if(sharoodDB.currentUser.picture){
+            document.getElementById('profilePhoto').style.backgroundImage = 'url(\'' + sharoodDB.currentUser.picture.url + '\')';
+        }
 
         /*$scope.cookies = 21;
         $scope.name = 'Axel';
@@ -43,18 +46,26 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
         };
 
         $scope.saveProfile = function() {
+            var profileData = {
+                first_name: inputValue('first_name'),
+                phone: inputValue('phone')
+            }
+
+            /*
             sharoodDB.currentUser.first_name = inputValue('first_name');
             sharoodDB.currentUser.phone = inputValue('phone');
             sharoodDB.currentUser.email = inputValue('email');
+            */
 
             cameraHelper.resizeImage($scope.imageMealURI).then(function(data) {
                 sharoodDB.uploadFile(data).then(function(result) {
                     console.info(result.toJSON());
-                    sharoodDB.currentUser.picture = result.toJSON().uid;
-                    console.info(sharoodDB.currentUser.picture);
+                    profileData.picture = result.toJSON().uid;
+                    console.info(profileData);
                     // If everything went well
-                    sharoodDB.updateProfile().then(function(result){
+                    sharoodDB.updateProfile(profileData).then(function(result){
                         console.info(result);
+                        sharoodDB.currentUser = result;
                     });
                 }).catch($scope.onerror);
             }).catch($scope.onerror);
