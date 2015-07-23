@@ -322,6 +322,56 @@ define(['services/module'], function (services) {
           });
 
         return deferred.promise;
+      },
+
+      transferCookies: function(from, to, number) {
+        console.info('14');
+
+        var promises = [];
+
+        p1 = decrementCookies(from, number);
+        p2 = incrementCookies(to, number);
+
+        promises.push(p1);
+        promises.push(p2);
+
+        return $q.all(promises);
+      },
+
+      incrementCookies: function(userId, number) {
+        console.info('15');
+        var deferred = $q.defer();
+        var User = Built.App(apiKey).Class('built_io_application_user').Object;
+        var user = User(userId);
+
+        user = user.increment('cookies', number);
+
+        user.save()
+          .then(function(user) {
+            deferred.resolve(user.toJSON());
+          }, function(error) {
+            deferred.resolve(error);
+          });
+
+        return deferred.promise;
+      },
+
+      decrementCookies: function(userId, number) {
+        console.info('16');
+        var deferred = $q.defer();
+        var User = Built.App(apiKey).Class('built_io_application_user').Object;
+        var user = User(userId);
+
+        user = user.decrement('cookies', number);
+
+        user.save()
+          .then(function(user) {
+            deferred.resolve(user.toJSON());
+          }, function(error) {
+            deferred.resolve(error);
+          });
+
+        return deferred.promise;
       }
 
     };
