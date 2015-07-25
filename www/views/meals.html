@@ -16,7 +16,7 @@
         </div>
     </header>
 
-    <div class="row toggle-meals">
+    <!--<div class="row toggle-meals">
         <div class="col-md-12 col-sm-12">
             <div class="btn-group" role="group">
                 <button data-list="meals" type="button" class="btn btn-default active">Meals</button>
@@ -24,7 +24,7 @@
                 <button data-list="myMeals" type="button" class="btn btn-default">My meals</button>
             </div>
         </div>
-    </div>
+    </div>-->
 
     <div class="row">
         <div class="col-md-12 col-sm-12" ng-infinite-scroll="" ng-infinite-scroll-callback="loadMoreMeals()">
@@ -36,7 +36,7 @@
                         <small class="li-description">
                             <img class="li-xsmall" src="img/icon.png" /> {{meal.cookies_value}}
                             <!-- TODO: Change i to img -->
-                            <i class="fa fa-clock-o"></i> {{meal.time}}
+                            <i class="fa fa-clock-o"></i> {{meal.time | date:'HH:mm'}}
                         </small>
                     </span>
 

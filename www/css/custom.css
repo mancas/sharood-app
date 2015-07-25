@@ -7,10 +7,18 @@ html, body {
     color: #693204;
 }
 
+a, a:active, a:focus, a:hover {
+    color: #693204;
+}
+
 /** GENERAL **/
 .title {
     font-size: 2rem;
     margin-bottom: 0;
+}
+
+.font-big {
+    font-size: 2.2rem;
 }
 
 textarea {
@@ -647,4 +655,26 @@ span.li-small {
 .animate-repeat.ng-enter.ng-enter-active {
     opacity:1;
     max-height:40px;
+}
+
+/** RATE CHEF VIEW **/
+.rates > div {
+    margin-bottom: 4rem;
+}
+
+.rates > div:last-child {
+    margin-bottom: 1rem;
+}
+
+.rates > h2 {
+    margin-bottom: 2rem;
+}
+
+/** HELP CLASSES **/
+.bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
 }

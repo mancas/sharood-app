@@ -1,31 +1,52 @@
 <section class="main">
 
     <header class="nav navbar-fixed-top">
-        <span class="btn" ng-click="navigate('/home')">
+        <span class="btn"  ng-click="navigate('/home')">
             <i class="fa fa-chevron-left"></i>
             Back
         </span>
         <h1>Saved seat</h1>
     </header>
 
-	<div class="row toggle-meals">
+    <div class="row mt20">
+        <div class="col-md-12">
+            <section class="y-block">
+                <div class="y-block-content text-center">
+                    <h4>Great! Now you can go to {{meal.owner.username}}'s at {{meal.time | date: 'HH:mm'}} h</h4>
+                </div>
+            </section>
+        </div>
+    </div>
 
-		<div class="col-md-12 col-sm-12">
+    <div class="row mt20 text-center font-big">
+        <div class="col-md-12">
+            <a href="" ng-click="navigate('/viewMeal')">See {{meal.owner.username}}'s Meal</a>
+        </div>
+    </div>
 
-			<p>Congrats! Now you can go to {{meal.owner.username}}'s situation. Meal time: {{meal.time}}</p>
+    <div class="row mt20 text-center font-big">
+        <div class="col-md-12">
+            <a href="" ng-click="navigate('/viewMeal')">Contact Chef for directions</a>
+        </div>
+    </div>
 
-			<p><a href='' ng-click='navigate("/viewMeal")'>See {{meal.owner.username}}'s Meal</a></p>
+    <section class="bottom">
+        <div class="row mt20 mb20">
+            <div class="col-md-12">
+                <p class="text-center">Back from the meal?</p>
+                <p class="text-center">Rate Chef to choose another meal!</p>
+                <a ng-click="navigate('/rateChef')" class="btn btn-round btn-extra-large">
+                    Rate Chef
+                </a>
+            </div>
+        </div>
 
-			<p><a href='' ng-click='alert("Send an email")'>Ask for directions</a></p>
-
-			<p>Are you back from the meal?</p>
-
-			<p><a href='' ng-click='navigate("/rateChef")'>Rate Chef and choose another meal!</a></p>
-
-			<p><a href='' ng-click='alert("Cancel meal")'>Cancel meal</a></p>
-
-		</div>
-
-	</div>
-
+        <div class="row mt20 mb20 text-center">
+            <div class="col-md-12">
+                <a ng-click="rate()">
+                    Cancel meal
+                </a>
+            </div>
+        </div>
+    </section>
 </section>

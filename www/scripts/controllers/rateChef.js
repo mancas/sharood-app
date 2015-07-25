@@ -43,6 +43,7 @@ define(['controllers/module'], function (controllers, AlertHelper) {
             var foodLevelStars = document.getElementById('foodLevelStars').querySelectorAll('.active').length;
             var friendlinessStars = document.getElementById('friendlinessStars').querySelectorAll('.active').length;
             var funStars = document.getElementById('funStars').querySelectorAll('.active').length;
+            var notes = document.getElementById('notes').value;
 
             console.info(foodLevelStars, friendlinessStars, funStars);
 
