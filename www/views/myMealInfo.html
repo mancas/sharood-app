@@ -1,37 +1,51 @@
 <section class="main">
 
-    <header class="nav navbar-fixed-top">
-        <span class="btn" ng-click="navigate('/home')">
+	<header class="nav navbar-fixed-top">
+        <span class="btn"  ng-click="navigate('/home')">
             <i class="fa fa-chevron-left"></i>
             Back
         </span>
-        <h1>Meal info</h1>
-    </header>
+		<h1>Sharood</h1>
+	</header>
 
-	<div class="row toggle-meals">
-
-		<div class="col-md-12 col-sm-12">
-
-			<p>Congrats! Tour meal has been posted!</p>
-
-			<p>Grourments list</p>
-
-				<ul>
-
-					<li>{{meal.assistants.assistant1[0].email}}</li>
-					<li>{{meal.assistants.assistant2[0].email}}</li>
-					<li>{{meal.assistants.assistant3[0].email}}</li>
-					<li>{{meal.assistants.assistant4[0].email}}</li>
-					<li>{{meal.assistants.assistant5[0].email}}</li>
-
-				</ul>
-
-			<p>Finish eating?</p>
-
-			<p><a href='' ng-click='navigate("/rateAttendants")'>Rate Gourmets</a></p>
-
+	<div class="row mt20">
+		<div class="col-md-12">
+			<p class="text-center">
+				Awesome! Your meal has been posted!
+			</p>
 		</div>
-
 	</div>
 
+	<div class="row mt20">
+		<div class="col-md-12">
+			<section class="y-block">
+				<div class="y-block-header">
+					<h2 class="title">Gourmets list</h2>
+					<a href="" ng-click="update()" class="pull-right people-update-btn"><i class="fa fa-refresh"></i></a>
+				</div>
+
+				<div class="y-block-content attendants">
+					<div ng-repeat="attendant in attendants track by $index" class="list-item" id="attendant-{{$index}}">
+						<a href="" ng-click="">
+							<img class="li-small pull-left" src="{{attendant.picture.url}}" style="backgournd: #F1C40F;" />
+							<span class="list-content li-title">
+								{{attendant.first_name}}
+							</span>
+						</a>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+
+	<section class="bottom">
+		<div class="row mt20 mb20">
+			<div class="col-md-12">
+				<p class="text-center">Finished eating?</p>
+				<a ng-click="navigate('/rateAttendants')" class="btn btn-round btn-extra-large">
+					Rate Gourmets
+				</a>
+			</div>
+		</div>
+	</section>
 </section>

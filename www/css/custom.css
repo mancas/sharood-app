@@ -589,7 +589,7 @@ span.li-small {
 
 /** OVERLAY **/
 .overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -677,4 +677,22 @@ span.li-small {
     left: 0;
     right: 0;
     overflow: hidden;
+}
+
+/** ATTENDANTS VIEW **/
+.attendants .list-item {
+    border-bottom: 0;
+}
+
+.attendants .list-item a {
+    display: block;
+    min-height: 3.5rem;
+}
+
+.attendants .list-item .li-title {
+    text-align: left;
+    line-height: 3.4rem;
+    display: inline;
+    font-size: 1.6rem;
+    font-weight: normal;
 }

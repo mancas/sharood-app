@@ -329,8 +329,8 @@ define(['services/module'], function (services) {
 
         var promises = [];
 
-        p1 = decrementCookies(from, number);
-        p2 = incrementCookies(to, number);
+        var p1 = decrementCookies(from, number);
+        var p2 = incrementCookies(to, number);
 
         promises.push(p1);
         promises.push(p2);
