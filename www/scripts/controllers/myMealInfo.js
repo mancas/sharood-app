@@ -35,15 +35,27 @@ define(['controllers/module'], function (controllers, AlertHelper) {
             return singleArray;
         }
 
-        var mealInfo = MealService.getCurrentMeal();
-
-        $scope.meal = mealInfo;
+        $scope.meal = MealService.getCurrentMeal();
 
         console.info($scope.meal);
 
         $scope.navigate = navigation.navigate;
 
         $scope.attendants = toSingleArray($scope.meal.assistants);
+
+        $scope.update = function() {
+            var icon = document.querySelector('#updateAttendants i');
+            icon.classList.add('fa-spin');
+
+            // TODO retrieve meal again
+            sharoodDB.getMealWithAttendantsById($scope.meal.uid).then(function(meal) {
+                $scope.meal = meal;
+                console.info(meal);
+                $scope.attendants = toSingleArray($scope.meal.assistants);
+                console.info($scope.attendants);
+                icon.classList.remove('fa-spin');
+            });
+        };
     });
 
 });

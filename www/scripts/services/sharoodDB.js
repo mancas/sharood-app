@@ -155,6 +155,32 @@ define(['services/module'], function (services) {
         return deferred.promise;
       },
 
+      getMealWithAttendantsById: function(mealId){
+        var deferred = $q.defer();
+
+        var query = Built.App(apiKey).Class('meal').Query();
+
+        console.info(query);
+        query = query.where('uid', mealId);
+
+        query.include(['owner',
+          'assistants.assistant1',
+          'assistants.assistant2',
+          'assistants.assistant3',
+          'assistants.assistant4',
+          'assistants.assistant5'])
+            .exec()
+            .then(function(meal) {
+              deferred.resolve(meal);
+            }, function(error) {
+              // some error has occurred
+              // refer to the 'error' object for more details
+              deferred.reject(error);
+            });
+
+        return deferred.promise;
+      },
+
       addOwnerToMeal: function (meal){
         var deferred = $q.defer();
 

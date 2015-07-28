@@ -672,7 +672,7 @@ span.li-small {
 
 /** HELP CLASSES **/
 .bottom {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
@@ -695,4 +695,10 @@ span.li-small {
     display: inline;
     font-size: 1.6rem;
     font-weight: normal;
+}
+
+.rate-attendants {
+    padding-bottom: 10rem;
+    max-height: 37rem;
+    overflow-y: auto;
 }
