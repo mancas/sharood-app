@@ -13,6 +13,10 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 title: 'Opps!',
                 subtitle: 'There is no seat!'
             },
+            cookies: {
+                title: 'Opps!',
+                subtitle: 'You haven\'t enough cookies'
+            },
             success: {
                 title: 'Awesome!',
                 subtitle: 'You have saved your seat for this meal'
@@ -48,6 +52,10 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
         };
 
         function addPerson(meal){
+            if (sharoodDB.currentUser.cookies < meal.cookies_value) {
+                errorSavingSeat = 'cookies';
+                return false;
+            }
             if(typeof meal.assistants == 'undefined'){
                 meal.assistants = { assistant1: sharoodDB.currentUser.uid }
                 return meal;
@@ -63,6 +71,8 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                     }
                 }
             }
+
+            errorSavingSeat = 'error';
             return false;
         }
 
@@ -72,12 +82,16 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 if(mealResult){
                     delete mealResult.picture;
                     sharoodDB.saveMeal(mealResult).then(function(result){
-                        errorSavingSeat = false;
-                        updateAlertTitles();
-                        AlertHelper.alert('#save-seat-alert');
+                        var cookies = mealResult.cookies_value;
+                        var owner = mealResult.owner[0].uid;
+                        var current = sharoodDB.currentUser.uid;
+                        sharoodDB.transferCookies(current, owner, cookies).then(function() {
+                            errorSavingSeat = false;
+                            updateAlertTitles();
+                            AlertHelper.alert('#save-seat-alert');
+                        });
                     });
                 } else {
-                    errorSavingSeat = true;
                     updateAlertTitles();
                     AlertHelper.alert('#save-seat-alert');
                 }
@@ -100,7 +114,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
         function updateAlertTitles() {
             var key = 'success';
             if (errorSavingSeat) {
-                key = 'error';
+                key = errorSavingSeat;
             }
 
             var alert = document.querySelector('#save-seat-alert');

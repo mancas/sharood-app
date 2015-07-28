@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2632d0f0-c57d-4c3b-84f5-6812cf49af0a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/scripts/controllers/selectedMealInfo.js" afterPath="$PROJECT_DIR$/www/scripts/controllers/selectedMealInfo.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/scripts/controllers/viewMeal.js" afterPath="$PROJECT_DIR$/www/scripts/controllers/viewMeal.js" />
     </list>
     <ignored path="sharood-app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="viewMeal.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="viewMeal.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/scripts/controllers/viewMeal.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="71" column="29" selection-start-line="71" selection-start-column="19" selection-end-line="71" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.5592865">
+              <caret line="90" column="66" selection-start-line="90" selection-start-column="66" selection-end-line="90" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -43,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="selectedMealInfo.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="selectedMealInfo.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/scripts/controllers/selectedMealInfo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4910808">
-              <caret line="26" column="55" selection-start-line="26" selection-start-column="55" selection-end-line="26" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -128,9 +128,9 @@
         <option value="$PROJECT_DIR$/www/views/rateChef.html" />
         <option value="$PROJECT_DIR$/www/scripts/controllers/rateChef.js" />
         <option value="$PROJECT_DIR$/www/views/viewMeal.html" />
-        <option value="$PROJECT_DIR$/www/scripts/controllers/viewMeal.js" />
         <option value="$PROJECT_DIR$/www/views/selectedMealInfo.html" />
         <option value="$PROJECT_DIR$/www/scripts/controllers/selectedMealInfo.js" />
+        <option value="$PROJECT_DIR$/www/scripts/controllers/viewMeal.js" />
       </list>
     </option>
   </component>
@@ -833,22 +833,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/selectedMealInfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-26.296297">
-          <caret line="45" column="45" selection-start-line="45" selection-start-column="45" selection-end-line="45" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/scripts/controllers/viewMeal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="71" column="29" selection-start-line="71" selection-start-column="19" selection-end-line="71" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/scripts/services/sharoodDB.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -859,8 +843,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/scripts/controllers/selectedMealInfo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4910808">
-          <caret line="26" column="55" selection-start-line="26" selection-start-column="55" selection-end-line="26" selection-end-column="55" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/selectedMealInfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-26.296297">
+          <caret line="45" column="45" selection-start-line="45" selection-start-column="45" selection-end-line="45" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/scripts/controllers/viewMeal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5592865">
+          <caret line="90" column="66" selection-start-line="90" selection-start-column="66" selection-end-line="90" selection-end-column="66" />
           <folding />
         </state>
       </provider>
