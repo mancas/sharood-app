@@ -5,7 +5,15 @@ define(['directives/module'], function (directives) {
         return {
             templateUrl: "views/templates/loader.html",
             restrict: 'E',
-            replace: true
+            replace: true,
+            scope: {
+                closed: '='
+            },
+            link: function(scope, element) {
+                if (scope.closed) {
+                    element[0].classList.add('closed');
+                }
+            }
         };
     });
 });

@@ -1,4 +1,4 @@
-define(['controllers/module'], function (controllers) {
+define(['controllers/module', 'alert-helper'], function (controllers, AlertHelper) {
 
     'use strict';
 
@@ -7,6 +7,17 @@ define(['controllers/module'], function (controllers) {
         console.info("ViewMeal controller");
 
         var mealInfo = MealService.getCurrentMeal();
+        var errorSavingSeat = false;
+        var ALERT_TITLES = {
+            error: {
+                title: 'Opps!',
+                subtitle: 'There is no seat!'
+            },
+            success: {
+                title: 'Awesome!',
+                subtitle: 'You have saved your seat for this meal'
+            }
+        };
 
 		$scope.meal = mealInfo;  
 
@@ -61,10 +72,14 @@ define(['controllers/module'], function (controllers) {
                 if(mealResult){
                     delete mealResult.picture;
                     sharoodDB.saveMeal(mealResult).then(function(result){
-                        alert('Te has apuntado correctamente en la comida');
+                        errorSavingSeat = false;
+                        updateAlertTitles();
+                        AlertHelper.alert('#save-seat-alert');
                     });
                 } else {
-                    alert('Asistentes completos');
+                    errorSavingSeat = true;
+                    updateAlertTitles();
+                    AlertHelper.alert('#save-seat-alert');
                 }
             });
         }
@@ -82,8 +97,42 @@ define(['controllers/module'], function (controllers) {
             return $scope.meal.people - number;
         }
 
+        function updateAlertTitles() {
+            var key = 'success';
+            if (errorSavingSeat) {
+                key = 'error';
+            }
+
+            var alert = document.querySelector('#save-seat-alert');
+            var title = alert.querySelector('h2');
+            var subtitle = alert.querySelector('p');
+
+            title.textContent = ALERT_TITLES[key].title;
+            subtitle.textContent = ALERT_TITLES[key].subtitle;
+        }
+
+        function onsuccess() {
+            if (!errorSavingSeat) {
+                $scope.navigate('/home');
+            } else {
+                AlertHelper.close('#save-seat-alert');
+            }
+        }
+
         $scope.navigate = navigation.navigate;
 
+        $scope.saveSeatConfig = {
+            id: 'save-seat-alert',
+            icon: false,
+            title: 'Awesome!',
+            subtitle: 'You have saved your seat for this meal',
+            ok: {
+                id: 'btn-ok',
+                text: 'Ok',
+                cssClass: 'btn-info',
+                callback: onsuccess
+            }
+        };
     });
 
 });

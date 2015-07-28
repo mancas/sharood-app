@@ -24,16 +24,16 @@
                     <stars ng-if="!attendantEmpty(1)" config="attendant1Config"></stars>
 
                     <h2 ng-if="!attendantEmpty(2)" class="title">Friendliness {{meal.assistants.assistant1[1].first_name}}</h2>
-                    <stars ng-if="!attendantEmpty(2)" config="attendant1Config"></stars>
+                    <stars ng-if="!attendantEmpty(2)" config="attendant2Config"></stars>
 
                     <h2 ng-if="!attendantEmpty(3)" class="title">Friendliness {{meal.assistants.assistant1[2].first_name}}</h2>
-                    <stars ng-if="!attendantEmpty(3)" config="attendant1Config"></stars>
+                    <stars ng-if="!attendantEmpty(3)" config="attendant3Config"></stars>
 
                     <h2 ng-if="!attendantEmpty(4)" class="title">Friendliness {{meal.assistants.assistant1[3].first_name}}</h2>
-                    <stars ng-if="!attendantEmpty(4)" config="attendant1Config"></stars>
+                    <stars ng-if="!attendantEmpty(4)" config="attendant4Config"></stars>
 
                     <h2 ng-if="!attendantEmpty(5)" class="title">Friendliness {{meal.assistants.assistant1[4].first_name}}</h2>
-                    <stars ng-if="!attendantEmpty(5)" config="attendant1Config"></stars>
+                    <stars ng-if="!attendantEmpty(5)" config="attendant5Config"></stars>
                 </div>
             </div>
 		</div>
@@ -44,4 +44,7 @@
             Done
         </a>
     </section>
+
+    <loader closed="true"></loader>
+    <alert id="rate-success-alert" config="rateAlertConfig"></alert>
 </section>

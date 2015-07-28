@@ -1,4 +1,4 @@
-define(['controllers/module'], function (controllers, AlertHelper) {
+define(['controllers/module', 'alert-helper'], function (controllers, AlertHelper) {
 
     'use strict';
 
@@ -44,6 +44,8 @@ define(['controllers/module'], function (controllers, AlertHelper) {
             var friendlinessStars = document.getElementById('friendlinessStars').querySelectorAll('.active').length;
             var funStars = document.getElementById('funStars').querySelectorAll('.active').length;
             var notes = document.getElementById('notes').value;
+            var overlay = document.querySelector('.overlay');
+            overlay.classList.remove('closed');
 
             console.info(foodLevelStars, friendlinessStars, funStars);
 
@@ -55,7 +57,8 @@ define(['controllers/module'], function (controllers, AlertHelper) {
                     console.info(mealResult);
                     delete mealResult.picture;
                     sharoodDB.saveMeal(mealResult).then(function(result){
-                        alert('Has votado');
+                        overlay.classList.add('closed');
+                        AlertHelper.alert('#rate-success-alert');
                     });
                 });
             });
@@ -72,6 +75,21 @@ define(['controllers/module'], function (controllers, AlertHelper) {
         }
 
         $scope.navigate = navigation.navigate;
+
+        $scope.rateAlertConfig = {
+            id: 'rate-success-alert',
+            icon: false,
+            title: 'Thanks!',
+            subtitle: 'Your feedback has been registered successfully',
+            ok: {
+                id: 'btn-ok',
+                text: 'Ok',
+                cssClass: 'btn-info',
+                callback: function() {
+                    navigation.navigate('/selectedMealInfo');
+                }
+            }
+        };
 
     });
 
