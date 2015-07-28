@@ -24,7 +24,7 @@ define(['controllers/module'], function (controllers, AlertHelper) {
             var currentUser = $scope.currentUser.uid;
 
             sharoodDB.transferCookies(owner, currentUser, cookies).then(function() {
-                // TODO
+                // TODO remove user from attendant list
             });
         }
 
