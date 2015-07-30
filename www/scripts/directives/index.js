@@ -4,5 +4,6 @@ define([
     'directives/alert',
     'directives/onNgRepeatFinished',
     'directives/ngInfiniteScroll',
-    'directives/stars'
+    'directives/stars',
+    'directives/viewport'
 ], function () {});

@@ -147,6 +147,14 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 callback: onsuccess
             }
         };
+
+        $scope.openViewport = function($event) {
+            console.info($event.currentTarget);
+            var viewport = document.querySelector('.viewport');
+            viewport.style.backgroundImage = 'url(' + $event.currentTarget.src + ')';
+
+            viewport.classList.add('open');
+        };
     });
 
 });

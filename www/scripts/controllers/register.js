@@ -21,6 +21,14 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
         $scope.hasErrors = false;
 
+        $scope.user = {
+            name: null,
+            email: null,
+            password: null,
+            passwordConfirm: null,
+            university: null
+        };
+
         $scope.register = function(){
             var email = document.getElementById("email").value;
             var password = document.getElementById("password").value;

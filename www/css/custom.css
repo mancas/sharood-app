@@ -702,3 +702,25 @@ span.li-small {
     max-height: 37rem;
     overflow-y: auto;
 }
+
+/** VIEWPORT **/
+.viewport {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9998;
+    background-color: red;
+    display: none;
+    background-size: contain;
+}
+
+.viewport.open {
+    display: block;
+}
+
+/** VALIDATION **/
+.ng-invalid {
+    border: solid 0.1rem red;
+}

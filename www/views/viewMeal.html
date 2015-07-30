@@ -13,7 +13,7 @@
             <h1 class="title mb20">{{meal.description}}</h1>
             
             <div class="col-md-12 viewMeal-img">
-                <img src="{{meal.picture.url}}" />
+                <img ng-click="openViewport($event)" src="{{meal.picture.url}}" />
             </div>
         </div>
     </div>
@@ -80,4 +80,6 @@
     </div>
 
     <alert id="save-seat-alert" config="saveSeatConfig"></alert>
+
+    <viewport></viewport>
 </section>
