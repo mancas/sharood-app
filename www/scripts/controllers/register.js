@@ -30,11 +30,12 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
         };
 
         $scope.register = function(){
-            var email = document.getElementById("email").value;
-            var password = document.getElementById("password").value;
-            var passwordConfirm = document.getElementById("passwordConfirm").value;
-            var university = document.getElementById("selectPlace").value;
-            sharoodDB.register(email, password, passwordConfirm, university).then(function(user) {
+            if (!$scope.registerForm.$valid) {
+                console.info('no validate', $scope.registerForm);
+                return;
+            }
+
+            sharoodDB.register($scope.user).then(function(user) {
                 $scope.hasErrors = false;
                 updateAlertTitles();
                 AlertHelper.alert('#register-account-alert');
@@ -43,7 +44,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 updateAlertTitles(error);
                 AlertHelper.alert('#register-account-alert');
             });
-        }
+        };
 
         function onSuccess() {
             if (!$scope.hasErrors) {

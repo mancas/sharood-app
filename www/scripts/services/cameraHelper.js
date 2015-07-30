@@ -3,7 +3,7 @@ define(['services/module'], function (services) {
   services.factory('cameraHelper', function ($q, $window) {
 
       if(typeof Camera == 'undefined'){
-        return;
+        return null;
       }
 
       var contstants = {

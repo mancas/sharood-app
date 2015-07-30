@@ -721,6 +721,9 @@ span.li-small {
 }
 
 /** VALIDATION **/
-.ng-invalid {
-    border: solid 0.1rem red;
+.error {
+    text-align: left;
+    color: darkred;
+    display: block;
+    margin-top: 0.2rem;
 }

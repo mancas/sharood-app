@@ -14,10 +14,17 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
         tryAutoLogin();
 
+        $scope.user = {
+            email: null,
+            password: null
+        };
+
         $scope.login = function(){
-            var email = document.getElementById("email").value;
-            var password = document.getElementById("password").value;
-            sharoodDB.login(email, password).then(function(user){
+            if (!$scope.loginForm.$valid) {
+                return;
+            }
+
+            sharoodDB.login($scope.user).then(function(user){
                 console.info(user);
                 sharoodDB.currentUser = user;
                 navigation.navigate('/home');

@@ -25,11 +25,11 @@ define(['services/module'], function (services) {
         return deferred.promise;
       },
 
-      login: function(email, password) {
+      login: function(data) {
         console.info('2');
         var deferred = $q.defer();
         var user = Built.App(apiKey).User();
-        user.login(email, password)
+        user.login(data.email, data.password)
           .then(function(user) {
             deferred.resolve(user.toJSON());
           }, function(error) {
@@ -42,7 +42,7 @@ define(['services/module'], function (services) {
         return deferred.promise;
       },
 
-      register: function(email, password, passwordReply, university) {
+      register: function(data) {
         console.info('3');
         var deferred = $q.defer();
         var user = Built.App(apiKey).User();
@@ -55,10 +55,10 @@ define(['services/module'], function (services) {
             friendliness_chef_rating_nofvotes: 0,
             fun_rating: 0,
             fun_rating_nofvotes: 0,
-            university: university
+            university: data.university
         });
 
-        user.register(email, password, passwordReply)
+        user.register(data.email, data.password, data.passwordConfirm)
           .then(function(user) {
             deferred.resolve(user.toJSON());
           }, function(error) {
