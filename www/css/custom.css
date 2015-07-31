@@ -236,6 +236,7 @@ section.no-padding {
 .main header {
     background-color: #F1C40F;
     max-height: 6rem;
+    height: 100%;
     box-sizing: border-box;
     overflow: hidden;
     text-align: center;

@@ -20,7 +20,7 @@
                             <img class="media-object img-small" src="img/icon.png" />
                         </div>
                         <div class="media-body media-middle">
-                            <b>{{cookies}}</b>
+                            <b>{{currentUser.cookies}}</b>
                         </div>
                     </div>
                 </div>
@@ -38,15 +38,15 @@
 
                 <div class="y-block-content account-details">
                     <p>
-                        Name: {{name}}
+                        Name: {{currentUser.first_name}}
                     </p>
 
                     <p>
-                        Phone Number: {{phone}}
+                        Phone Number: {{currentUser.phone}}
                     </p>
 
                     <p>
-                        Email: {{email}}
+                        Email: {{currentUser.email}}
                     </p>
 
                     <p>
@@ -55,16 +55,22 @@
                 </div>
 
                 <div class="y-block-content account-edition hidden">
-                    <form id="account-form" method="post">
+                    <form id="account-form" name="accountForm">
                         <div class="form-group">
-                            <input class="form-control" type="text" name="first_name" ng-value="name" />
+                            <input class="form-control" type="text" name="username" placeholder="Your username" ng-model="user.username" required />
+                            <span class="error" ng-if="accountForm.$submitted && accountForm.username.$error.required">Your username is required</span>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" type="number" name="phone" ng-value="phone" />
+                            <input class="form-control" type="text" name="first_name" placeholder="Your name" ng-model="user.first_name" required />
+                            <span class="error" ng-if="accountForm.$submitted && accountForm.first_name.$error.required">Your name is required</span>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" type="email" name="email" ng-value="email" />
+                            <input class="form-control" type="text" pattern="\d+" placeholder="Your phone number" name="phone" ng-model="user.phone" />
                         </div>
+                        <!--<div class="form-group">
+                            <input class="form-control" type="email" name="email" ng-model="user.email" required />
+                            <span class="error" ng-if="accountForm.$submitted && accountForm.name.$error.required">Your email is required</span>
+                        </div>-->
 
                         <div class="form-group">
                             <button ng-click="saveProfile()" class="btn btn-round btn-extra-large">Save</button>
@@ -89,13 +95,13 @@
         </div>
     </div>
 
-    <div class="row mt20">
+    <!--<div class="row mt20">
         <div class="col-md-12">
             <a ng-click="deleteAccount()" class="btn btn-danger btn-extra-large">
                 Delete account
             </a>
         </div>
-    </div>
+    </div>-->
 
     <alert id="delete-account-alert" config="deleteAccountConfig"></alert>
     <alert id="logout-alert" config="logoutConfig"></alert>
