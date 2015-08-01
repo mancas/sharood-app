@@ -69,6 +69,12 @@ textarea {
 }
 
 /** LOGIN AND REGISTER VIEWS **/
+.login {
+    background: url('../img/loginBackground_scaled.jpg') no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
 .login, .register {
     display: table;
     height: 100%;
@@ -273,7 +279,6 @@ section.no-padding {
     margin: 0 -1.5rem;
     display: table;
     text-align: center;
-    background-color: red;
     width: calc(100% + 3rem);
 }
 
