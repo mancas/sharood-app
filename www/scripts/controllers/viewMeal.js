@@ -79,11 +79,13 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
         $scope.saveSeat = function(){
             sharoodDB.getmealById(mealInfo.uid).then(function(result){
                 var mealResult = addPerson(result);
+                console.info(mealResult);
                 if(mealResult){
                     delete mealResult.picture;
                     sharoodDB.saveMeal(mealResult).then(function(result){
+                        console.info(result);
                         var cookies = mealResult.cookies_value;
-                        var owner = mealResult.owner[0].uid;
+                        var owner = mealResult.owner[0];
                         var current = sharoodDB.currentUser.uid;
                         sharoodDB.transferCookies(current, owner, cookies).then(function() {
                             errorSavingSeat = false;

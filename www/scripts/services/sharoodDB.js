@@ -355,8 +355,8 @@ define(['services/module'], function (services) {
 
         var promises = [];
 
-        var p1 = decrementCookies(from, number);
-        var p2 = incrementCookies(to, number);
+        var p1 = this.decrementCookies(from, number);
+        var p2 = this.incrementCookies(to, number);
 
         promises.push(p1);
         promises.push(p2);
