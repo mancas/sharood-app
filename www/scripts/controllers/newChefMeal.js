@@ -79,6 +79,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 cookies_value: cookies,
                 people: peopleToCome,
                 time: date,
+                university: sharoodDB.currentUser.university[0],
                 owner: sharoodDB.currentUser.uid
             }
 

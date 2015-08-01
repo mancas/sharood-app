@@ -117,8 +117,6 @@ define(['services/module'], function (services) {
           query = query.limit(range);
         }
 
-        console.info(this.currentUser.uid);
-
         var q1 = query.notEqualTo('assistants.assistant1', this.currentUser.uid);
         var q2 = query.notEqualTo('assistants.assistant2', this.currentUser.uid);
         var q3 = query.notEqualTo('assistants.assistant3', this.currentUser.uid);
@@ -127,7 +125,9 @@ define(['services/module'], function (services) {
 
         var q6 = query.notEqualTo('owner', this.currentUser.uid);
 
-        query = query.and([q1, q2, q3, q4, q5, q6]);
+        var q7 = query.where('university', this.currentUser.university[0]);
+
+        query = query.and([q1, q2, q3, q4, q5, q6, q7]);
 
         query = query.greaterThanOrEqualTo('time', new Date()); //Only meals with a time bigger than now.
 
