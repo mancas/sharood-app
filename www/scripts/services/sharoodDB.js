@@ -117,6 +117,16 @@ define(['services/module'], function (services) {
           query = query.limit(range);
         }
 
+        console.info(this.currentUser.uid);
+
+        var q1 = query.notEqualTo('assistants.assistant1', this.currentUser.uid);
+        var q2 = query.notEqualTo('assistants.assistant2', this.currentUser.uid);
+        var q3 = query.notEqualTo('assistants.assistant3', this.currentUser.uid);
+        var q4 = query.notEqualTo('assistants.assistant4', this.currentUser.uid);
+        var q5 = query.notEqualTo('assistants.assistant5', this.currentUser.uid);
+
+        query = query.and([q1, q2, q3, q4, q5]);
+
         query = query.greaterThanOrEqualTo('time', new Date()); //Only meals with a time bigger than now.
 
         query.include(['owner',
