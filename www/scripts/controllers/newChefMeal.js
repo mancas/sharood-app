@@ -68,7 +68,8 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             people: null,
             time: null,
             tempTime: null,
-            owner: sharoodDB.currentUser.uid
+            owner: sharoodDB.currentUser.uid,
+            university: sharoodDB.currentUser.university[0]
         };
 
         $scope.sendMeal = function() {

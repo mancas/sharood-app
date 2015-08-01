@@ -2,23 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2632d0f0-c57d-4c3b-84f5-6812cf49af0a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/clock.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/meal.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/people.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/settings.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/stareditableoff.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/stareditableon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/staroff.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/staron.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/custom.css" afterPath="$PROJECT_DIR$/www/css/custom.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/views/home.html" afterPath="$PROJECT_DIR$/www/views/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/views/meals.html" afterPath="$PROJECT_DIR$/www/views/meals.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/views/newChefMeal.html" afterPath="$PROJECT_DIR$/www/views/newChefMeal.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/loginBackground.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/scripts/controllers/newChefMeal.js" afterPath="$PROJECT_DIR$/www/scripts/controllers/newChefMeal.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/scripts/services/sharoodDB.js" afterPath="$PROJECT_DIR$/www/scripts/services/sharoodDB.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/views/templates/stars.html" afterPath="$PROJECT_DIR$/www/views/templates/stars.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/views/viewMeal.html" afterPath="$PROJECT_DIR$/www/views/viewMeal.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/scripts/controllers/viewMeal.js" afterPath="$PROJECT_DIR$/www/scripts/controllers/viewMeal.js" />
     </list>
     <ignored path="sharood-app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -59,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="newChefMeal.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="newChefMeal.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/scripts/controllers/newChefMeal.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="74" column="43" selection-start-line="74" selection-start-column="43" selection-end-line="74" selection-end-column="43" />
+            <state vertical-scroll-proportion="1.699895">
+              <caret line="90" column="12" selection-start-line="90" selection-start-column="12" selection-end-line="90" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -99,10 +86,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/views/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.03887689">
+            <state vertical-scroll-proportion="-1.3333334">
               <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
               <folding />
             </state>
@@ -113,7 +100,7 @@
         <entry file="file://$PROJECT_DIR$/www/scripts/services/sharoodDB.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-6.639344">
-              <caret line="92" column="35" selection-start-line="92" selection-start-column="27" selection-end-line="92" selection-end-column="35" />
+              <caret line="105" column="35" selection-start-line="92" selection-start-column="27" selection-end-line="92" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -204,9 +191,9 @@
         <option value="$PROJECT_DIR$/www/views/templates/stars.html" />
         <option value="$PROJECT_DIR$/www/css/custom.css" />
         <option value="$PROJECT_DIR$/www/scripts/services/sharoodDB.js" />
-        <option value="$PROJECT_DIR$/www/scripts/controllers/newChefMeal.js" />
         <option value="$PROJECT_DIR$/www/views/newChefMeal.html" />
         <option value="$PROJECT_DIR$/www/views/home.html" />
+        <option value="$PROJECT_DIR$/www/scripts/controllers/newChefMeal.js" />
       </list>
     </option>
   </component>
@@ -218,8 +205,7 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1920" />
-    <option name="y" value="24" />
+    <option name="y" value="-1056" />
     <option name="width" value="1920" />
     <option name="height" value="1056" />
   </component>
@@ -580,7 +566,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="24" width="1920" height="1056" extended-state="6" />
+    <frame x="0" y="-1056" width="1920" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19583334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -965,15 +951,7 @@
     <entry file="file://$PROJECT_DIR$/www/scripts/services/sharoodDB.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.639344">
-          <caret line="92" column="35" selection-start-line="92" selection-start-column="27" selection-end-line="92" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/scripts/controllers/newChefMeal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="74" column="43" selection-start-line="74" selection-start-column="43" selection-end-line="74" selection-end-column="43" />
+          <caret line="105" column="35" selection-start-line="92" selection-start-column="27" selection-end-line="92" selection-end-column="35" />
           <folding />
         </state>
       </provider>
@@ -988,8 +966,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/views/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.03887689">
+        <state vertical-scroll-proportion="-1.3333334">
           <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/scripts/controllers/newChefMeal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.699895">
+          <caret line="90" column="12" selection-start-line="90" selection-start-column="12" selection-end-line="90" selection-end-column="12" />
           <folding />
         </state>
       </provider>
