@@ -96,17 +96,30 @@ define(['controllers/module'], function (controllers) {
             console.info(meals);
             if(meals.length == 0){
                 sharoodDB.getAllMeals().then(function(meals) {
+
                     console.info(meals);
-                    meals.forEach(function(meal){
-                        console.info(meal.toJSON());
-                        $scope.AllMeals.push(meal.toJSON());
-                        $scope.currentMeals.push(meal.toJSON());
-                    });
 
-                    var overlay = document.querySelector('.overlay');
-                    overlay.classList.add('closed');
+                    if(meals.length > 0){
 
-                    $scope.loadFirstElements();
+                        meals.forEach(function(meal){
+                            console.info(meal.toJSON());
+                            $scope.AllMeals.push(meal.toJSON());
+                            $scope.currentMeals.push(meal.toJSON());
+                        });
+
+                        var overlay = document.querySelector('.overlay');
+                        overlay.classList.add('closed');
+
+                        $scope.loadFirstElements();
+
+                    } else {
+
+                        var overlay = document.querySelector('.overlay');
+                        overlay.classList.add('closed');
+                        document.getElementById('emptyInfo').classList.remove('hidden');
+
+                    }
+
                 });
             } else {
                 MealService.setCurrentMeal(meals[0].toJSON());
