@@ -541,15 +541,20 @@ span.li-small {
     display: block;
 }
 
+.score .dl-horizontal {
+    height: 4rem;
+}
+
 .score .dl-horizontal dt {
     max-width: 14rem;
     float: left;
     font-weight: normal;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
+    line-height: 4rem;
 }
 
 .score .dl-horizontal dd {
-    margin-left: 15rem;
+    margin-left: 10rem;
 }
 
 .stars {
@@ -557,15 +562,17 @@ span.li-small {
     display: block;
     width: auto;
     text-align: center;
+    height: 3.4rem;
 }
 
 .stars .btn {
+    background-size: 34px;
     float: none;
     display: inline-block;
     position: relative;
-    height: 22px;
-
-    background-image: url('../img/star-off.svg');
+    height: 34px;
+    width: 34px;
+    background-image: url('../img/stareditableoff.png');
 }
 
 .stars .btn:last-child {
@@ -574,8 +581,17 @@ span.li-small {
 
 .stars .btn.active {
     box-shadow: none;
+    background-image: url('../img/stareditableon.png');
+}
 
-    background-image: url('../img/star-on.svg');
+.stars.notEditable .btn {
+    background-image: url('../img/staroff.png');
+}
+
+
+.stars.notEditable .btn.active {
+    box-shadow: none;
+    background-image: url('../img/staron.png');
 }
 
 /** SETTINGS **/
@@ -712,9 +728,10 @@ span.li-small {
     right: 0;
     bottom: 0;
     z-index: 9998;
-    background-color: red;
     display: none;
-    background-size: contain;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .viewport.open {

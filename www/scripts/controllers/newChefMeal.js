@@ -26,6 +26,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
         $scope.onerror = function(e) {
             console.error(e);
+            overlay.classList.remove('closed');
             // Show alert??
         };
 
@@ -59,36 +60,46 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
         }
 
+        $scope.mealData = {
+            picture: null,
+            description: null,
+            type: null,
+            cookies_value: null,
+            people: null,
+            time: null,
+            tempTime: null,
+            owner: sharoodDB.currentUser.uid
+        };
+
         $scope.sendMeal = function() {
-            var description = document.querySelector("#description").value;
-            var peopleToCome = document.querySelector("#peopleToCome .active input").value;
-            var mealType = document.querySelector("#mealType").value;
-            var cookies = document.querySelector("#cookies").value;
-            var timeHour = document.querySelector("#timeHour").value;
-            var timeSchedule = document.querySelector("#timeSchedule").value;
-            var day = document.querySelector("#day").value;
-
-            console.info(description, peopleToCome, mealType, cookies, timeHour, timeSchedule);
-
-            var date = formatDate(timeHour, timeSchedule, day);
-
-            var mealData = {
-                picture: null,
-                description: description,
-                type: mealType,
-                cookies_value: cookies,
-                people: peopleToCome,
-                time: date,
-                owner: sharoodDB.currentUser.uid
+            console.info($scope.newMealForm);
+            if (!$scope.newMealForm.$valid) {
+                console.info('no validate');
+                return;
             }
 
+            var peopleToCome = document.querySelector("#peopleToCome .active input").value;
+            var timeSchedule = document.querySelector("#timeSchedule").value;
+            var day = document.querySelector("#day").value;
+            var overlay = document.querySelector('.overlay');
+
+            var date = formatDate($scope.mealData.tempTime, timeSchedule, day);
+            $scope.mealData.people = peopleToCome;
+            $scope.mealData.time = date;
+
+            if (!$scope.imageMealURI) {
+                AlertHelper.alert('#meal-error-alert');
+                return;
+            }
+
+            overlay.classList.remove('closed');
             cameraHelper.resizeImage($scope.imageMealURI).then(function(data) {
                 sharoodDB.uploadFile(data).then(function(result) {
-                    console.info(result.toJSON());
-                    mealData.picture = result.toJSON().uid;
-                    console.info(mealData.picture);
+                    $scope.mealData.picture = result.toJSON().uid;
                     // If everything went well
-                    sharoodDB.saveMeal(mealData).then(function(result){
+                    delete $scope.mealData.tempTime;
+                    sharoodDB.saveMeal($scope.mealData).then(function(result){
+                        overlay.classList.add('closed');
                         AlertHelper.alert('#meal-created-alert');
                     }).catch($scope.onerror);
                 }).catch($scope.onerror);
@@ -114,6 +125,21 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 cssClass: 'btn-info',
                 callback: function() {
                     navigation.navigate('/home');
+                }
+            }
+        };
+
+        $scope.errorConfig = {
+            id: 'meal-error-alert',
+            icon: true,
+            title: 'Oops!',
+            subtitle: 'You need to add a photo to the meal.',
+            ok: {
+                id: 'btn-ok',
+                text: 'Ok',
+                cssClass: 'btn-info',
+                callback: function() {
+                    AlertHelper.close('#meal-created-alert');
                 }
             }
         };
