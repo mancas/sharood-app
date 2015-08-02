@@ -49,6 +49,7 @@ define(['controllers/module'], function (controllers, AlertHelper) {
 
             sharoodDB.getMealWithAttendantsById($scope.meal.uid).then(function(meal) {
                 $scope.meal = meal[0].toJSON();
+                MealService.setCurrentMeal = meal[0].toJSON();
                 console.info(meal);
                 $scope.attendants = toSingleArray($scope.meal.assistants);
                 console.info($scope.attendants);

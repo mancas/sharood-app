@@ -103,6 +103,10 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
         $scope.getSeats = function(){
             var number = 0;
 
+            if(typeof $scope.meal.assistants === 'undefined'){
+                return $scope.meal.people;
+            }
+
             for(var i = 1; i <= $scope.meal.people; i++){
                 if(typeof $scope.meal.assistants[("assistant" + i)] !== 'undefined' && 
                    $scope.meal.assistants['assistant' + i].length !== 0){
