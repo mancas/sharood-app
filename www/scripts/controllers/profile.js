@@ -156,7 +156,9 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
         $scope.changePhoto = function(){
             console.info("Getting Picture");
             cameraHelper.getPicture().then(function(imgURI){
-                document.getElementById('profilePhoto').style.backgroundImage = 'url(\'' + imgURI + '\')';
+                var photo = document.getElementById('profilePhoto');
+                photo.style.backgroundImage = 'url(\'' + imgURI + '\')';
+                photo.classList.add('cover');
                 $scope.imageMealURI = imgURI;
             });
         }

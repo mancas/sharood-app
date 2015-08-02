@@ -481,6 +481,12 @@ span.li-small {
     text-transform: uppercase;
 }
 
+.list-item span.li-small {
+    background-color: #F1C40F;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
 .li-xsmall {
     width: 2rem;
     height: 2rem;
