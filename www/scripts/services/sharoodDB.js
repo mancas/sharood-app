@@ -42,6 +42,23 @@ define(['services/module'], function (services) {
         return deferred.promise;
       },
 
+      getUniversityByUid: function(uid) {
+        var deferred = $q.defer();
+
+        var query = Built.App(apiKey).Class('university').Object(uid);
+ 
+        query
+        .fetch()
+        .then(function(project) {
+            deferred.resolve(project.toJSON());
+        }, function(error) {
+            // some error has occurred
+            // refer to the 'error' object for more details
+        });
+
+        return deferred.promise;
+      },
+
       register: function(data) {
         console.info('3');
         var deferred = $q.defer();
