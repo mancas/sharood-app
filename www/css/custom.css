@@ -47,10 +47,15 @@ textarea {
 
 .img-square {
     width: 14rem;
-    background-size: cover;
     background-position: center center;
     position: relative;
     border-radius: 50%;
+    background-color: #F1C40F;
+}
+
+.cover {
+    -webkit-background-size: cover;
+    background-size: cover;
 }
 
 .img-square:before {

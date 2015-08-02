@@ -33,7 +33,10 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
         $scope.takePicture = function() {
             console.info("Getting Picture");
             cameraHelper.getPicture().then(function(imgURI){
-                document.getElementById('placePhoto').style.backgroundImage = 'url(\'' + imgURI + '\')';
+                var photo = document.getElementById('placePhoto');
+                photo.style.backgroundImage = 'url(\'' + imgURI + '\')';
+                photo.classList.add('cover');
+
                 $scope.imageMealURI = imgURI;
             });
         };

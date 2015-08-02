@@ -22,7 +22,9 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
         $scope.currentUser = sharoodDB.currentUser;
         if(sharoodDB.currentUser.picture){
-            document.getElementById('profilePhoto').style.backgroundImage = 'url(\'' + sharoodDB.currentUser.picture.url + '\')';
+            var photo =  document.getElementById('profilePhoto');
+            photo.style.backgroundImage = 'url(\'' + sharoodDB.currentUser.picture.url + '\')';
+            photo.classList.add('cover');
         }
 
         $scope.user = {
@@ -45,13 +47,16 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 $scope.elements.editBtn.textContent = 'Edit';
                 if (sharoodDB.currentUser.picture) {
                     photo.style.backgroundImage = 'url(\'' + sharoodDB.currentUser.picture.url + '\')';
+                    photo.classList.add('cover');
                 } else {
                     photo.style.backgroundImage = 'url(\'' + cameraImg + '\')';
+                    photo.classList.remove('cover');
                 }
             } else {
                 $scope.isEditModeEnable = true;
                 $scope.elements.editBtn.textContent = 'Cancel';
                 photo.style.backgroundImage = 'url(\'' + cameraImg + '\')';
+                photo.classList.remove('cover');
             }
 
             $scope.elements.accountDetails.classList.toggle('hidden', $scope.isEditModeEnable);
