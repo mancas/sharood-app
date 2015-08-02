@@ -33,6 +33,10 @@ textarea {
     margin-bottom: 2rem;
 }
 
+.mb40 {
+    margin-bottom: 4rem;
+}
+
 .ml10 {
     margin-left: 1rem;
 }
@@ -51,6 +55,17 @@ textarea {
     position: relative;
     border-radius: 50%;
     background-color: #F1C40F;
+}
+
+.circle-word {
+    width: 14rem;
+    height: 14rem;
+    border-radius: 50%;
+    background-color: #F1C40F;
+    line-height: 14rem;
+    font-size: 4.8rem;
+    display: block;
+    margin: auto;
 }
 
 .cover {
@@ -476,7 +491,6 @@ span.li-small {
     text-align: center;
     line-height: 3.4rem;
     font-size: 1.5rem;
-    color: white;
     font-weight: normal;
     text-transform: uppercase;
 }

@@ -21,6 +21,9 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
         };
 
         $scope.currentUser = sharoodDB.currentUser;
+        sharoodDB.getUniversityByUid(sharoodDB.currentUser.university[0]).then(function(university) {
+            $scope.university = university;
+        });
         if(sharoodDB.currentUser.picture){
             var photo =  document.getElementById('profilePhoto');
             photo.style.backgroundImage = 'url(\'' + sharoodDB.currentUser.picture.url + '\')';

@@ -5,7 +5,7 @@
             <i class="fa fa-chevron-left"></i>
             Back
         </span>
-        <h1>Axel's Meal</h1>
+        <h1>{{meal.owner[0].first_name}}'s Meal</h1>
     </header>
 
     <div class="row mb20">
@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    <div class="row meal-info mb20">
+    <div class="row meal-info mb40">
         <div class="col-md-4 col-sm-4 col-xs-4 text-center">
             <img class="img-small" src="img/people.png" />
 
@@ -40,7 +40,8 @@
 
     <div class="row mb20">
         <div class="col-md-12 text-center">
-            <div id="placePhoto" class="img-square img-square-sm" style="background-image: url('{{meal.owner[0].picture.url}}')"></div>
+            <div ng-if="meal.owner[0].picture" id="placePhoto" class="img-square img-square-sm" style="background-image: url('{{meal.owner[0].picture.url}}')"></div>
+            <span ng-if="!meal.owner[0].picture" class="circle-word">{{meal.owner[0].first_name | limitTo: 1}}</span>
         </div>
     </div>
 
