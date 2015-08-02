@@ -43,7 +43,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             var foodLevelStars = document.getElementById('foodLevelStars').querySelectorAll('.active').length;
             var friendlinessStars = document.getElementById('friendlinessStars').querySelectorAll('.active').length;
             var funStars = document.getElementById('funStars').querySelectorAll('.active').length;
-            var notes = document.getElementById('notes').value;
+            //var notes = document.getElementById('notes').value;
             var overlay = document.querySelector('.overlay');
             overlay.classList.remove('closed');
 
@@ -86,7 +86,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 text: 'Ok',
                 cssClass: 'btn-info',
                 callback: function() {
-                    navigation.navigate('/selectedMealInfo');
+                    navigation.navigate('/home');
                 }
             }
         };
