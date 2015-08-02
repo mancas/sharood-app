@@ -175,11 +175,11 @@ textarea {
     text-decoration: none;
     transition: all 0.3s ease 0s;
     -webkit-transition: all 0.3s ease 0s;
-    color: rgba(249, 231, 159, 1);
+    color: #693204;
 }
 
 .sign-up .sign-up-btn:hover, .sign-up .sign-up-btn:active, .sign-up .sign-up-btn:focus {
-    color: #693204;
+    color: #F1C40F;
 }
 
 /** HEADER **/

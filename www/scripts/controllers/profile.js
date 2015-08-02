@@ -5,6 +5,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
     controllers.controller('Profile', function ($scope, sharoodDB, navigation, cameraHelper) {
 
         console.info("Profile controller");
+        var cameraImg = 'img/camera.png';
 
         if(sharoodDB.currentUser === null){
             navigation.navigate('#/');
@@ -38,13 +39,21 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
         $scope.isEditModeEnable = false;
         $scope.toggleEditMode = function() {
+            var photo =  document.getElementById('profilePhoto');
             if ($scope.isEditModeEnable) {
                 $scope.isEditModeEnable = false;
                 $scope.elements.editBtn.textContent = 'Edit';
+                if (sharoodDB.currentUser.picture) {
+                    photo.style.backgroundImage = 'url(\'' + sharoodDB.currentUser.picture.url + '\')';
+                } else {
+                    photo.style.backgroundImage = 'url(\'' + cameraImg + '\')';
+                }
             } else {
                 $scope.isEditModeEnable = true;
                 $scope.elements.editBtn.textContent = 'Cancel';
+                photo.style.backgroundImage = 'url(\'' + cameraImg + '\')';
             }
+
             $scope.elements.accountDetails.classList.toggle('hidden', $scope.isEditModeEnable);
             $scope.elements.accountEdition.classList.toggle('hidden', !$scope.isEditModeEnable);
         };
@@ -55,6 +64,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             }
 
             function updateProfile() {
+                $scope.user.username = $scope.user.first_name;
                 // If everything went well
                 sharoodDB.updateProfile($scope.user).then(function(result){
                     console.info(result);
