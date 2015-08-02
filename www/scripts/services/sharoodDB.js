@@ -55,7 +55,9 @@ define(['services/module'], function (services) {
             friendliness_chef_rating_nofvotes: 0,
             fun_rating: 0,
             fun_rating_nofvotes: 0,
-            university: data.university
+            university: data.university,
+            first_name: data.name,
+            username: data.name
         });
 
         user.register(data.email, data.password, data.passwordConfirm)
