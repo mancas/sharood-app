@@ -12,7 +12,7 @@
         <div class="col-md-12">
             <section class="y-block">
                 <div class="y-block-content text-center">
-                    <h4>Great! Now you can go to {{meal.owner.username}}'s at {{meal.time | date: 'HH:mm'}} h</h4>
+                    <h4>Great! Now you can go to {{meal.owner[0].first_name}}'s at {{meal.time | date: 'dd/MM - HH:mm'}} h</h4>
                 </div>
             </section>
         </div>
@@ -20,7 +20,7 @@
 
     <div class="row mt20 text-center font-big">
         <div class="col-md-12">
-            <a href="" ng-click="navigate('/viewMeal')">See {{meal.owner.username}}'s Meal</a>
+            <a href="" ng-click="navigate('/viewMeal')">See {{meal.owner[0].first_name}}'s Meal</a>
         </div>
     </div>
 

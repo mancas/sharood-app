@@ -14,7 +14,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             },
             success: {
                 title: 'Account created successfully',
-                subtitle: 'You can star using Sharood!',
+                subtitle: 'You can start using Sharood!',
                 button: 'Let\'s go!'
             }
         };
