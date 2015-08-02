@@ -120,7 +120,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 text: 'Ok',
                 cssClass: 'btn-info',
                 callback: function() {
-                    navigation.navigate('/myMealInfo');
+                    navigation.navigate('/home');
                 }
             }
         };

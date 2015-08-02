@@ -26,12 +26,11 @@
 
 				<div class="y-block-content attendants">
 					<div ng-repeat="attendant in attendants track by $index" class="list-item" id="attendant-{{$index}}">
-						<a href="" ng-click="">
-							<img class="li-small pull-left" src="{{attendant.picture.url}}" style="backgournd: #F1C40F;" />
+							<img ng-if="attendant.picture" class="li-small pull-left" src="{{attendant.picture.url}}" style="backgournd: #F1C40F;" />
+							<span ng-if="!attendant.picture" class="li-small pull-left">{{attendant.first_name | limitTo: 1}}</span>
 							<span class="list-content li-title">
 								{{attendant.first_name}}
 							</span>
-						</a>
 					</div>
 				</div>
 			</section>
