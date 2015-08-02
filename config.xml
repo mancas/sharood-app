@@ -26,6 +26,8 @@
     <preference name="android-installLocation" value="auto" />
     <preference name="deployment-target" value="8.0" />
     <gap:plugin name="org.apache.cordova.camera" />
+    <gap:plugin name="org.apache.cordova.file" />
+    <gap:plugin name="org.apache.cordova.file-transfer" />
     <icon src="img/appIcon.png" />
     <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="www/res/screen/android/screen-ldpi-portrait.png" />
     <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="www/res/screen/android/screen-mdpi-portrait.png" />

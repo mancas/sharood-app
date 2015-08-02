@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2632d0f0-c57d-4c3b-84f5-6812cf49af0a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/scripts/services/cameraHelper.js" afterPath="$PROJECT_DIR$/www/scripts/services/cameraHelper.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
     </list>
     <ignored path="sharood-app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,16 +39,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="109" column="25" selection-start-line="109" selection-start-column="25" selection-end-line="109" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="register.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/views/register.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="133" />
               <folding />
             </state>
           </provider>
@@ -94,11 +84,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cameraHelper.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cameraHelper.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/scripts/services/cameraHelper.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.037775446">
-              <caret line="2" column="47" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="64" column="46" selection-start-line="64" selection-start-column="46" selection-end-line="64" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.37670514">
+              <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -148,7 +148,6 @@
         <option value="$PROJECT_DIR$/www/scripts/directives/alert.js" />
         <option value="$PROJECT_DIR$/www/views/templates/loader.html" />
         <option value="$PROJECT_DIR$/www/views/templates/alert.html" />
-        <option value="$PROJECT_DIR$/config.xml" />
         <option value="$PROJECT_DIR$/www/scripts/services/mealService.js" />
         <option value="$PROJECT_DIR$/www/css/alert.css" />
         <option value="$PROJECT_DIR$/www/views/successChefMeal.html" />
@@ -192,6 +191,7 @@
         <option value="$PROJECT_DIR$/www/scripts/controllers/profile.js" />
         <option value="$PROJECT_DIR$/www/views/profile.html" />
         <option value="$PROJECT_DIR$/www/scripts/services/cameraHelper.js" />
+        <option value="$PROJECT_DIR$/config.xml" />
       </list>
     </option>
   </component>
@@ -630,14 +630,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="27" selection-start-line="42" selection-start-column="27" selection-end-line="42" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -968,8 +960,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/scripts/services/cameraHelper.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.037775446">
-          <caret line="2" column="47" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="64" column="46" selection-start-line="64" selection-start-column="46" selection-end-line="64" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37670514">
+          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
           <folding />
         </state>
       </provider>

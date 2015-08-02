@@ -62,7 +62,7 @@ define(['services/module'], function (services) {
                   deferred.reject(error);
               }
 
-              window.resolveLocalFileSystemURL(fileURI, function(fileEntry) {
+              window.resolveLocalFileSystemURI(fileURI, function(fileEntry) {
                   fileEntry.file(function(file){
                       var reader = new FileReader();
                       reader.onloadend = function() {
@@ -110,7 +110,7 @@ console.info(canvas.toDataURL('image/jpeg', 1.0));
                   image.src = fileURI;
               }
 
-              window.resolveLocalFileSystemURL(fileURI, function(fileEntry) {
+              window.resolveLocalFileSystemURI(fileURI, function(fileEntry) {
                   fileEntry.file(resizeImgFromFile, onerror);
               }, onerror);
 
