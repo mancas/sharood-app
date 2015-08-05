@@ -97,7 +97,7 @@ define(['services/module'], function (services) {
           .then(function() {
             deferred.resolve();
           }, function(error) {
-            deferred.resolve(error);
+            deferred.reject(error);
           });
 
         return deferred.promise;

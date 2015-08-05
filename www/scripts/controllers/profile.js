@@ -151,6 +151,8 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                         sharoodDB.currentUser = null;
                         console.info('User loged out');
                         navigation.navigate('/');
+                    }).catch(function() {
+                        navigation.navigate('/');
                     });
                 }
             }
