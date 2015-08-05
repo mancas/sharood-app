@@ -28,6 +28,7 @@ define(['controllers/module'], function (controllers, AlertHelper) {
                     if ($scope.meal.assistants['assistant' + i] &&
                         currentUser === $scope.meal.assistants['assistant' + i][0].uid) {
                         $scope.meal.assistants['assistant' + i][0] = null;
+                        delete $scope.meal.picture;
                         sharoodDB.saveMeal($scope.meal).then(function() {
                             navigation.navigate('/home')
                         });
