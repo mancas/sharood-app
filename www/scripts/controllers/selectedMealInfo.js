@@ -25,7 +25,7 @@ define(['controllers/module'], function (controllers, AlertHelper) {
 
             sharoodDB.transferCookies(owner, currentUser, cookies).then(function() {
                 for (var i = 0; i < 5; i++) {
-                    if ($scope.meal.assistants['assistant' + i][0] &&
+                    if ($scope.meal.assistants['assistant' + i] &&
                         currentUser === $scope.meal.assistants['assistant' + i][0].uid) {
                         $scope.meal.assistants['assistant' + i][0] = null;
                         sharoodDB.saveMeal($scope.meal).then(function() {
