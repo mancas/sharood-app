@@ -2,10 +2,10 @@
 <widget id="com.sharood" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Sharood</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+        Sharood connects people who want to eat with people who are cooking in your area. 
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="sharoodapp@gmail.com" href="https://sharoodapp.wordpress.com">
+        Sharood Team
     </author>
     <content src="index.html" />
     <preference name="permissions" value="none" />
@@ -25,9 +25,13 @@
     <preference name="android-minSdkVersion" value="16" />
     <preference name="android-installLocation" value="auto" />
     <preference name="deployment-target" value="8.0" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
     <gap:plugin name="org.apache.cordova.camera" />
     <gap:plugin name="org.apache.cordova.file" />
     <gap:plugin name="org.apache.cordova.file-transfer" />
+    <gap:plugin name="io.github.siegfriedbolz.cordova.plugins.email-composer" version="0.8.3" />
+    <gap:plugin name="org.apache.cordova.inappbrowser" />
+    <gap:plugin name="com.phonegap.plugin.statusbar" />
     <icon src="img/appIcon.png" />
     <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="www/res/screen/android/screen-ldpi-portrait.png" />
     <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="www/res/screen/android/screen-mdpi-portrait.png" />

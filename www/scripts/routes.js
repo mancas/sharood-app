@@ -27,7 +27,7 @@ define(['app'], function (app) {
                     templateUrl: 'views/meals.html',
                     controller: 'Meals'
                 })
-                .when('/viewMeal', {
+                .when('/viewMeal/:onlyInfo', {
                     templateUrl: 'views/viewMeal.html',
                     controller: 'ViewMeal'
                 })

@@ -144,14 +144,14 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 text: 'Yes, logout',
                 cssClass: 'btn-danger',
                 callback: function() {
-                    sharoodDB.logout().then(function(result){
-                        if(result){
-                            console.info(result);
-                        }
+                    setTimeout(function(){
                         sharoodDB.currentUser = null;
                         console.info('User loged out');
                         navigation.navigate('/');
-                    }).catch(function() {
+                    }, 500);
+                    sharoodDB.logout().then(function(result){
+                        sharoodDB.currentUser = null;
+                        console.info('User loged out');
                         navigation.navigate('/');
                     });
                 }

@@ -162,7 +162,7 @@ define(['controllers/module'], function (controllers) {
 
         $scope.goToMeal = function(mealIndex){
             MealService.setCurrentMeal($scope.mealsToRender[mealIndex]);
-            navigation.navigate('/viewMeal');
+            navigation.navigate('/viewMeal/showSave');
         };
 
         $scope.toggleCurrentMeals = function(listId) {

@@ -100,7 +100,6 @@ define(['services/module'], function (services) {
                       canvas.height = image.height;
                       ctx.drawImage(image, 0, 0, image.width, image.height);
 
-console.info(canvas.toDataURL('image/jpeg', 1.0));
                       deferred.resolve({
                           base64: canvas.toDataURL('image/jpeg', 1.0),
                           name: file.name,
