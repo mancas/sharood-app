@@ -87,7 +87,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 return;
             }
 
-            cameraHelper.resizeImage($scope.imageMealURI).then(function(data) {
+            cameraHelper.getBase64FromURI($scope.imageMealURI).then(function(data) {
                 sharoodDB.uploadFile(data).then(function(result) {
                     console.info(result.toJSON());
                     $scope.user.picture = result.toJSON().uid;

@@ -97,7 +97,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             }
 
             overlay.classList.remove('closed');
-            cameraHelper.resizeImage($scope.imageMealURI).then(function(data) {
+            cameraHelper.getBase64FromURI($scope.imageMealURI).then(function(data) {
                 sharoodDB.uploadFile(data).then(function(result) {
                     $scope.mealData.picture = result.toJSON().uid;
                     // If everything went well
