@@ -56,6 +56,10 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
         };
 
         $scope.attendantEmpty = function(position){
+            if(typeof $scope.meal.assistants === 'undefined'){
+                return true;
+            }
+
             if(typeof $scope.meal.assistants[("assistant" + position)] !== 'undefined' && 
                $scope.meal.assistants['assistant' + position].length !== 0){
                 return false;
@@ -80,7 +84,8 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             overlay.classList.remove('closed');
 
             for(var i = 1; i <= $scope.meal.people; i++){
-                if(typeof $scope.meal.assistants[("assistant" + i)] !== 'undefined' && 
+                if(typeof $scope.meal.assistants !== 'undefined' &&
+                   typeof $scope.meal.assistants[("assistant" + i)] !== 'undefined' && 
                    $scope.meal.assistants['assistant' + i].length !== 0){
     
                     var attendantRate = document.getElementById('attendant' + i + 'Stars').querySelectorAll('.active').length;
