@@ -24,7 +24,7 @@ define(['services/module'], function (services) {
 
       //TODO save photos in a specific folder
       var defaultOptions = {
-          quality : 75,
+          quality : 50,
           destinationType : Camera.DestinationType.FILE_URI,
           sourceType : Camera.PictureSourceType.CAMERA,
           allowEdit : true,
@@ -44,6 +44,7 @@ define(['services/module'], function (services) {
 
               var onSuccess = function(img) {
                   // TODO move image to its corresponding folder
+                  console.info("here3: ", img);
                   deferred.resolve(img);
               };
 
@@ -66,6 +67,7 @@ define(['services/module'], function (services) {
                   fileEntry.file(function(file){
                       var reader = new FileReader();
                       reader.onloadend = function() {
+                          console.info("here1: ", reader.result);
                           deferred.resolve({
                               base64: reader.result,
                               name: file.name,
@@ -99,6 +101,7 @@ define(['services/module'], function (services) {
                       canvas.width = image.width;
                       canvas.height = image.height;
                       ctx.drawImage(image, 0, 0, image.width, image.height);
+                      console.info("here2: ", canvas.toDataURL('image/jpeg', 1.0));
 
                       deferred.resolve({
                           base64: canvas.toDataURL('image/jpeg', 1.0),
