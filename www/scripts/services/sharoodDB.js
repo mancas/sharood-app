@@ -7,6 +7,7 @@ define(['services/module'], function (services) {
     return {
 
       currentUser: null,
+      updaterLoaded: false,
 
       loadCurrentUser: function(){
         console.info('1');
@@ -29,6 +30,7 @@ define(['services/module'], function (services) {
         console.info('2');
         var deferred = $q.defer();
         var user = Built.App(apiKey).User();
+        var self = this;
         user.login(data.email, data.password)
           .then(function(user) {
             deferred.resolve(user.toJSON());
@@ -65,7 +67,7 @@ define(['services/module'], function (services) {
         var user = Built.App(apiKey).User();
 
         user = user.assign({
-            cookies: 10,
+            cookies: 3,
             food_level_rating: 0,
             food_level_rating_nofvotes: 0,
             friendliness_chef_rating: 0,
@@ -97,7 +99,7 @@ define(['services/module'], function (services) {
           .then(function() {
             deferred.resolve();
           }, function(error) {
-            deferred.reject(error);
+            deferred.resolve();
           });
 
         return deferred.promise;
@@ -429,6 +431,23 @@ define(['services/module'], function (services) {
           });
 
         return deferred.promise;
+      },
+
+      updateCurrentUser: function() {
+        if(this.updaterLoaded){
+          return;
+        }
+
+        var self = this;
+        setInterval(function(){
+          self.updaterLoaded = true;
+          if(self.currentUser != null){
+            self.getUserById(self.currentUser.uid).then(function(user){
+              console.info(user);
+              self.currentUser = user;
+            });
+          }
+        }, 10000);
       }
 
     };

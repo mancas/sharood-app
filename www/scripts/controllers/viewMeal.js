@@ -2,9 +2,15 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
     'use strict';
 
-    controllers.controller('ViewMeal', function ($scope, MealService, sharoodDB, navigation) {
+    controllers.controller('ViewMeal', function ($scope, MealService, sharoodDB, navigation, $routeParams) {
         
         console.info("ViewMeal controller");
+
+        if(sharoodDB.currentUser === null){
+            console.info("current");
+            navigation.navigate('/');
+            return;
+        }
 
         var mealInfo = MealService.getCurrentMeal();
         var errorSavingSeat = false;
@@ -22,6 +28,12 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 subtitle: 'You have saved your seat for this meal'
             }
         };
+
+        if($routeParams.onlyInfo == 'onlyInfo'){
+            $scope.hideSaveButton = true;
+        } else {
+            $scope.hideSaveButton = false;
+        }
 
 		$scope.meal = mealInfo;  
 

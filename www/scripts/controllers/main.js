@@ -28,6 +28,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 console.info(user);
                 sharoodDB.currentUser = user;
                 navigation.navigate('/home');
+                sharoodDB.updateCurrentUser();
             }).catch(function (error) {
                 AlertHelper.alert('#login-account-alert');
             });

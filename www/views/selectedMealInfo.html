@@ -20,13 +20,13 @@
 
     <div class="row mt20 text-center font-big">
         <div class="col-md-12">
-            <a href="" ng-click="navigate('/viewMeal')">See {{meal.owner[0].first_name}}'s Meal</a>
+            <a href="" ng-click="navigate('/viewMeal/onlyInfo')">See {{meal.owner[0].first_name}}'s Meal</a>
         </div>
     </div>
 
     <div class="row mt20 text-center font-big">
         <div class="col-md-12">
-            <a href="mailto:{{meal.owner[0].email}}" ng-click="navigate('/viewMeal')">Contact Chef for directions</a>
+            <a ng-click="contactChef()">Contact Chef for directions</a>
         </div>
     </div>
 
@@ -41,12 +41,14 @@
             </div>
         </div>
 
-        <!--<div class="row mt20 mb20 text-center">
+        <!--
+        <div class="row mt20 mb20 text-center">
             <div class="col-md-12">
                 <a ng-click="cancel()" href="">
                     Cancel meal
                 </a>
             </div>
-        </div>-->
+        </div>
+        -->
     </section>
 </section>
