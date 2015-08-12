@@ -21,7 +21,11 @@ define(['directives/module'], function (directives) {
 
                         Array.prototype.forEach.call(starList, function(star, index) {
                             var checkbox = document.querySelector('#' + starListId +  ' [data-index="' + index + '"]');
-                            checkbox.parentNode.classList.toggle("active", index < starIndex);
+                            if (index < starIndex) {
+                                checkbox.parentNode.classList.add('active');
+                            } else {
+                                checkbox.parentNode.classList.remove('active');
+                            }
                             checkbox.checked = index < starIndex;
                         });
                     }
