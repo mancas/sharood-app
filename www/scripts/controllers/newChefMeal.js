@@ -128,7 +128,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 text: 'Ok',
                 cssClass: 'btn-info',
                 callback: function() {
-                    navigation.navigate('/home');
+                    navigation.navigate('/viewMeal/:onlyInfo');
                 }
             }
         };

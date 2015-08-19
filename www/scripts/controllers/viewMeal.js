@@ -145,7 +145,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
         function onsuccess() {
             if (!errorSavingSeat) {
-                $scope.navigate('/home');
+                $scope.navigate('/selectedMealInfo');
             } else {
                 AlertHelper.close('#save-seat-alert');
             }
