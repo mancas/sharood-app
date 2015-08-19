@@ -122,7 +122,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             id: 'meal-created-alert',
             icon: false,
             title: 'Meal created',
-            subtitle: 'Your meal have been updated to our data base.',
+            subtitle: 'Awesome! Your meal has been posted.',
             ok: {
                 id: 'btn-ok',
                 text: 'Ok',

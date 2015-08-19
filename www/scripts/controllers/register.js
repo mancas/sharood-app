@@ -31,7 +31,8 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             email: null,
             password: null,
             passwordConfirm: null,
-            university: null
+            university: null,
+            room: null
         };
 
         $scope.register = function(){
