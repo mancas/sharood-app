@@ -2,7 +2,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
     'use strict';
 
-    controllers.controller('Register', function ($scope, sharoodDB, navigation) {
+    controllers.controller('Register', function ($scope, sharoodDB, navigation, cameraHelper) {
 
         console.info("Register controller");
 
@@ -16,6 +16,11 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 title: 'Account created successfully',
                 subtitle: 'You can start using Sharood!',
                 button: 'Let\'s go!'
+            },
+            photo: {
+                title: 'Your photo is required',
+                subtitle: '',
+                button: 'Ok'
             }
         };
 
@@ -35,16 +40,37 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 return;
             }
 
-            sharoodDB.register($scope.user).then(function(user) {
-                $scope.hasErrors = false;
-                updateAlertTitles();
-                AlertHelper.alert('#register-account-alert');
-            }).catch(function(error) {
+            if (!$scope.imageURI) {
                 $scope.hasErrors = true;
-                updateAlertTitles(error);
+                updateAlertTitles('photo');
                 AlertHelper.alert('#register-account-alert');
-            });
+                return;
+            }
+
+            sharoodDB.register($scope.user).then(function(user) {
+                cameraHelper.getBase64FromURI($scope.imageURI).then(function(data) {
+                    sharoodDB.uploadFile(data).then(function(result) {
+                        console.info(result.toJSON());
+                        user.picture = result.toJSON().uid;
+
+                        sharoodDB.updateProfile(user).then(function(result){
+                            console.info(result);
+                            sharoodDB.currentUser = result;
+                            $scope.currentUser = result;
+                            $scope.hasErrors = false;
+                            updateAlertTitles('success');
+                            AlertHelper.alert('#register-account-alert');
+                        });
+                    }).catch(onerror);
+                }).catch(onerror);
+            }).catch(onerror);
         };
+
+        function onerror(e) {
+            $scope.hasErrors = true;
+            updateAlertTitles('error');
+            AlertHelper.alert('#register-account-alert');
+        }
 
         function onSuccess() {
             if (!$scope.hasErrors) {
@@ -54,12 +80,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             }
         }
 
-        function updateAlertTitles(error) {
-            var key = 'success';
-            if (typeof error !== 'undefined') {
-                key = 'error';
-            }
-
+        function updateAlertTitles(key) {
             var alert = document.querySelector('#register-account-alert');
             var title = alert.querySelector('h2');
             var subtitle = alert.querySelector('p');
@@ -97,6 +118,16 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 x.add(option);
             });
         });
+
+        $scope.changePhoto = function(){
+            console.info("Getting Picture");
+            cameraHelper.getPicture().then(function(imgURI){
+                var photo = document.getElementById('profilePhoto');
+                photo.style.backgroundImage = 'url(\'' + imgURI + '\')';
+                photo.classList.add('cover');
+                $scope.imageURI = imgURI;
+            });
+        }
 
     });
 

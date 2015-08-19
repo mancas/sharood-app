@@ -110,6 +110,14 @@ textarea {
     padding: 0 1.5rem;
 }
 
+.register-form {
+    padding-top: 8rem;
+}
+
+.register-form .img-square {
+    margin: 0 auto 2rem;
+}
+
 ::-webkit-input-placeholder { /* WebKit browsers */
     color: #693204;
 }
