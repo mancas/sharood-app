@@ -147,11 +147,13 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                     setTimeout(function(){
                         sharoodDB.currentUser = null;
                         console.info('User loged out');
+                        localStorage.setItem("credentials", "0");
                         navigation.navigate('/');
                     }, 500);
                     sharoodDB.logout().then(function(result){
                         sharoodDB.currentUser = null;
                         console.info('User loged out');
+                        localStorage.setItem("credentials", "0");
                         navigation.navigate('/');
                     });
                 }

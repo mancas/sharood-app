@@ -5,11 +5,17 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
     controllers.controller('MainCtrl', function ($scope, navigation, sharoodDB) {
 
         function tryAutoLogin(){
-            sharoodDB.loadCurrentUser().then(function(user){
-                console.info(user);
-                sharoodDB.currentUser = user;
-                navigation.navigate('/home');
-            });
+            var credentials = localStorage.getItem("credentials");
+            if(credentials === null || credentials === "0"){
+                sharoodDB.loadCurrentUser().then(function(user){
+                    console.info(user);
+                    sharoodDB.currentUser = user;
+                    navigation.navigate('/home');
+                });
+            } else {
+                $scope.user = JSON.parse(credentials);
+                doLogin();
+            }
         }
 
         tryAutoLogin();
@@ -24,7 +30,13 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 return;
             }
 
+            doLogin();
+        };
+
+        function doLogin(){
+            var credentials = $scope.user;
             sharoodDB.login($scope.user).then(function(user){
+                localStorage.setItem("credentials", JSON.stringify(credentials));
                 console.info(user);
                 sharoodDB.currentUser = user;
                 navigation.navigate('/home');
@@ -32,7 +44,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             }).catch(function (error) {
                 AlertHelper.alert('#login-account-alert');
             });
-        };
+        }
 
         $scope.navigate = navigation.navigate;
 
