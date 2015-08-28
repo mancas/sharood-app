@@ -25,7 +25,7 @@ define(['services/module'], function (services) {
       //TODO save photos in a specific folder
       var defaultOptions = {
           quality : 80,
-          destinationType : Camera.DestinationType.DATA_URL,
+          destinationType : Camera.DestinationType.FILE_URI,
           sourceType : Camera.PictureSourceType.CAMERA,
           encodingType: Camera.EncodingType.JPEG,
           targetWidth: 500,
@@ -54,9 +54,26 @@ define(['services/module'], function (services) {
               return deferred.promise;
           },
 
-          getBase64FromURI: function(fileData) {
+          getBase64FromURI: function(fileURI) {
               var deferred = $q.defer();
-              deferred.resolve({ base64: fileData, name: 'profile.jpeg', contentType: 'image/jpeg' });
+              function onerror(error) {
+                  deferred.reject(error);
+              }
+
+              window.resolveLocalFileSystemURL(fileURI, function(fileEntry) {
+                  fileEntry.file(function(file){
+                      var reader = new FileReader();
+                      reader.onloadend = function() {
+                          console.info("here1: ", reader.result);
+                          deferred.resolve({
+                              base64: reader.result,
+                              name: file.name,
+                              contentType: 'image/jpeg'
+                          });
+                      };
+                      reader.readAsDataURL(file);
+                  }, onerror);
+              }, onerror);
 
               return deferred.promise;
           }
