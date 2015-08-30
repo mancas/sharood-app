@@ -41,7 +41,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 return;
             }
 
-            if (!$scope.imageURI) {
+            if (!$scope.imageBase64) {
                 $scope.hasErrors = true;
                 updateAlertTitles('photo');
                 AlertHelper.alert('#register-account-alert');
@@ -49,7 +49,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             }
 
             sharoodDB.register($scope.user).then(function(user) {
-                var data = cameraHelper.buildServerImg($scope.imageURI);
+                var data = cameraHelper.buildServerImg($scope.imageBase64);
                 sharoodDB.uploadFile(data).then(function(result) {
                     console.info(result.toJSON());
                     user.picture = result.toJSON().uid;
@@ -121,11 +121,11 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
         $scope.changePhoto = function(){
             console.info("Getting Picture");
-            cameraHelper.getPicture().then(function(imgURI){
+            cameraHelper.getPicture().then(function(base64){
                 var photo = document.getElementById('profilePhoto');
-                photo.style.backgroundImage = 'url(data:image/jpeg;base64,' + imgURI + ')';
+                photo.style.backgroundImage = 'url(data:image/jpeg;base64,' + base64 + ')';
                 photo.classList.add('cover');
-                $scope.imageURI = 'data:image/jpeg;base64,' + imgURI;
+                $scope.imageBase64 = 'data:image/jpeg;base64,' + base64;
             });
         }
 

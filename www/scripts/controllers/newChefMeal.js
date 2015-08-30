@@ -22,7 +22,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             }
         });
 
-        $scope.imageMealURI = null;
+        $scope.imageBase64 = null;
 
         $scope.onerror = function(e) {
             console.error(e);
@@ -32,12 +32,12 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
         $scope.takePicture = function() {
             console.info("Getting Picture");
-            cameraHelper.getPicture().then(function(imgURI){
+            cameraHelper.getPicture().then(function(base64){
                 var photo = document.getElementById('placePhoto');
-                photo.style.backgroundImage = 'url(data:image/jpeg;base64,' + imgURI + ')';
+                photo.style.backgroundImage = 'url(data:image/jpeg;base64,' + base64 + ')';
                 photo.classList.add('cover');
 
-                $scope.imageURI = 'data:image/jpeg;base64,' + imgURI;
+                $scope.imageBase64 = 'data:image/jpeg;base64,' + base64;
             });
         };
 
@@ -91,13 +91,13 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             $scope.mealData.people = peopleToCome;
             $scope.mealData.time = date;
 
-            if (!$scope.imageMealURI) {
+            if (!$scope.imageBase64) {
                 AlertHelper.alert('#meal-error-alert');
                 return;
             }
 
             overlay.classList.remove('closed');
-            var data = cameraHelper.buildServerImg($scope.imageURI);
+            var data = cameraHelper.buildServerImg($scope.imageBase64);
             sharoodDB.uploadFile(data).then(function(result) {
                 $scope.mealData.picture = result.toJSON().uid;
                 // If everything went well

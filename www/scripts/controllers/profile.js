@@ -82,12 +82,12 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 });
             }
 
-            if (!$scope.imageMealURI) {
+            if (!$scope.imageBase64) {
                 updateProfile();
                 return;
             }
 
-            var data = cameraHelper.buildServerImg($scope.imageMealURI);
+            var data = cameraHelper.buildServerImg($scope.imageBase64);
             sharoodDB.uploadFile(data).then(function(result) {
                 console.info(result.toJSON());
                 $scope.user.picture = result.toJSON().uid;
@@ -161,11 +161,11 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
         $scope.changePhoto = function(){
             console.info("Getting Picture");
-            cameraHelper.getPicture().then(function(imgURI){
+            cameraHelper.getPicture().then(function(base64){
                 var photo = document.getElementById('profilePhoto');
-                photo.style.backgroundImage = 'url(data:image/jpeg;base64,' + imgURI + ')';
+                photo.style.backgroundImage = 'url(data:image/jpeg;base64,' + base64 + ')';
                 photo.classList.add('cover');
-                $scope.imageMealURI = 'data:image/jpeg;base64,' + imgURI;
+                $scope.imageBase64 = 'data:image/jpeg;base64,' + base64;
             });
         }
     });
