@@ -37,11 +37,11 @@ define(['services/module'], function (services) {
           getPicture: function(options) {
               var deferred = $q.defer();
               options = options || defaultOptions;
-              console.info(options);
+              console.log(options);
 
               var onSuccess = function(img) {
                   // TODO move image to its corresponding folder
-                  console.info("here3: ", img);
+                  console.log("here3: ", img);
                   deferred.resolve(img);
               };
 
@@ -64,7 +64,7 @@ define(['services/module'], function (services) {
                   fileEntry.file(function(file){
                       var reader = new FileReader();
                       reader.onloadend = function() {
-                          console.info("here1: ", reader.result);
+                          console.log("here1: ", reader.result);
                           deferred.resolve({
                               base64: reader.result,
                               name: file.name,

@@ -4,7 +4,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
     controllers.controller('Register', function ($scope, sharoodDB, navigation, cameraHelper) {
 
-        console.info("Register controller");
+        console.log("Register controller");
 
         var ALERT_TITLES = {
             error: {
@@ -37,7 +37,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
         $scope.register = function(){
             if (!$scope.registerForm.$valid) {
-                console.info('no validate', $scope.registerForm);
+                console.log('no validate', $scope.registerForm);
                 return;
             }
 
@@ -51,11 +51,11 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             sharoodDB.register($scope.user).then(function(user) {
                 var data = cameraHelper.buildServerImg($scope.imageBase64);
                 sharoodDB.uploadFile(data).then(function(result) {
-                    console.info(result.toJSON());
+                    console.log(result.toJSON());
                     user.picture = result.toJSON().uid;
 
                     sharoodDB.updateProfile(user).then(function(result){
-                        console.info(result);
+                        console.log(result);
                         sharoodDB.currentUser = result;
                         $scope.currentUser = result;
                         $scope.hasErrors = false;
@@ -74,7 +74,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
         function onSuccess() {
             if (!$scope.hasErrors) {
-                console.info('Account created');
+                console.log('Account created');
                 //alert('User registered. You need to activate it.');
                 navigation.navigate('/');
             }
@@ -120,7 +120,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
         });
 
         $scope.changePhoto = function(){
-            console.info("Getting Picture");
+            console.log("Getting Picture");
             cameraHelper.getPicture().then(function(base64){
                 var photo = document.getElementById('profilePhoto');
                 photo.style.backgroundImage = 'url(data:image/jpeg;base64,' + base64 + ')';

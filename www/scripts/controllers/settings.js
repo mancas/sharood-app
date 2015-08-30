@@ -4,7 +4,7 @@ define(['controllers/module'], function (controllers) {
 
     controllers.controller('Settings', function ($scope, navigation) {
         
-        console.info("Settings controller");
+        console.log("Settings controller");
 
         $scope.navigate = navigation.navigate;
 

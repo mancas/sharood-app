@@ -10,7 +10,7 @@ define(['services/module'], function (services) {
       updaterLoaded: false,
 
       loadCurrentUser: function(){
-        console.info('1');
+        console.log('1');
         var deferred = $q.defer();
         var user = Built.App(apiKey).User;
         user.getCurrentUser()
@@ -19,7 +19,7 @@ define(['services/module'], function (services) {
           }, function(error) {
             // some error has occurred
             // refer to the 'error' object for more details
-            console.info(error);
+            console.log(error);
             deferred.reject(error);
           });
 
@@ -27,7 +27,7 @@ define(['services/module'], function (services) {
       },
 
       login: function(data) {
-        console.info('2');
+        console.log('2');
         var deferred = $q.defer();
         var user = Built.App(apiKey).User();
         var self = this;
@@ -37,7 +37,7 @@ define(['services/module'], function (services) {
           }, function(error) {
             // some error has occurred
             // refer to the 'error' object for more details
-            console.info(error);
+            console.log(error);
             deferred.reject(error);
           });
 
@@ -62,7 +62,7 @@ define(['services/module'], function (services) {
       },
 
       register: function(data) {
-        console.info('3');
+        console.log('3');
         var deferred = $q.defer();
         var user = Built.App(apiKey).User();
 
@@ -92,7 +92,7 @@ define(['services/module'], function (services) {
       },
 
       logout: function() {
-        console.info('4');
+        console.log('4');
         var deferred = $q.defer();
         var user = Built.App(apiKey).User();
         user.logout()
@@ -106,7 +106,7 @@ define(['services/module'], function (services) {
       },
 
       saveMeal: function(mealData) {
-        console.info('5');
+        console.log('5');
         var deferred = $q.defer();
         var Meal = Built.App(apiKey).Class('meal').Object;
         var meal = Meal();
@@ -125,7 +125,7 @@ define(['services/module'], function (services) {
 
 
       getAllMeals: function(start, finish) {
-        console.info('6');
+        console.log('6');
         var deferred = $q.defer();
         var query = Built.App(apiKey).Class('meal').Query();
 
@@ -193,7 +193,7 @@ define(['services/module'], function (services) {
 
         var query = Built.App(apiKey).Class('meal').Query();
 
-        console.info(query);
+        console.log(query);
         query = query.where('uid', mealId);
 
         query.include(['owner',
@@ -226,8 +226,8 @@ define(['services/module'], function (services) {
       },
 
       uploadFile: function(fileData) {
-        console.info('7');
-        console.info(fileData);
+        console.log('7');
+        console.log(fileData);
         var deferred = $q.defer();
         var upload = Built.App(apiKey).Upload();
         upload = upload.setFile(fileData);
@@ -243,7 +243,7 @@ define(['services/module'], function (services) {
       },
 
       updateProfile: function(data) {
-        console.info('8');
+        console.log('8');
 
         var deferred = $q.defer();
         var User = Built.App(apiKey).Class('built_io_application_user').Object;
@@ -262,7 +262,7 @@ define(['services/module'], function (services) {
       },
 
       getUserById: function(userId) {
-        console.info('9');
+        console.log('9');
         var deferred = $q.defer();
         var user = Built.App(apiKey).Class('built_io_application_user').Object(userId);
         user.fetch()
@@ -276,7 +276,7 @@ define(['services/module'], function (services) {
       },
 
       getAllMealsByOwner: function(owner) {
-        console.info('10');
+        console.log('10');
         var deferred = $q.defer();
         var query = Built.App(apiKey).Class('meal').Query();
 
@@ -301,13 +301,13 @@ define(['services/module'], function (services) {
       },
 
       getAllMealsByAssistant: function(assistant) {
-        console.info('11');
+        console.log('11');
         var deferred = $q.defer();
 
         var query = Built.App(apiKey).Class('meal').Query();
 
-        console.info(query);
-        console.info(this.currentUser);
+        console.log(query);
+        console.log(this.currentUser);
 
         query = query.notContainedIn('votedby', this.currentUser.uid);
 
@@ -338,9 +338,9 @@ define(['services/module'], function (services) {
       },
 
       addVotesToUser: function(userId, friendliness, foodLevel, fun) {
-        console.info('12');
+        console.log('12');
         var deferred = $q.defer();
-        console.info(userId, friendliness, foodLevel, fun);
+        console.log(userId, friendliness, foodLevel, fun);
         var User = Built.App(apiKey).Class('built_io_application_user').Object;
         var user = User(userId);
 
@@ -366,7 +366,7 @@ define(['services/module'], function (services) {
       },    
 
       getAllPlaces: function() {
-        console.info('13');
+        console.log('13');
         var deferred = $q.defer();
         var query = Built.App(apiKey).Class('university').Query();
 
@@ -385,7 +385,7 @@ define(['services/module'], function (services) {
       },
 
       transferCookies: function(from, to, number) {
-        console.info('14');
+        console.log('14');
 
         var promises = [];
 
@@ -399,7 +399,7 @@ define(['services/module'], function (services) {
       },
 
       incrementCookies: function(userId, number) {
-        console.info('15');
+        console.log('15');
         var deferred = $q.defer();
         var User = Built.App(apiKey).Class('built_io_application_user').Object;
         var user = User(userId);
@@ -417,7 +417,7 @@ define(['services/module'], function (services) {
       },
 
       decrementCookies: function(userId, number) {
-        console.info('16');
+        console.log('16');
         var deferred = $q.defer();
         var User = Built.App(apiKey).Class('built_io_application_user').Object;
         var user = User(userId);
@@ -444,7 +444,7 @@ define(['services/module'], function (services) {
           self.updaterLoaded = true;
           if(self.currentUser != null){
             self.getUserById(self.currentUser.uid).then(function(user){
-              console.info(user);
+              console.log(user);
               self.currentUser = user;
             });
           }

@@ -4,7 +4,7 @@ define(['controllers/module'], function (controllers, AlertHelper) {
 
     controllers.controller('MyMealInfo', function ($scope, sharoodDB, navigation, MealService) {
 
-        console.info("MyMealInfo controller");
+        console.log("MyMealInfo controller");
 
         if(sharoodDB.currentUser === null){
             navigation.navigate('/');
@@ -37,7 +37,7 @@ define(['controllers/module'], function (controllers, AlertHelper) {
 
         $scope.meal = MealService.getCurrentMeal();
 
-        console.info($scope.meal);
+        console.log($scope.meal);
 
         $scope.navigate = navigation.navigate;
 
@@ -50,9 +50,9 @@ define(['controllers/module'], function (controllers, AlertHelper) {
             sharoodDB.getMealWithAttendantsById($scope.meal.uid).then(function(meal) {
                 $scope.meal = meal[0].toJSON();
                 MealService.setCurrentMeal = meal[0].toJSON();
-                console.info(meal);
+                console.log(meal);
                 $scope.attendants = toSingleArray($scope.meal.assistants);
-                console.info($scope.attendants);
+                console.log($scope.attendants);
                 icon.classList.remove('fa-spin');
             });
         };

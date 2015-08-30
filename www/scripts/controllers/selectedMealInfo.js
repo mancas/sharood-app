@@ -4,7 +4,7 @@ define(['controllers/module'], function (controllers, AlertHelper) {
 
     controllers.controller('SelectedMealInfo', function ($scope, sharoodDB, navigation, MealService) {
 
-        console.info("SelectedMealInfo controller");
+        console.log("SelectedMealInfo controller");
 
         if(sharoodDB.currentUser === null){
             navigation.navigate('/');
@@ -13,7 +13,7 @@ define(['controllers/module'], function (controllers, AlertHelper) {
 
         $scope.meal = MealService.getCurrentMeal();
 
-        console.info($scope.meal);
+        console.log($scope.meal);
 
         $scope.navigate = navigation.navigate;
 
@@ -24,7 +24,7 @@ define(['controllers/module'], function (controllers, AlertHelper) {
         }
 
         $scope.cancel = function() {
-            console.info($scope.meal);
+            console.log($scope.meal);
             var cookies = $scope.meal.cookies_value;
             var owner = $scope.meal.owner[0].uid;
             var currentUser = sharoodDB.currentUser.uid;
@@ -35,7 +35,7 @@ define(['controllers/module'], function (controllers, AlertHelper) {
                         currentUser === $scope.meal.assistants['assistant' + i][0].uid) {
                         delete $scope.meal.assistants['assistant' + i][0];
                         delete $scope.meal.picture;
-                        console.info($scope.meal);
+                        console.log($scope.meal);
                         sharoodDB.saveMeal($scope.meal).then(function() {
                             navigation.navigate('/home')
                         });
@@ -52,7 +52,7 @@ define(['controllers/module'], function (controllers, AlertHelper) {
                         currentUser === mealResult.assistants['assistant' + i][0].uid) {
                         delete result.picture;
                         delete result.assistants['assistant' + i][0];
-                        console.info(result);
+                        console.log(result);
                         sharoodDB.saveMeal(meal).then(function() {
                             navigation.navigate('/home')
                         });

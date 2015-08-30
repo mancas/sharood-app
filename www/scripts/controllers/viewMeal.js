@@ -4,10 +4,10 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
     controllers.controller('ViewMeal', function ($scope, MealService, sharoodDB, navigation, $routeParams) {
         
-        console.info("ViewMeal controller");
+        console.log("ViewMeal controller");
 
         if(sharoodDB.currentUser === null){
-            console.info("current");
+            console.log("current");
             navigation.navigate('/');
             return;
         }
@@ -37,7 +37,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
 		$scope.meal = mealInfo;  
 
-        console.info($scope.meal);
+        console.log($scope.meal);
 
         $scope.foodConfig = {
             values: [1, 2, 3, 4, 5],
@@ -73,7 +73,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 return meal;
             } else {
                 for(var i = 1; i <= meal.people; i++){
-                    console.info('assistant' + i);
+                    console.log('assistant' + i);
                     if(typeof meal.assistants[("assistant" + i)] == 'undefined'){
                         meal.assistants[("assistant" + i)] = [];
                     }
@@ -91,11 +91,11 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
         $scope.saveSeat = function(){
             sharoodDB.getmealById(mealInfo.uid).then(function(result){
                 var mealResult = addPerson(result);
-                console.info(mealResult);
+                console.log(mealResult);
                 if(mealResult){
                     delete mealResult.picture;
                     sharoodDB.saveMeal(mealResult).then(function(result){
-                        console.info(result);
+                        console.log(result);
                         var cookies = mealResult.cookies_value;
                         var owner = mealResult.owner[0];
                         var current = sharoodDB.currentUser.uid;
@@ -167,7 +167,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
         };
 
         $scope.openViewport = function($event) {
-            console.info($event.currentTarget);
+            console.log($event.currentTarget);
             var viewport = document.querySelector('.viewport');
             viewport.style.backgroundImage = 'url(' + $event.currentTarget.src + ')';
 

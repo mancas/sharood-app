@@ -4,7 +4,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
     controllers.controller('RateChef', function ($scope, sharoodDB, navigation, MealService) {
 
-        console.info("RateChef controller");
+        console.log("RateChef controller");
 
         if(sharoodDB.currentUser === null){
             navigation.navigate('/');
@@ -47,14 +47,14 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             var overlay = document.querySelector('.overlay');
             overlay.classList.remove('closed');
 
-            console.info(foodLevelStars, friendlinessStars, funStars);
+            console.log(foodLevelStars, friendlinessStars, funStars);
 
             sharoodDB.addVotesToUser(mealInfo.owner[0].uid, friendlinessStars, foodLevelStars, funStars).then(function(result){
-                console.info(result);
+                console.log(result);
                 sharoodDB.getmealById(mealInfo.uid).then(function(result){
-                    console.info(result);
+                    console.log(result);
                     var mealResult = addUserVote(result);
-                    console.info(mealResult);
+                    console.log(mealResult);
                     delete mealResult.picture;
                     sharoodDB.saveMeal(mealResult).then(function(result){
                         overlay.classList.add('closed');

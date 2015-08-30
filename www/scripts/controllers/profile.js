@@ -4,7 +4,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
     controllers.controller('Profile', function ($scope, sharoodDB, navigation, cameraHelper) {
 
-        console.info("Profile controller");
+        console.log("Profile controller");
         var cameraImg = 'img/camera.png';
 
         if(sharoodDB.currentUser === null){
@@ -75,7 +75,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 $scope.user.username = $scope.user.first_name;
                 // If everything went well
                 sharoodDB.updateProfile($scope.user).then(function(result){
-                    console.info(result);
+                    console.log(result);
                     sharoodDB.currentUser = result;
                     $scope.currentUser = result;
                     $scope.toggleEditMode();
@@ -89,7 +89,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
             var data = cameraHelper.buildServerImg($scope.imageBase64);
             sharoodDB.uploadFile(data).then(function(result) {
-                console.info(result.toJSON());
+                console.log(result.toJSON());
                 $scope.user.picture = result.toJSON().uid;
 
                 updateProfile();
@@ -111,7 +111,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 id: 'delete-btn-cancel',
                 text: 'Cancel',
                 callback: function() {
-                    console.info('Don\'t delete account');
+                    console.log('Don\'t delete account');
                 }
             },
             ok: {
@@ -119,7 +119,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 text: 'Yes, delete it',
                 cssClass: 'btn-danger',
                 callback: function() {
-                    console.info('Delete account');
+                    console.log('Delete account');
                 }
             }
         };
@@ -145,13 +145,13 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 callback: function() {
                     setTimeout(function(){
                         sharoodDB.currentUser = null;
-                        console.info('User loged out');
+                        console.log('User loged out');
                         localStorage.setItem("credentials", "0");
                         navigation.navigate('/');
                     }, 500);
                     sharoodDB.logout().then(function(result){
                         sharoodDB.currentUser = null;
-                        console.info('User loged out');
+                        console.log('User loged out');
                         localStorage.setItem("credentials", "0");
                         navigation.navigate('/');
                     });
@@ -160,7 +160,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
         };
 
         $scope.changePhoto = function(){
-            console.info("Getting Picture");
+            console.log("Getting Picture");
             cameraHelper.getPicture().then(function(base64){
                 var photo = document.getElementById('profilePhoto');
                 photo.style.backgroundImage = 'url(data:image/jpeg;base64,' + base64 + ')';

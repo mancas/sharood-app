@@ -8,7 +8,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             var credentials = localStorage.getItem("credentials");
             if(credentials === null || credentials === "0"){
                 sharoodDB.loadCurrentUser().then(function(user){
-                    console.info(user);
+                    console.log(user);
                     sharoodDB.currentUser = user;
                     navigation.navigate('/home');
                 });
@@ -37,7 +37,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             var credentials = $scope.user;
             sharoodDB.login($scope.user).then(function(user){
                 localStorage.setItem("credentials", JSON.stringify(credentials));
-                console.info(user);
+                console.log(user);
                 sharoodDB.currentUser = user;
                 navigation.navigate('/home');
                 sharoodDB.updateCurrentUser();

@@ -12,7 +12,7 @@ define(['directives/module'], function (directives) {
                 listItemHeight = 70;
                 if (attrs.scrollDistance != null) {
                     scope.$watch(attrs.scrollDistance, function(value) {
-                        console.info(value);
+                        console.log(value);
                         return scrollDistance = parseInt(value, 10);
                     });
                 }
@@ -26,10 +26,10 @@ define(['directives/module'], function (directives) {
 
                     if (shouldScroll && attrs.ngInfiniteScrollCallback !== null) {
                         if ($rootScope.$$phase) {
-                            console.info('here');
+                            console.log('here');
                             return scope.$eval(attrs.ngInfiniteScrollCallback);
                         } else {
-                            console.info('apply', attrs);
+                            console.log('apply', attrs);
                             return scope.$apply(attrs.ngInfiniteScrollCallback);
                         }
                     }

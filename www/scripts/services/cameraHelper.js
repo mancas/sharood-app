@@ -37,11 +37,11 @@ define(['services/module'], function (services) {
           getPicture: function(options) {
               var deferred = $q.defer();
               options = options || defaultOptions;
-              console.info(options);
+              console.log(options);
 
               var onSuccess = function(img) {
                   // TODO move image to its corresponding folder
-                  console.info("here3: ", img);
+                  console.log("here3: ", img);
                   deferred.resolve(img);
               };
 
@@ -54,17 +54,12 @@ define(['services/module'], function (services) {
               return deferred.promise;
           },
 
-          getBase64FromURI: function(fileData) {
-              var deferred = $q.defer();
-              deferred.resolve({ base64: fileData, name: 'profile.jpeg', contentType: 'image/jpeg' });
-
-              return deferred.promise;
-          },
-
           buildServerImg: function(base64) {
+              var name = Math.floor((Math.random() * 100000000) + 1);
+              console.log(base64);
               return {
                   base64: base64,
-                  name: '',
+                  name: name + '.jpeg',
                   contentType: 'image/jpeg'
               };
           }

@@ -4,7 +4,7 @@ define(['controllers/module'], function (controllers) {
 
     controllers.controller('Meals', function ($scope, sharoodDB, navigation, MealService, $q) {
         
-        console.info("Meals controller");
+        console.log("Meals controller");
 
         if(sharoodDB.currentUser === null){
             navigation.navigate('/');
@@ -84,25 +84,25 @@ define(['controllers/module'], function (controllers) {
 
         /*
         sharoodDB.getAllMealsByOwner(sharoodDB.currentUser.uid).then(function(meals) {
-            console.info(meals);
+            console.log(meals);
         });
 
         sharoodDB.getAllMealsByAssistant(sharoodDB.currentUser.uid).then(function(meals) {
-            console.info(meals);
+            console.log(meals);
         });
         */
 
         sharoodDB.getAllMealsByAssistant(sharoodDB.currentUser.uid).then(function(meals) {
-            console.info(meals);
+            console.log(meals);
             if(meals.length == 0){
                 sharoodDB.getAllMeals().then(function(meals) {
 
-                    console.info(meals);
+                    console.log(meals);
 
                     if(meals.length > 0){
 
                         meals.forEach(function(meal){
-                            console.info(meal.toJSON());
+                            console.log(meal.toJSON());
                             $scope.AllMeals.push(meal.toJSON());
                             $scope.currentMeals.push(meal.toJSON());
                         });
@@ -128,7 +128,7 @@ define(['controllers/module'], function (controllers) {
         });
 
         $scope.loadMoreMeals = function() {
-            console.info('load!');
+            console.log('load!');
             if (!$scope.mealsToRender.length) {
                 return;
             }
@@ -143,11 +143,11 @@ define(['controllers/module'], function (controllers) {
             }
 
             for (var i = lastIndex; i < newIndex; i++) {
-                console.info($scope.currentMeals[i]);
+                console.log($scope.currentMeals[i]);
                 $scope.mealsToRender.push($scope.currentMeals[i]);
             }
 
-            console.info($scope.mealsToRender);
+            console.log($scope.mealsToRender);
         };
 
         
@@ -176,7 +176,7 @@ define(['controllers/module'], function (controllers) {
 
                 // Load when needed
                 sharoodDB[mealsOptions.method](sharoodDB.currentUser.uid).then(function(meals) {
-                    console.info('new meals loaded', meals);
+                    console.log('new meals loaded', meals);
                     mealsOptions.load = true;
                     $scope.currentMeals = $scope[mealsOptions.elements] = [];
                     meals.forEach(function(meal){
@@ -199,7 +199,7 @@ define(['controllers/module'], function (controllers) {
                     btn.classList.add('active');
 
                     var list = btn.dataset.list;
-                    console.info(list);
+                    console.log(list);
                     $scope.toggleCurrentMeals(list);
                 });
             });

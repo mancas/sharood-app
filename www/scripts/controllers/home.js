@@ -4,7 +4,7 @@ define(['controllers/module'], function (controllers) {
 
     controllers.controller('Home', function ($scope, sharoodDB, navigation) {
         
-        console.info("Home controller");
+        console.log("Home controller");
 
         if(sharoodDB.currentUser === null){
             navigation.navigate('#/');

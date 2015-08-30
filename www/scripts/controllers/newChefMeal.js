@@ -4,7 +4,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
     controllers.controller('NewChefMeal', function ($scope, sharoodDB, navigation, MealService, cameraHelper) {
 
-        console.info("NewChefMeal controller");
+        console.log("NewChefMeal controller");
 
         if(sharoodDB.currentUser === null){
             navigation.navigate('/');
@@ -12,7 +12,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
         }
 
         sharoodDB.getAllMealsByOwner(sharoodDB.currentUser.uid).then(function(meals) {
-            console.info(meals);
+            console.log(meals);
             if(meals.length == 0){
                 var overlay = document.querySelector('.overlay');
                 overlay.classList.add('closed');
@@ -31,7 +31,7 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
         };
 
         $scope.takePicture = function() {
-            console.info("Getting Picture");
+            console.log("Getting Picture");
             cameraHelper.getPicture().then(function(base64){
                 var photo = document.getElementById('placePhoto');
                 photo.style.backgroundImage = 'url(data:image/jpeg;base64,' + base64 + ')';
@@ -76,9 +76,9 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
         };
 
         $scope.sendMeal = function() {
-            console.info($scope.newMealForm);
+            console.log($scope.newMealForm);
             if (!$scope.newMealForm.$valid) {
-                console.info('no validate');
+                console.log('no validate');
                 return;
             }
 
