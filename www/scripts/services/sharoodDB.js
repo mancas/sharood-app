@@ -227,6 +227,7 @@ define(['services/module'], function (services) {
 
       uploadFile: function(fileData) {
         console.info('7');
+        console.info(fileData);
         var deferred = $q.defer();
         var upload = Built.App(apiKey).Upload();
         upload = upload.setFile(fileData);

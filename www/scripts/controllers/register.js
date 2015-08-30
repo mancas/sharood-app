@@ -123,9 +123,9 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             console.info("Getting Picture");
             cameraHelper.getPicture().then(function(imgURI){
                 var photo = document.getElementById('profilePhoto');
-                photo.style.backgroundImage = 'url(\'' + imgURI + '\')';
+                photo.style.backgroundImage = 'url(data:image/jpeg;base64,' + imgURI + ')';
                 photo.classList.add('cover');
-                $scope.imageURI = imgURI;
+                $scope.imageURI = 'data:image/jpeg;base64,' + imgURI;
             });
         }
 

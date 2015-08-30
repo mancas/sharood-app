@@ -146,11 +146,13 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                     setTimeout(function(){
                         sharoodDB.currentUser = null;
                         console.info('User loged out');
+                        localStorage.setItem("credentials", "0");
                         navigation.navigate('/');
                     }, 500);
                     sharoodDB.logout().then(function(result){
                         sharoodDB.currentUser = null;
                         console.info('User loged out');
+                        localStorage.setItem("credentials", "0");
                         navigation.navigate('/');
                     });
                 }
@@ -161,9 +163,9 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             console.info("Getting Picture");
             cameraHelper.getPicture().then(function(imgURI){
                 var photo = document.getElementById('profilePhoto');
-                photo.style.backgroundImage = 'url(\'' + imgURI + '\')';
+                photo.style.backgroundImage = 'url(data:image/jpeg;base64,' + imgURI + ')';
                 photo.classList.add('cover');
-                $scope.imageMealURI = imgURI;
+                $scope.imageMealURI = 'data:image/jpeg;base64,' + imgURI;
             });
         }
     });
