@@ -49,20 +49,19 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             }
 
             sharoodDB.register($scope.user).then(function(user) {
-                cameraHelper.getBase64FromURI($scope.imageURI).then(function(data) {
-                    sharoodDB.uploadFile(data).then(function(result) {
-                        console.info(result.toJSON());
-                        user.picture = result.toJSON().uid;
+                var data = cameraHelper.buildServerImg($scope.imageURI);
+                sharoodDB.uploadFile(data).then(function(result) {
+                    console.info(result.toJSON());
+                    user.picture = result.toJSON().uid;
 
-                        sharoodDB.updateProfile(user).then(function(result){
-                            console.info(result);
-                            sharoodDB.currentUser = result;
-                            $scope.currentUser = result;
-                            $scope.hasErrors = false;
-                            updateAlertTitles('success');
-                            AlertHelper.alert('#register-account-alert');
-                        });
-                    }).catch(onerror);
+                    sharoodDB.updateProfile(user).then(function(result){
+                        console.info(result);
+                        sharoodDB.currentUser = result;
+                        $scope.currentUser = result;
+                        $scope.hasErrors = false;
+                        updateAlertTitles('success');
+                        AlertHelper.alert('#register-account-alert');
+                    });
                 }).catch(onerror);
             }).catch(onerror);
         };

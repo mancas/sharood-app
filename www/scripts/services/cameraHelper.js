@@ -2,7 +2,7 @@ define(['services/module'], function (services) {
   'use strict';
   services.factory('cameraHelper', function ($q) {
 
-      if(typeof Camera == 'undefined'){
+      if(typeof Camera === 'undefined') {
         return null;
       }
 
@@ -25,7 +25,7 @@ define(['services/module'], function (services) {
       //TODO save photos in a specific folder
       var defaultOptions = {
           quality : 80,
-          destinationType : Camera.DestinationType.FILE_URI,
+          destinationType : Camera.DestinationType.DATA_URL,
           sourceType : Camera.PictureSourceType.CAMERA,
           encodingType: Camera.EncodingType.JPEG,
           targetWidth: 500,
@@ -76,6 +76,14 @@ define(['services/module'], function (services) {
               }, onerror);
 
               return deferred.promise;
+          },
+
+          buildServerImg: function(base64) {
+              return {
+                  base64: base64,
+                  name: '',
+                  contentType: 'image/jpeg'
+              };
           }
       };
 

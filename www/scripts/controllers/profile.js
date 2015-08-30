@@ -87,13 +87,12 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 return;
             }
 
-            cameraHelper.getBase64FromURI($scope.imageMealURI).then(function(data) {
-                sharoodDB.uploadFile(data).then(function(result) {
-                    console.info(result.toJSON());
-                    $scope.user.picture = result.toJSON().uid;
+            var data = cameraHelper.buildServerImg($scope.imageMealURI);
+            sharoodDB.uploadFile(data).then(function(result) {
+                console.info(result.toJSON());
+                $scope.user.picture = result.toJSON().uid;
 
-                    updateProfile();
-                }).catch($scope.onerror);
+                updateProfile();
             }).catch($scope.onerror);
         };
 

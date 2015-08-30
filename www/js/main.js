@@ -40,6 +40,7 @@ require.config({
 });
 
 require(['require', 'angular', 'app', 'routes'], function(require, ng) {
+    'use strict';
     // We use domReady RequireJS plugin to make sure that DOM is ready when we start the app
     require(['domReady!'], function (document) {
         ng.bootstrap(document, ['sharoodApp']);

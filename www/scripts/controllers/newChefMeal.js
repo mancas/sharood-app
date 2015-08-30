@@ -97,15 +97,14 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             }
 
             overlay.classList.remove('closed');
-            cameraHelper.getBase64FromURI($scope.imageMealURI).then(function(data) {
-                sharoodDB.uploadFile(data).then(function(result) {
-                    $scope.mealData.picture = result.toJSON().uid;
-                    // If everything went well
-                    delete $scope.mealData.tempTime;
-                    sharoodDB.saveMeal($scope.mealData).then(function(result){
-                        overlay.classList.add('closed');
-                        AlertHelper.alert('#meal-created-alert');
-                    }).catch($scope.onerror);
+            var data = cameraHelper.buildServerImg($scope.imageURI);
+            sharoodDB.uploadFile(data).then(function(result) {
+                $scope.mealData.picture = result.toJSON().uid;
+                // If everything went well
+                delete $scope.mealData.tempTime;
+                sharoodDB.saveMeal($scope.mealData).then(function(result){
+                    overlay.classList.add('closed');
+                    AlertHelper.alert('#meal-created-alert');
                 }).catch($scope.onerror);
             }).catch($scope.onerror);
         };
