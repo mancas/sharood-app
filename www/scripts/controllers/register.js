@@ -48,13 +48,14 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 return;
             }
 
+            console.info($scope.user);
+
             sharoodDB.register($scope.user).then(function(user) {
+                sharoodDB.currentUser = user;
                 var data = cameraHelper.buildServerImg($scope.imageBase64);
                 sharoodDB.uploadFile(data).then(function(result) {
                     console.log(result.toJSON());
-                    user.picture = result.toJSON().uid;
-
-                    sharoodDB.updateProfile(user).then(function(result){
+                    sharoodDB.updateProfile({picture: result.toJSON().uid}).then(function(result){
                         console.log(result);
                         sharoodDB.currentUser = result;
                         $scope.currentUser = result;

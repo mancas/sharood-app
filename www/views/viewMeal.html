@@ -10,7 +10,7 @@
 
     <div class="row mb20">
         <div class="col-md-12 text-center">
-            <h1 class="title mb20">{{meal.description}}</h1>
+            <h1 class="title mb20">{{meal.description}}<br />Room: {{meal.owner[0].room_number || 0}}</h1>
             
             <div class="col-md-12 viewMeal-img">
                 <img ng-click="openViewport($event)" src="{{meal.picture.url}}" />

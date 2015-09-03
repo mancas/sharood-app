@@ -76,7 +76,8 @@ define(['services/module'], function (services) {
             fun_rating_nofvotes: 0,
             university: data.university,
             first_name: data.name,
-            username: data.name
+            username: data.name,
+            room_number: data.room
         });
 
         user.register(data.email, data.password, data.passwordConfirm)
