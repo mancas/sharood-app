@@ -1,3 +1,7 @@
+/*
+* Servicio encargado de la gestión de la cámara del dispositivo
+*/
+
 define(['services/module'], function (services) {
   'use strict';
   services.factory('cameraHelper', function ($q) {
@@ -34,14 +38,13 @@ define(['services/module'], function (services) {
       };
 
       var CameraHelper = {
+          /* Lanza la cámara del sistema y captura una fotografía */
           getPicture: function(options) {
               var deferred = $q.defer();
               options = options || defaultOptions;
               console.log(options);
 
               var onSuccess = function(img) {
-                  // TODO move image to its corresponding folder
-                  console.log("here3: ", img);
                   deferred.resolve(img);
               };
 
@@ -54,6 +57,7 @@ define(['services/module'], function (services) {
               return deferred.promise;
           },
 
+          /* Devuelve el objeto que será enviado a built.io */
           buildServerImg: function(base64) {
               var name = Math.floor((Math.random() * 100000000) + 1);
               console.log(base64);
