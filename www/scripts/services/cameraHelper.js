@@ -1,7 +1,6 @@
-/*
-* Servicio encargado de la gestión de la cámara del dispositivo
-*/
-
+/**
+* Helper object which contains a set of functions to perform operation with images taken by the system camera
+* */
 define(['services/module'], function (services) {
   'use strict';
   services.factory('cameraHelper', function ($q) {
@@ -26,7 +25,6 @@ define(['services/module'], function (services) {
           FRONT: 'Direction'
       };
 
-      //TODO save photos in a specific folder
       var defaultOptions = {
           quality : 80,
           destinationType : Camera.DestinationType.DATA_URL,
@@ -38,7 +36,11 @@ define(['services/module'], function (services) {
       };
 
       var CameraHelper = {
-          /* Lanza la cámara del sistema y captura una fotografía */
+          /**
+          * Pick a picture with the camera app of the system
+          * @param options a set of options could be define, see defaultOptions for further information
+          * @return promise. The promise returned will be resolved with the taken image
+          * */
           getPicture: function(options) {
               var deferred = $q.defer();
               options = options || defaultOptions;
@@ -57,7 +59,11 @@ define(['services/module'], function (services) {
               return deferred.promise;
           },
 
-          /* Devuelve el objeto que será enviado a built.io */
+          /**
+           * Build a specific object to be handled in the server side (build.io)
+           * @param base64 an image converted into base64 string format
+           * @return custom object to be use in build.io
+           * */
           buildServerImg: function(base64) {
               var name = Math.floor((Math.random() * 100000000) + 1);
               console.log(base64);

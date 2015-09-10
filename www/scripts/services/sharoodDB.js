@@ -1,3 +1,7 @@
+/**
+ * Helper class to handle every interaction between the client side and the server side, in our case
+ * build.io service
+ */
 define(['services/module'], function (services) {
   'use strict';
   services.factory('sharoodDB', function ($q) {
@@ -9,6 +13,10 @@ define(['services/module'], function (services) {
       currentUser: null,
       updaterLoaded: false,
 
+      /**
+       * Populates the current user that is login into the app
+       * @returns a promise that will be resolved once the current user was loaded.
+       */
       loadCurrentUser: function(){
         console.log('1');
         var deferred = $q.defer();
@@ -26,6 +34,11 @@ define(['services/module'], function (services) {
         return deferred.promise;
       },
 
+      /**
+       * Performs the login operation
+       * @param data an object that contains the user email and his password
+       * @returns a promise that will be resolved or rejected once the user has been identified or not
+       */
       login: function(data) {
         console.log('2');
         var deferred = $q.defer();
@@ -44,6 +57,11 @@ define(['services/module'], function (services) {
         return deferred.promise;
       },
 
+      /**
+       * Returns the university of the given user id
+       * @param uid specifies the user id
+       * @returns a promise that will be resolved once the university has been loaded
+       */
       getUniversityByUid: function(uid) {
         var deferred = $q.defer();
 
@@ -61,6 +79,11 @@ define(['services/module'], function (services) {
         return deferred.promise;
       },
 
+      /**
+       * Performs the register operation
+       * @param data an object that contains all the info need to register a new user
+       * @returns a promise that will be resolved or rejected once the register action has been successfully or not
+       */
       register: function(data) {
         console.log('3');
         var deferred = $q.defer();
@@ -92,6 +115,10 @@ define(['services/module'], function (services) {
         return deferred.promise;
       },
 
+      /**
+       * Performs the logout action
+       * @returns a promise that will be resolved once the user has been logout of the system
+       */
       logout: function() {
         console.log('4');
         var deferred = $q.defer();
@@ -106,6 +133,11 @@ define(['services/module'], function (services) {
         return deferred.promise;
       },
 
+      /**
+       * Save a new meal into the database
+       * @param mealData an object with all the info need to create a new meal
+       * @returns a promise that will be resolved or rejected once the action has been accomplished
+       */
       saveMeal: function(mealData) {
         console.log('5');
         var deferred = $q.defer();
@@ -124,7 +156,12 @@ define(['services/module'], function (services) {
         return deferred.promise;
       },
 
-
+      /**
+       * Get all meals
+       * @param start
+       * @param finish
+       * @returns {*}
+       */
       getAllMeals: function(start, finish) {
         console.log('6');
         var deferred = $q.defer();
@@ -172,6 +209,11 @@ define(['services/module'], function (services) {
         return deferred.promise;
       },
 
+      /**
+       * Return the meal object
+       * @param mealId specifies the meal id
+       * @returns a promise that will be resolved once the requested meal has been loaded
+       */
       getmealById: function (mealId){
         var deferred = $q.defer();
 
@@ -189,6 +231,11 @@ define(['services/module'], function (services) {
         return deferred.promise;
       },
 
+      /**
+       *
+       * @param mealId
+       * @returns {*}
+       */
       getMealWithAttendantsById: function(mealId){
         var deferred = $q.defer();
 
