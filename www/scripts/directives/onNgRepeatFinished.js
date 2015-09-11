@@ -1,3 +1,6 @@
+/**
+ * Directive that emit an event once the ng-repeat has been accomplished
+ */
 define(['directives/module'], function (directives) {
     'use strict';
 

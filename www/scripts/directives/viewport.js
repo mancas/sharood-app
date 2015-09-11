@@ -1,3 +1,6 @@
+/**
+ * Directive that creates a viewport to allow user to see photos at full screen
+ */
 define(['directives/module'], function (directives) {
     'use strict';
 

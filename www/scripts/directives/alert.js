@@ -1,3 +1,6 @@
+/**
+ * Directive to create alerts
+ */
 define(['directives/module'], function (directives) {
     'use strict';
 

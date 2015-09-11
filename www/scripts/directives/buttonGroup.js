@@ -1,3 +1,6 @@
+/**
+ * Directive to create groups of buttons
+ */
 define(['directives/module'], function (directives) {
     'use strict';
 

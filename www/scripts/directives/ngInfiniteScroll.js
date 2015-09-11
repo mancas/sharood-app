@@ -1,3 +1,6 @@
+/**
+ * Directive to perform an infinite scroll
+ */
 define(['directives/module'], function (directives) {
     'use strict';
 

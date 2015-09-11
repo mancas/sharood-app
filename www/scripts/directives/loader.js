@@ -1,3 +1,6 @@
+/**
+ * Directive that creates an overlay that shows a loader
+ */
 define(['directives/module'], function (directives) {
     'use strict';
 
