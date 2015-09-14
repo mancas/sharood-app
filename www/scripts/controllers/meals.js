@@ -1,3 +1,6 @@
+/**
+* Controller for list of meals view
+* */
 define(['controllers/module'], function (controllers) {
 
     'use strict';
@@ -6,6 +9,9 @@ define(['controllers/module'], function (controllers) {
         
         console.log("Meals controller");
 
+        /**
+        * Reviews if the user is logged
+        * */
         if(sharoodDB.currentUser === null){
             navigation.navigate('/');
             return;
@@ -34,7 +40,21 @@ define(['controllers/module'], function (controllers) {
                 method: 'getAllMealsByOwner'
             }
         };
+        
+        $scope.username = sharoodDB.currentUser.username;
+        $scope.cookies = sharoodDB.currentUser.cookies;
+        /*
+        $scope.username = 'Axel';
+        $scope.cookies = 31;
+        */
 
+        $scope.navigate = navigation.navigate;
+
+
+        /**
+        * Loads the view's first elements. This reduces load time because we show firstly the
+        * first elements and we load the others in execution time.
+        * */
         $scope.loadFirstElements = function() {
             var lastIndex = chunk;
             // Clean array
@@ -48,6 +68,9 @@ define(['controllers/module'], function (controllers) {
             }
         }
 
+        /**
+        * Loads the meal's images.
+        * */
         $scope.drawImages = function() {
             var queue = angular.copy($scope.mealsToRender);
             var currentIndex = 0;
@@ -82,16 +105,9 @@ define(['controllers/module'], function (controllers) {
             $scope.drawImages();
         });
 
-        /*
-        sharoodDB.getAllMealsByOwner(sharoodDB.currentUser.uid).then(function(meals) {
-            console.log(meals);
-        });
-
-        sharoodDB.getAllMealsByAssistant(sharoodDB.currentUser.uid).then(function(meals) {
-            console.log(meals);
-        });
-        */
-
+        /**
+        * Launches the meals loading.
+        * */
         sharoodDB.getAllMealsByAssistant(sharoodDB.currentUser.uid).then(function(meals) {
             console.log(meals);
             if(meals.length == 0){
@@ -127,6 +143,9 @@ define(['controllers/module'], function (controllers) {
             }
         });
 
+        /**
+        * Loads more meals when it's needed. The load is done when the user does scroll to the bottom.
+        * */
         $scope.loadMoreMeals = function() {
             console.log('load!');
             if (!$scope.mealsToRender.length) {
@@ -150,21 +169,17 @@ define(['controllers/module'], function (controllers) {
             console.log($scope.mealsToRender);
         };
 
-        
-        $scope.username = sharoodDB.currentUser.username;
-        $scope.cookies = sharoodDB.currentUser.cookies;
-        /*
-        $scope.username = 'Axel';
-        $scope.cookies = 31;
-        */
-
-        $scope.navigate = navigation.navigate;
-
+        /**
+        * Handler: go to one meal.
+        * */ 
         $scope.goToMeal = function(mealIndex){
             MealService.setCurrentMeal($scope.mealsToRender[mealIndex]);
             navigation.navigate('/viewMeal/showSave');
         };
 
+        /**
+        * Handler: user click on the meals type selector (this functionality should be tested)
+        * */        
         $scope.toggleCurrentMeals = function(listId) {
             if (toggleMeals[listId]) {
                 var mealsOptions = toggleMeals[listId];

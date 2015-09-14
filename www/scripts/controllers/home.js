@@ -1,3 +1,6 @@
+/**
+* Controller for the Home view.
+* */
 define(['controllers/module'], function (controllers) {
 
     'use strict';
@@ -6,6 +9,9 @@ define(['controllers/module'], function (controllers) {
         
         console.log("Home controller");
 
+        /**
+        * Review if the user is logged
+        * */
         if(sharoodDB.currentUser === null){
             navigation.navigate('#/');
             return;

@@ -1,3 +1,6 @@
+/**
+* Controller for 'new meal' view
+* */
 define(['controllers/module', 'alert-helper'], function (controllers, AlertHelper) {
 
     'use strict';
@@ -6,11 +9,33 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
         console.log("NewChefMeal controller");
 
+        /**
+        * Reviews if the user is logged
+        * */
         if(sharoodDB.currentUser === null){
             navigation.navigate('/');
             return;
         }
 
+        $scope.imageBase64 = null;
+
+        $scope.mealData = {
+            picture: null,
+            description: null,
+            type: null,
+            cookies_value: null,
+            people: null,
+            time: null,
+            tempTime: null,
+            owner: sharoodDB.currentUser.uid,
+            university: sharoodDB.currentUser.university[0]
+        };
+
+        $scope.navigate = navigation.navigate;
+
+        /**
+        * Reviews if the user already is the owner of a meal
+        * */
         sharoodDB.getAllMealsByOwner(sharoodDB.currentUser.uid).then(function(meals) {
             console.log(meals);
             if(meals.length == 0){
@@ -22,14 +47,15 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             }
         });
 
-        $scope.imageBase64 = null;
-
         $scope.onerror = function(e) {
             console.error(e);
             overlay.classList.remove('closed');
             // Show alert??
         };
 
+        /**
+        * Handler: starts take a picture process
+        * */
         $scope.takePicture = function() {
             console.log("Getting Picture");
             cameraHelper.getPicture().then(function(base64){
@@ -41,6 +67,9 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             });
         };
 
+        /**
+        * Formats date format to Built.io format
+        * */
         function formatDate(timeHour, timeSchedule, day){
             var date = new Date();
             
@@ -63,18 +92,9 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
         }
 
-        $scope.mealData = {
-            picture: null,
-            description: null,
-            type: null,
-            cookies_value: null,
-            people: null,
-            time: null,
-            tempTime: null,
-            owner: sharoodDB.currentUser.uid,
-            university: sharoodDB.currentUser.university[0]
-        };
-
+        /**
+        * Handler: sends meal to the data base
+        * */
         $scope.sendMeal = function() {
             console.log($scope.newMealForm);
             if (!$scope.newMealForm.$valid) {
@@ -114,8 +134,6 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             id: 'peopleToCome',
             name: 'peopleToCome'
         };
-
-        $scope.navigate = navigation.navigate;
 
         $scope.mealConfig = {
             id: 'meal-created-alert',

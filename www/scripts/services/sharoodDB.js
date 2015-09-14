@@ -158,9 +158,13 @@ define(['services/module'], function (services) {
 
       /**
        * Get all meals
-       * @param start
-       * @param finish
-       * @returns {*}
+       * @param start an number to specify a start point on the list of results. Can be null.
+       * @param finish an number to specify a finish point on the list of results. Can be null.
+       * @returns a promise with the list of all meals with these conditions:
+       * 1. We aren't the meal's owner
+       * 2. We aren't a meal's attendant
+       * 3. The meal's university matches with ours.
+       * 4. The meal's date is bigger than actual date.
        */
       getAllMeals: function(start, finish) {
         console.log('6');
@@ -232,9 +236,9 @@ define(['services/module'], function (services) {
       },
 
       /**
-       *
+       * Return the meal object with attendants array.
        * @param mealId
-       * @returns {*}
+       * @returns a promise that will be resolved once the requested meal has been loaded
        */
       getMealWithAttendantsById: function(mealId){
         var deferred = $q.defer();
@@ -273,6 +277,11 @@ define(['services/module'], function (services) {
         return deferred.promise;
       },
 
+      /**
+       * Upload a photo to built.io service
+       * @param fileData the base64 image's data
+       * @returns a promise that will be resolved once the image is uploaded
+       */
       uploadFile: function(fileData) {
         console.log('7');
         console.log(fileData);
@@ -290,6 +299,11 @@ define(['services/module'], function (services) {
         return deferred.promise;
       },
 
+      /**
+       * Update user profile with new data
+       * @param data user data which we want to save
+       * @returns a promise that will be resolved once the user is updated
+       */
       updateProfile: function(data) {
         console.log('8');
 
@@ -309,6 +323,11 @@ define(['services/module'], function (services) {
         return deferred.promise;
       },
 
+      /**
+       * Get the user's data that matches with an id
+       * @param userid id of an user
+       * @returns a promise that will be resolved once the user is obtained
+       */
       getUserById: function(userId) {
         console.log('9');
         var deferred = $q.defer();
@@ -323,6 +342,11 @@ define(['services/module'], function (services) {
         return deferred.promise;
       },
 
+      /**
+       * Get all meals where an user is the owner
+       * @param owner user that we are searching
+       * @returns a promise that will be resolved once the requested meals have been loaded
+       */
       getAllMealsByOwner: function(owner) {
         console.log('10');
         var deferred = $q.defer();
@@ -348,6 +372,11 @@ define(['services/module'], function (services) {
         return deferred.promise;
       },
 
+      /**
+       * Get all meals where an user is the attendant
+       * @param assistant user that we are searching
+       * @returns a promise that will be resolved once the requested meals have been loaded
+       */
       getAllMealsByAssistant: function(assistant) {
         console.log('11');
         var deferred = $q.defer();
@@ -385,6 +414,14 @@ define(['services/module'], function (services) {
         return deferred.promise;
       },
 
+      /**
+       * Add votes to an user
+       * @param userId id of the user
+       * @param friendliness value that we want to increment
+       * @param foodLevel value that we want to increment
+       * @param fun value that we want to increment
+       * @returns a promise that will be resolved once the votes have been added
+       */
       addVotesToUser: function(userId, friendliness, foodLevel, fun) {
         console.log('12');
         var deferred = $q.defer();
@@ -413,6 +450,10 @@ define(['services/module'], function (services) {
         return deferred.promise;
       },    
 
+      /**
+       * Get an array with the places that the user can select on the register
+       * @returns a promise that will be resolved once the database has return the data
+       */
       getAllPlaces: function() {
         console.log('13');
         var deferred = $q.defer();
@@ -432,6 +473,13 @@ define(['services/module'], function (services) {
         return deferred.promise;
       },
 
+      /**
+       * Send 'x' cookies from user1 to user2
+       * @param from user who sends the cookies
+       * @param to user who receives the cookies
+       * @param number cookies that we want to send
+       * @returns a promise that will be resolved once the cookies have been transfered
+       */
       transferCookies: function(from, to, number) {
         console.log('14');
 
@@ -482,6 +530,10 @@ define(['services/module'], function (services) {
         return deferred.promise;
       },
 
+      /**
+       * Autoupdate the user every 10 seconds
+       * @returns a promise that will be resolved once the user has been obtained
+       */
       updateCurrentUser: function() {
         if(this.updaterLoaded){
           return;

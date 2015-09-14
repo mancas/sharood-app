@@ -1,3 +1,6 @@
+/**
+* Controller for 'my meal info' view
+* */
 define(['controllers/module'], function (controllers, AlertHelper) {
 
     'use strict';
@@ -6,11 +9,25 @@ define(['controllers/module'], function (controllers, AlertHelper) {
 
         console.log("MyMealInfo controller");
 
+        /**
+        * Reviews if the user is logged
+        * */
         if(sharoodDB.currentUser === null){
             navigation.navigate('/');
             return;
         }
 
+        $scope.meal = MealService.getCurrentMeal();
+
+        console.log($scope.meal);
+
+        $scope.navigate = navigation.navigate;
+
+        $scope.attendants = toSingleArray($scope.meal.assistants);
+
+        /**
+        * Transforms a Built.io attendant array to a simple javascript array.
+        * */
         function toSingleArray(multipleArray) {
             var singleArray = [];
             function addElement(element) {
@@ -35,14 +52,9 @@ define(['controllers/module'], function (controllers, AlertHelper) {
             return singleArray;
         }
 
-        $scope.meal = MealService.getCurrentMeal();
-
-        console.log($scope.meal);
-
-        $scope.navigate = navigation.navigate;
-
-        $scope.attendants = toSingleArray($scope.meal.assistants);
-
+        /**
+        * Handler: Updates attendant's list when we click on update button.
+        * */
         $scope.update = function() {
             var icon = document.querySelector('#updateAttendants i');
             icon.classList.add('fa-spin');

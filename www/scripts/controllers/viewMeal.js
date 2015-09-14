@@ -1,3 +1,6 @@
+/**
+* Controller for 'view meal' view
+* */
 define(['controllers/module', 'alert-helper'], function (controllers, AlertHelper) {
 
     'use strict';
@@ -6,6 +9,9 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
         
         console.log("ViewMeal controller");
 
+        /**
+        * Reviews if the user is logged
+        * */
         if(sharoodDB.currentUser === null){
             console.log("current");
             navigation.navigate('/');
@@ -63,6 +69,9 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             editable: false
         };
 
+        /**
+        * Adds an attendant to the attendant array.
+        * */
         function addPerson(meal){
             if (sharoodDB.currentUser.cookies < meal.cookies_value) {
                 errorSavingSeat = 'cookies';
@@ -88,6 +97,9 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             return false;
         }
 
+        /**
+        * Handler: starts the save seat process and save the result on the database.
+        * */
         $scope.saveSeat = function(){
             sharoodDB.getmealById(mealInfo.uid).then(function(result){
                 var mealResult = addPerson(result);
@@ -112,6 +124,9 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             });
         }
 
+        /**
+        * Gets the empty seats on the meal.
+        * */
         $scope.getSeats = function(){
             var number = 0;
 
@@ -128,6 +143,17 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
             return $scope.meal.people - number;
         }
+
+        /**
+        * Handler: opens the extended view of meal's photo.
+        * */
+        $scope.openViewport = function($event) {
+            console.log($event.currentTarget);
+            var viewport = document.querySelector('.viewport');
+            viewport.style.backgroundImage = 'url(' + $event.currentTarget.src + ')';
+
+            viewport.classList.add('open');
+        };
 
         function updateAlertTitles() {
             var key = 'success';
@@ -164,14 +190,6 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 cssClass: 'btn-info',
                 callback: onsuccess
             }
-        };
-
-        $scope.openViewport = function($event) {
-            console.log($event.currentTarget);
-            var viewport = document.querySelector('.viewport');
-            viewport.style.backgroundImage = 'url(' + $event.currentTarget.src + ')';
-
-            viewport.classList.add('open');
         };
     });
 

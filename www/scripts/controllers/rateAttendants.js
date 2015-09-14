@@ -1,3 +1,6 @@
+/**
+* Controller for 'rate attendants' view
+* */
 define(['controllers/module', 'alert-helper'], function (controllers, AlertHelper) {
 
     'use strict';
@@ -6,6 +9,9 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
         console.log("RateAttendants controller");
 
+        /**
+        * Reviews if the user is logged
+        * */
         if(sharoodDB.currentUser === null){
             navigation.navigate('/');
             return;
@@ -14,6 +20,8 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
         var mealInfo = MealService.getCurrentMeal();
 
         $scope.meal = mealInfo;
+
+        $scope.navigate = navigation.navigate;
 
         $scope.attendant1Config = {
             values: [1, 2, 3, 4, 5],
@@ -55,6 +63,9 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             editable: true
         };
 
+        /**
+        * Checks if attendants array is empty (there aren't attendants on the meal)
+        * */
         $scope.attendantEmpty = function(position){
             if(typeof $scope.meal.assistants === 'undefined'){
                 return true;
@@ -68,6 +79,9 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             return true;
         }
 
+        /**
+        * Adds vote to an attendant.
+        * */
         function addUserVote(meal) {
             if(typeof meal.votedby == 'undefined'){
                 meal.votedby = [sharoodDB.currentUser.uid];
@@ -78,6 +92,9 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             return meal;
         }
 
+        /**
+        * Sends final results to database.
+        * */
         $scope.sendResults = function(){
             var promises = [];
             var overlay = document.querySelector('.overlay');
@@ -112,8 +129,6 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 });
             });
         }
-
-        $scope.navigate = navigation.navigate;
 
         $scope.rateAlertConfig = {
             id: 'rate-success-alert',

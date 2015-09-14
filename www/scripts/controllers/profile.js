@@ -1,3 +1,6 @@
+/**
+* Controller for 'profile' view
+* */
 define(['controllers/module', 'alert-helper'], function (controllers, AlertHelper) {
 
     'use strict';
@@ -7,6 +10,9 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
         console.log("Profile controller");
         var cameraImg = 'img/camera.png';
 
+        /**
+        * Reviews if the user is logged
+        * */
         if(sharoodDB.currentUser === null){
             navigation.navigate('#/');
             return;
@@ -21,9 +27,11 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
         };
 
         $scope.currentUser = sharoodDB.currentUser;
+
         sharoodDB.getUniversityByUid(sharoodDB.currentUser.university[0]).then(function(university) {
             $scope.university = university;
         });
+
         if(sharoodDB.currentUser.picture){
             var photo =  document.getElementById('profilePhoto');
             photo.style.backgroundImage = 'url(\'' + sharoodDB.currentUser.picture.url + '\')';
@@ -37,12 +45,18 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             username: sharoodDB.currentUser.username
         };
 
+        $scope.navigate = navigation.navigate;
+
         /*$scope.cookies = 21;
         $scope.name = 'Axel';
-        $scope.phone = '638006787';
-        $scope.email = 'mancas.91@gmail.com';*/
+        $scope.phone = '6';
+        $scope.email = 'mancas@gmail.com';*/
 
         $scope.isEditModeEnable = false;
+
+        /**
+        * Toggles between edit mode and normal mode. Makes the UI changes.
+        * */
         $scope.toggleEditMode = function() {
             var photo =  document.getElementById('profilePhoto');
             if ($scope.isEditModeEnable) {
@@ -66,6 +80,9 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             $scope.elements.accountEdition.classList.toggle('hidden', !$scope.isEditModeEnable);
         };
 
+        /**
+        * Handler: Send profile changes to the database.
+        * */
         $scope.saveProfile = function() {
             if (!$scope.accountForm.$valid) {
                 return;
@@ -96,7 +113,18 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             }).catch($scope.onerror);
         };
 
-        $scope.navigate = navigation.navigate;
+        /**
+        * Handler: Launches change photo process.
+        * */
+        $scope.changePhoto = function(){
+            console.log("Getting Picture");
+            cameraHelper.getPicture().then(function(base64){
+                var photo = document.getElementById('profilePhoto');
+                photo.style.backgroundImage = 'url(data:image/jpeg;base64,' + base64 + ')';
+                photo.classList.add('cover');
+                $scope.imageBase64 = 'data:image/jpeg;base64,' + base64;
+            });
+        }
 
         $scope.deleteAccount = function() {
             AlertHelper.alert('#delete-account-alert');
@@ -159,15 +187,6 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             }
         };
 
-        $scope.changePhoto = function(){
-            console.log("Getting Picture");
-            cameraHelper.getPicture().then(function(base64){
-                var photo = document.getElementById('profilePhoto');
-                photo.style.backgroundImage = 'url(data:image/jpeg;base64,' + base64 + ')';
-                photo.classList.add('cover');
-                $scope.imageBase64 = 'data:image/jpeg;base64,' + base64;
-            });
-        }
     });
 
 });

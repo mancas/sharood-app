@@ -1,3 +1,6 @@
+/**
+* Controller for 'register' view
+* */
 define(['controllers/module', 'alert-helper'], function (controllers, AlertHelper) {
 
     'use strict';
@@ -35,6 +38,11 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             room: null
         };
 
+        $scope.navigate = navigation.navigate;
+
+        /**
+        * Sends register data to database
+        * */
         $scope.register = function(){
             if (!$scope.registerForm.$valid) {
                 console.log('no validate', $scope.registerForm);
@@ -81,32 +89,9 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             }
         }
 
-        function updateAlertTitles(key) {
-            var alert = document.querySelector('#register-account-alert');
-            var title = alert.querySelector('h2');
-            var subtitle = alert.querySelector('p');
-            var button = alert.querySelector('#btn-ok');
-
-            title.textContent = ALERT_TITLES[key].title;
-            subtitle.textContent = ALERT_TITLES[key].subtitle;
-            button.textContent = ALERT_TITLES[key].button;
-        }
-
-        $scope.navigate = navigation.navigate;
-
-        $scope.registerAccountConfig = {
-            id: 'register-account-alert',
-            icon: false,
-            title: 'Account created successfully',
-            subtitle: 'You can star using Sharood!',
-            ok: {
-                id: 'btn-ok',
-                text: 'Let\'s go!',
-                cssClass: 'btn-info',
-                callback: onSuccess
-            }
-        };
-
+        /**
+        * Gets places array and insert the result on university selector.
+        * */
         sharoodDB.getAllPlaces().then(function(result){
             result.forEach(function(element){
                 var university = element.toJSON().name;
@@ -120,6 +105,9 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             });
         });
 
+        /**
+        * Starts change photo process.
+        * */
         $scope.changePhoto = function(){
             console.log("Getting Picture");
             cameraHelper.getPicture().then(function(base64){
@@ -129,6 +117,30 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
                 $scope.imageBase64 = 'data:image/jpeg;base64,' + base64;
             });
         }
+
+        function updateAlertTitles(key) {
+            var alert = document.querySelector('#register-account-alert');
+            var title = alert.querySelector('h2');
+            var subtitle = alert.querySelector('p');
+            var button = alert.querySelector('#btn-ok');
+
+            title.textContent = ALERT_TITLES[key].title;
+            subtitle.textContent = ALERT_TITLES[key].subtitle;
+            button.textContent = ALERT_TITLES[key].button;
+        }
+
+        $scope.registerAccountConfig = {
+            id: 'register-account-alert',
+            icon: false,
+            title: 'Account created successfully',
+            subtitle: 'You can star using Sharood!',
+            ok: {
+                id: 'btn-ok',
+                text: 'Let\'s go!',
+                cssClass: 'btn-info',
+                callback: onSuccess
+            }
+        };
 
     });
 

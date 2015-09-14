@@ -1,3 +1,6 @@
+/**
+ * Directive that creates an element that allows to vote.
+ */
 define(['directives/module'], function (directives) {
     'use strict';
 

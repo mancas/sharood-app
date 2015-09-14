@@ -1,3 +1,6 @@
+/**
+* Controller for 'meal where I go' view
+* */
 define(['controllers/module'], function (controllers, AlertHelper) {
 
     'use strict';
@@ -6,6 +9,9 @@ define(['controllers/module'], function (controllers, AlertHelper) {
 
         console.log("SelectedMealInfo controller");
 
+        /**
+        * Reviews if the user is logged
+        * */
         if(sharoodDB.currentUser === null){
             navigation.navigate('/');
             return;
@@ -17,12 +23,18 @@ define(['controllers/module'], function (controllers, AlertHelper) {
 
         $scope.navigate = navigation.navigate;
 
+        /**
+        * Launch email app to contact the chef.
+        * */
         $scope.contactChef = function () {
             window.plugin.email.open({
                 to: [$scope.meal.owner[0].email]
             });
         }
 
+        /**
+        * Cancel the meal.
+        * */
         $scope.cancel = function() {
             console.log($scope.meal);
             var cookies = $scope.meal.cookies_value;

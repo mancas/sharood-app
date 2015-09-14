@@ -1,9 +1,17 @@
+/**
+* Controller for the login view
+* */
 define(['controllers/module', 'alert-helper'], function (controllers, AlertHelper) {
 
     'use strict';
 
     controllers.controller('MainCtrl', function ($scope, navigation, sharoodDB) {
 
+        /**
+        * Try autologgín in two ways:
+        * 1. Built.io loadCurrentUser()
+        * 2. Get credentials from localstorage.
+        * */
         function tryAutoLogin(){
             var credentials = localStorage.getItem("credentials");
             if(credentials === null || credentials === "0"){
@@ -33,6 +41,9 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             doLogin();
         };
 
+        /**
+        * Do login
+        * */
         function doLogin(){
             var credentials = $scope.user;
             sharoodDB.login($scope.user).then(function(user){

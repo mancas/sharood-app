@@ -1,3 +1,6 @@
+/**
+* Controller for 'rate chef' view
+* */
 define(['controllers/module', 'alert-helper'], function (controllers, AlertHelper) {
 
     'use strict';
@@ -6,6 +9,9 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
         console.log("RateChef controller");
 
+        /**
+        * Reviews if the user is logged
+        * */
         if(sharoodDB.currentUser === null){
             navigation.navigate('/');
             return;
@@ -14,6 +20,8 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
         var mealInfo = MealService.getCurrentMeal();
 
         $scope.meal = mealInfo;
+
+        $scope.navigate = navigation.navigate;
 
         $scope.foodLevelConfig = {
             values: [1, 2, 3, 4, 5],
@@ -39,6 +47,9 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             editable: true
         };
 
+        /**
+        * Saves rating on the database.
+        * */
         $scope.vote = function(){
             var foodLevelStars = document.getElementById('foodLevelStars').querySelectorAll('.active').length;
             var friendlinessStars = document.getElementById('friendlinessStars').querySelectorAll('.active').length;
@@ -64,6 +75,9 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
             });
         }
 
+        /**
+        * Adds rate to the chef.
+        * */
         function addUserVote(meal) {
             if(typeof meal.votedby == 'undefined'){
                 meal.votedby = [sharoodDB.currentUser.uid];
@@ -73,8 +87,6 @@ define(['controllers/module', 'alert-helper'], function (controllers, AlertHelpe
 
             return meal;
         }
-
-        $scope.navigate = navigation.navigate;
 
         $scope.rateAlertConfig = {
             id: 'rate-success-alert',

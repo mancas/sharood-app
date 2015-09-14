@@ -1,3 +1,6 @@
+/**
+* Controller for 'settings' view
+* */
 define(['controllers/module'], function (controllers) {
 
     'use strict';
