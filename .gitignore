@@ -1,2 +1,7 @@
 .idea/
 .idea/*
+.DS_Store
+www/bower_components
+.pgbomit
+hooks/
+plugins/

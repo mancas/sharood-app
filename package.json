@@ -1,0 +1,26 @@
+{
+  "name": "sharood-app",
+  "version": "0.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mancas/sharood-app.git"
+  },
+  "author": "",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/mancas/sharood-app/issues"
+  },
+  "homepage": "https://github.com/mancas/sharood-app#readme",
+  "cordovaPlugins": [
+    "cordova-plugin-whitelist",
+    "org.apache.cordova.camera"
+  ],
+  "cordovaPlatforms": [
+    "android"
+  ]
+}
